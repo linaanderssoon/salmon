@@ -1,1 +1,131 @@
+# Version 1
 
+## Funktionalitet
+- klicka på destinationer i navigationen och få upp destinationer sidan
+- klicka på program i navigationen och få upp promgramsidan
+- klicka på intervjuer i navigationen och få upp intervjuermsidan
+- klicka på hem i navigationen för att komma tillbaka till hem
+
+## Sidor
+index.html
+    globalVariables.js
+    database.js
+    commonElements.js
+    home.js
+    destinations.js
+    programmes.js
+    interviews.js
+
+    commonCss.css
+    home.css
+    destinations.css
+    progammes.css
+    interviews.css
+
+## Funktioner
+### Deklareras i commonElements.js
+    -- goToHome() :: returnerar home-innehåll i wrappern
+    Skapar home-innehåll
+    Markerar Home i navigationen
+    Döljer eventuellt annat innehåll i wrappern.
+
+    --goToDestinations() :: returnerar destination-innehåll i wrappern
+    Skapar Destinationer-innehåll
+    Markerar Destinationer i navigationen
+    Döljer eventuellt annat innehåll i wrappern.
+
+    --goToProgrammes() :: returnerar programmes-innehåll i wrappern
+    Skapar Programmes-innehåll
+    Markerar programmes i navigationen
+    Döljer eventuellt annat innehåll i wrappern.
+
+    --goToInterviews() :: returnerar Interviews-innehåll i wrappern
+    Skapar Interviews-innehåll
+    Markerar Interviews i navigationen
+    Döljer eventuellt annat innehåll i wrappern.
+
+
+## Globala variabler
+const wrapper = document.getElementById('wrapper');
+const navHome = document.getElementById('home');
+const navDestinations = document.getElementById('destinations');
+const navProgrammes = document.getElementById('programmes');
+const navInterviews = document.getElementById('interviews');
+
+
+## CSS
+###commonCss.css
+:root {
+    --backgroundColorLight: #F5F5F5;
+    --backgroundColorDark: #ECECEC;
+    --fontDark: #121C4D;
+    --fontBold: #DC6420;
+    --linkColor: #AAC4D3;
+    --shadow: #9C9C9C;
+
+    --heading: 'Poppins', sans-serif;
+    --subHeading: 'Poppins', sans-serif;
+    --bodyText: 'Libre Baskerville';
+}
+
+.nav >
+    .logo
+    .home
+    .destinations
+    .programmes
+    .interviews
+
+.footer >
+    .about >
+        h4(.abtHeading)
+        p(.abtText)
+    .contact >
+        h4(.cntHeading)
+        p(.cntText)
+
+    .follow
+        h4(.flwHeading)
+        p(.flwText)
+
+    .discover
+        h4(.dcvHeading)
+        p(.flwText)
+
+
+### home.css
+.header > 
+    h1(.headerHeading), 
+    img(.headerImg), 
+    p(.headerText), 
+    button(.destBtn), 
+    button(.progBtn)
+
+.quiz > 
+    img(.quizImg), 
+    h2(.quizHeading), 
+    p(.quizText), 
+    button(.startBtn)
+
+.longAd (div(.longAd))
+
+.slideShow >
+    help
+
+.intwPreview >
+    div(.boxAd), 
+    div(.intw1) > 
+        img(.intw1Img), 
+        p(.intw1Text), 
+    div(.intw2) > 
+        img(.intw2Img), 
+        p(.intw2Text),
+    div(.intw3) >
+        img(.intw3Img), 
+        p(.intw3Text),
+
+.longAd (div(.longAd))
+
+
+destinations.css
+progammes.css
+interviews.css
