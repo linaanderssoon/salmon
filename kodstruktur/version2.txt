@@ -1,0 +1,16 @@
+# Version 2
+
+## Funktionalitet
+- När man klickar på en stad på destinationer vecklas divven ut, tar mer plats, och pushar ner de divvarna som var bredvid och under divven.
+- -|- Fast program
+- På startsidan ska man kunna bläddra runt bland alla länder i karusellen 
+
+## Sidor
+
+## Funktioner
+### Deklareras i destinations.js
+-- 
+
+## Globala variabler
+
+## CSS
