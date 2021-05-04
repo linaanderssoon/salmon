@@ -109,7 +109,31 @@ const navInterviews = document.getElementById('interviews');
 .longAd (div(.longAd))
 
 .slideShow >
-    help
+    div(.slideContainer) >
+        div(.country1) >
+            img(.country1Img)
+            h4(.country1Name)
+        div(.country2) >
+            img(.country2Img)
+            h4(.country2Name)
+        div(.country3) >
+            img(.country3Img)
+            h4(.country3Name)
+        div(.country4) >
+            img(.country4Img)
+            h4(.country4Name)
+        div(.country5) >
+            img(.country5Img) 
+            h4(.country5Name)
+        div(.country6) >
+            img(.country6Img)
+            h4(.country6Name)
+        div(.country7) >
+            img(.country7Img)
+            h4(.country7Name)
+        div(.country8) >
+            img(.country8Img)
+            h4(.country8Name)
 
 .intwPreview >
     div(.boxAd), 
@@ -126,6 +150,9 @@ const navInterviews = document.getElementById('interviews');
 .longAd (div(.longAd))
 
 
-destinations.css
-progammes.css
-interviews.css
+### destinations.css
+
+
+
+### progammes.css
+### interviews.css
