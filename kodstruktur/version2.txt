@@ -9,7 +9,7 @@
 
 ## Funktioner
 ### Deklareras i destinations.js
--- 
+-- openDestinationBox :: gör den valda divven större samt skapar en exit-knapp i högra hörnet som återställer divvens storlek
 
 ## Globala variabler
 
