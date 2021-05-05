@@ -29,15 +29,21 @@ index.html
     Markerar Home i navigationen
     Döljer eventuellt annat innehåll i wrappern.
 
+    --createDestinations() :: skapar innehållet i destination-sidan
+
     --goToDestinations() :: returnerar destination-innehåll i wrappern
-    Skapar Destinationer-innehåll
+    Skapar Destinationer-innehåll :: 
     Markerar Destinationer i navigationen
     Döljer eventuellt annat innehåll i wrappern.
+
+    --createProgrammes(): skapar innehållet i program-sidan
 
     --goToProgrammes() :: returnerar programmes-innehåll i wrappern
     Skapar Programmes-innehåll
     Markerar programmes i navigationen
     Döljer eventuellt annat innehåll i wrappern.
+
+    --createInterviews(): skapar innehållet i intervju-sidan
 
     --goToInterviews() :: returnerar Interviews-innehåll i wrappern
     Skapar Interviews-innehåll
@@ -94,9 +100,9 @@ const navInterviews = document.getElementById('interviews');
 
 ### home.css
 .header > 
-    h1(.headerHeading), 
-    img(.headerImg), 
-    p(.headerText), 
+    h1(.headerHome), 
+    img(.headerImgHome), 
+    p(.headerTextHome), 
     button(.destBtn), 
     button(.progBtn)
 
@@ -151,8 +157,66 @@ const navInterviews = document.getElementById('interviews');
 
 
 ### destinations.css
+    h1(.headerH1), 
+    p(.headerP)
+    select(.selectLanguage)
+    select(.selectCountry)
 
+.longAd (div(.longAd))
+
+    div(.citiesWrapper)
+      div(.citiesParent)
+         div(.cityImage)
+         h2(.cityText)
+
+ div(.showMore)
+
+.longAd (div(.longAd))
 
 
 ### progammes.css
+    h1(.headerH1), 
+    p(.headerP)
+    select(.selectDestination)
+    select(.selectUniversity)
+    select(.selectLevel)
+    select(.selectProgrammes)
+
+
+   .longAd (div(.longAd))
+
+    div(.programmesParent)
+       h2(.programmesHeading)
+       p(.programmesUniversity)
+       p(.programmesLevel)
+
+ div(.showMore)
+
+ .longAd (div(.longAd))
+
 ### interviews.css
+    h1(.headerH1)
+    img(.interviewImage)
+    p(.interviewText)
+
+    .longAd (div(.longAd))
+
+    div(.interviewParent)
+    div(.interviewOne) 
+        div(.interviewee)
+           img(.intw1ImgBig), 
+           p(.intw1TextBig),   
+
+    div(.interviewTwo)
+         div(.interviewee)
+           img(.intw2ImgBig), 
+           p(.intw2TextBig), 
+
+    div(.interviewThree)
+        div(.interviewee)
+           img(.intw3ImgBig), 
+           p(.intw3TextBig),
+
+div(.boxAd)
+
+ .longAd (div(.longAd))

@@ -9,8 +9,40 @@
 
 ## Funktioner
 ### Deklareras i destinations.js
--- openDestinationBox :: gör den valda divven större samt skapar en exit-knapp i högra hörnet som återställer divvens storlek
+-- openDestinationBox() :: gör den valda divven större samt skapar en exit-knapp i högra hörnet som återställer divvens storlek när man klickar på den.
+
+-- slideShow() :: man kan trycka på knapparna så bläddrar man bland alla länder. 
 
 ## Globala variabler
 
 ## CSS
+
+###destinationer.css
+    div(.citiesParent) //Samma div, men blir större. innerHTML tom, och får en ny innerHTML:
+       div(.citiesLeft)
+          h2(.citiesLeftH2)
+
+        div(.citiesLeftDiv)
+            img(.citiesVisum)
+            h4(.citiesLeftH4)
+        div(.citiesleftDiv)
+            img(.citiesLanguage)
+            h4(.citiesLeftH4)
+        div(.citiesLeftDiv)
+            img(.cities)Clubs
+            h4(.citiesLeftH4)
+        div(.citiesLeftdiv)
+            img(.citiesSun)
+            h4(.citiesLeftH4)
+        div(.citiesLeftDiv)
+            img(.citiesLeftUniversity)
+            h4(.citiesLeftH4)
+
+      div(.citiesRight) //Skroll
+        div(.citiesRightReview)
+          div(.citiesRightRating)
+          h4(.citiesRightPerson)
+          p(.citiesRightText)
+
+div(.citiesRight)
+
