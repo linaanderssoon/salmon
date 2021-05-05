@@ -5,8 +5,6 @@
 - -|- Fast program
 - På startsidan ska man kunna bläddra runt bland alla länder i karusellen 
 
-## Sidor
-
 ## Funktioner
 ### Deklareras i destinations.js
 -- openDestinationBox() :: gör den valda divven större samt skapar en exit-knapp i högra hörnet som återställer divvens storlek när man klickar på den.

@@ -159,7 +159,6 @@ const navInterviews = document.getElementById('interviews');
 ### destinations.css
     h1(.headerH1), 
     p(.headerP)
-    select(.selectLanguage)
     select(.selectCountry)
 
 .longAd (div(.longAd))
@@ -180,7 +179,9 @@ const navInterviews = document.getElementById('interviews');
     select(.selectDestination)
     select(.selectUniversity)
     select(.selectLevel)
-    select(.selectProgrammes)
+    select(.selectLanguage)
+
+    input(.searchProgrammes)
 
 
    .longAd (div(.longAd))

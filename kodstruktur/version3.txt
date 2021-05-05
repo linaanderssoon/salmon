@@ -1,11 +1,33 @@
 # Version 3
 
 ## Funktionalitet
+Lista det som användaren ska kunna göra i denna version. Version 1 kanske inte har någon funktionalitet.
+    - Filtrera efter land, universitet, språk, nivå.
+    - Sortera? Bokstavsordning
+    - Fyller du i spanska kommer spansktalande länder upp i selectorn för länder
 
-## Sidor
 
 ## Funktioner
+A. Namn och syfte med funktionen
+B. Argument som den tar emot (om några)
+C. Värdet som returneras (om något)
+D. I vilken JS-fil ska funktionen deklareras
+
+    ### Deklareras i destinations.js
+    --filterByCountries (country):: filtrerar ut städerna i landet som användaren väljer
+
+    ### Deklareras i programmes.js
+    --filterByUni (uni):: Filtererar ut program som finns på det valda universitetet
+    --filterByDestination (dest):: Filtererar ut program som finns på den valda destinationen
+    --filterByLevel (lvl):: Filtererar ut program som har en viss nivå
+    --filterByLang (lang)::  Filtererar ut program som är på ett specifikt språk
+
+    --searchByProgrammes (input.value) :: Input fält som söker efter en kurs. Reagerar på keyUp. //FRÅGA: kan vi ta hänsyn till ovanstående krav här och isåfall hur.
+
 
 ## Globala variabler
+Lista alla globala variabler och konstanter som ingår i versionen. Ange namn och syfte för varje variabel. Alla globala variabler och konstanter ska deklareras i en egen JS-fil som heter globalVariables.js.
 
 ## CSS
+Lista CSS-filerna som ingår i denna version. Ange namn och beskriv vilka element som ska formateras från var och en av dem.
+
