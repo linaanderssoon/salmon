@@ -1,0 +1,37 @@
+# Version 4
+
+## Funktionalitet
+    - klicka på ett universitet på en destination --> kommer till programsidan(kurs) och då är universitetet ifyllt i selectorn
+    - klicka på ett land i carousel --> destinationsidan där landet är ifyllt i selectorn
+    - alternativen i selecorn beror på varandra --> ex om Madrid är valt ska bara universitet i madrid komma upp i universitets-selectorn
+    - quiz --> EVENTUELLT!! :D
+
+
+
+## Funktioner
+
+    ### klicka på ett land i carousel -->
+        KALLAR PÅ:
+        --goToDestinations(det land vi klickat på) ::
+            Skapar Destinationer-innehåll :: Kallar på --createDestinations(det land vi klickat på)
+
+    ### klicka på ett universitet på en destination -->
+        KALLAR PÅ: 
+        --goToProgrammes(universitet) ::
+            Skapar Programmes-innehåll :: Kallar på --createProgrammes(det universitet vi klickat på)
+
+    ### alternativen i selecorn beror på varandra -->
+        --EventListener: Destinationer onChange -->
+            Kallar på en funktion som filtrerar alla universitet från destinationen och fyller i dessa i universitet Selection fältet.
+            "Alla universitet" finns alltid kvar som alternativ för att kunna komma därifrån. Då nollställs även destinations fältet.
+
+        --EventListener: Universitet onChange -->
+            Kallar på en funktion som kollar vilken destination universitet ligger i och fyller i detta i destination selection fältet.
+            "Alla destinationer" finns alltid kvar som alternativ för att kunna komma därifrån. Då nollställs även universitetsfältet.
+
+
+## Globala variabler
+    - Inget nytt
+
+## CSS
+    - Ingen ny css, bara funktioner som utvecklats. 

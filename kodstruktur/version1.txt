@@ -3,7 +3,7 @@
 ## Funktionalitet
 - klicka på destinationer i navigationen och få upp destinationer sidan
 - klicka på program i navigationen och få upp promgramsidan
-- klicka på intervjuer i navigationen och få upp intervjuermsidan
+- klicka på intervjuer i navigationen och få upp intervjusidan
 - klicka på hem i navigationen för att komma tillbaka till hem
 
 ## Sidor
@@ -25,30 +25,38 @@ index.html
 ## Funktioner
 ### Deklareras i commonElements.js
     -- goToHome() :: returnerar home-innehåll i wrappern
-    Skapar home-innehåll
-    Markerar Home i navigationen
-    Döljer eventuellt annat innehåll i wrappern.
+        Döljer eventuellt annat innehåll i wrappern.
+        Visar home-innehåll
+        Markerar Home i navigationen
 
-    --createDestinations() :: skapar innehållet i destination-sidan
 
-    --goToDestinations() :: returnerar destination-innehåll i wrappern
-    Skapar Destinationer-innehåll :: 
-    Markerar Destinationer i navigationen
-    Döljer eventuellt annat innehåll i wrappern.
+    --goToDestinations(country) :: returnerar destination-innehåll i wrappern
+        Döljer eventuellt annat innehåll i wrappern.
+        Skapar grunden för destination sidan :: rubriker, underrubrik, text, basstruktur, selectorer
+        Markerar Destinationer i navigationen
+        Kallar på --createDestinations(country) som skapar rutorna med destinationer
 
-    --createProgrammes(): skapar innehållet i program-sidan
+
+
+    --createDestinations(country) :: skapar rutorna med destinationer
+        - Denna funktionen kallas på onChange i selectorerna.
+        - Skapar divvar med destinationerna och lägger in dem i wrapper/föräldern
+
 
     --goToProgrammes() :: returnerar programmes-innehåll i wrappern
-    Skapar Programmes-innehåll
-    Markerar programmes i navigationen
-    Döljer eventuellt annat innehåll i wrappern.
+        Döljer eventuellt annat innehåll i wrappern.
+        Skapar grunden för programmes sidan :: rubriker, underrubrik, text, basstruktur, selectorer
+        Markerar Program i navigationen
+        Kallar på --createProgrammes(universitet, destination, nivå, språk) som skapar rutorna med destinationer
+        
 
-    --createInterviews(): skapar innehållet i intervju-sidan
+    --createProgrammes(universitet, destination, nivå, språk): skapar innehållet i program-sidan
+
 
     --goToInterviews() :: returnerar Interviews-innehåll i wrappern
-    Skapar Interviews-innehåll
-    Markerar Interviews i navigationen
-    Döljer eventuellt annat innehåll i wrappern.
+        Döljer eventuellt annat innehåll i wrappern.
+        Skapar Interviews-innehåll (html)
+        Markerar Interviews i navigationen
 
 
 ## Globala variabler
@@ -114,43 +122,43 @@ const navInterviews = document.getElementById('interviews');
 
 .longAd (div(.longAd))
 
-.slideShow >
-    div(.slideContainer) >
+.carousel >
+    div(.carouselContainer) >
         div(.country1) >
-            img(.country1Img)
-            h4(.country1Name)
+            div(.country1Img) (background-image)
+                h4(.country1Name)
         div(.country2) >
-            img(.country2Img)
-            h4(.country2Name)
+            div(.country2Img) (background-image)
+                h4(.country2Name)
         div(.country3) >
-            img(.country3Img)
-            h4(.country3Name)
+            div(.country3Img) (background-image)
+                h4(.country3Name)
         div(.country4) >
-            img(.country4Img)
-            h4(.country4Name)
+            div(.country4Img) (background-image)
+                h4(.country4Name)
         div(.country5) >
-            img(.country5Img) 
-            h4(.country5Name)
+            div(.country5Img) (background-image) 
+                h4(.country5Name)
         div(.country6) >
-            img(.country6Img)
-            h4(.country6Name)
+            div(.country6Img) (background-image)
+                h4(.country6Name)
         div(.country7) >
-            img(.country7Img)
-            h4(.country7Name)
+            div(.country7Img) (background-image)
+                h4(.country7Name)
         div(.country8) >
-            img(.country8Img)
-            h4(.country8Name)
+            div(.country8Img) (background-image)
+                h4(.country8Name)
 
 .intwPreview >
     div(.boxAd), 
     div(.intw1) > 
-        img(.intw1Img), 
+        div(.intw1Img) (background-image), 
         p(.intw1Text), 
     div(.intw2) > 
-        img(.intw2Img), 
+        div(.intw2Img) (background-image), 
         p(.intw2Text),
     div(.intw3) >
-        img(.intw3Img), 
+        div(.intw3Img) (background-image), 
         p(.intw3Text),
 
 .longAd (div(.longAd))
@@ -168,6 +176,8 @@ const navInterviews = document.getElementById('interviews');
          div(.cityImage)
          h2(.cityText)
 
+    x9
+
  div(.showMore)
 
 .longAd (div(.longAd))
@@ -181,7 +191,7 @@ const navInterviews = document.getElementById('interviews');
     select(.selectLevel)
     select(.selectLanguage)
 
-    input(.searchProgrammes)
+    ?? input(.searchProgrammes) ??
 
 
    .longAd (div(.longAd))
@@ -191,7 +201,7 @@ const navInterviews = document.getElementById('interviews');
        p(.programmesUniversity)
        p(.programmesLevel)
 
- div(.showMore)
+    div(.showMore)
 
  .longAd (div(.longAd))
 
