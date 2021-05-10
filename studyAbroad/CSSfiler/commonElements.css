@@ -1,5 +1,4 @@
 :root {
-
     --backgroundColorLight: #F5F5F5;
     --backgroundColorDark: #ECECEC;
     --fontDark: #121C4D;
@@ -12,11 +11,15 @@
     --bodyText: 'Libre Baskerville';
 }
 
+body {
+    margin: 0;
+}
+
 footer {
     display: flex;
     flex-direction: column;
-    width: 80vw;
-    padding: 20px;
+    width: 100vw;
+    padding: 0px 40px 0px 40px;
     box-sizing: border-box;
 
     background-color: var(--backgroundColorDark);
@@ -70,4 +73,52 @@ footer > div {
 .footerDiscoverDiv > p {
     text-decoration: underline;
     color: var(--fontBold);
+}
+
+.nav {
+    background-color: var(--backgroundColorLight);
+    width: 100vw;
+    height: 80px;
+    position: fixed;
+    top: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.navLeft {
+    grid-column: 1;
+}
+
+.logotyp {
+    height: 60x;
+    width: 60px;
+    padding: 10px 0px 0px 20px;
+}
+
+.navRight {
+    grid-column: 2;
+    font-family: var(--subHeading);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-right: 50px;
+}
+
+.navRight > p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navHome, .navDestinations, .navProgrammes, .navInterviews {
+    color: var(--fontDark)
+}
+
+.currentPage {
+   color: var(--fontBold);
+}
+
+.navRight > p:hover {
+    cursor: pointer;
 }
