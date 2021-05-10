@@ -1,0 +1,35 @@
+.interviewParent {
+    width: 100%;
+    display: flex;
+}
+
+.interviewee {
+    display:flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.intwOneImg, .intwTwoImg, .intwThreeImg {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.intwOneImg {
+    background-image: url();
+}
+
+.intwTwoImg {
+    background-image: url();
+}
+
+.intwThreeImg {
+    background-image: url();
+}
+
+.intwText {
+    flex-grow: 2;
+}
