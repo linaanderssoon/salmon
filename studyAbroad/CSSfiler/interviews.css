@@ -16,6 +16,9 @@ h1 {
     width: 100%;
     display: flex;
     margin-top: 30px;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .interviewee {
@@ -27,12 +30,12 @@ h1 {
 
 .intwOneImg, .intwTwoImg, .intwThreeImg {
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    border: 1px solid black;  
+    border: 2px solid var(--fontBold);  
 }
 
 .intwInfo, .interviewText {
@@ -42,9 +45,13 @@ h1 {
 }
 
 .interviewHeroImage {
-    height: 150px;
+    height: 250px;
     width: 100%;
-    border: 1px solid black;
+    background-image: url(ikoner/interviewHero.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 3px 3px 3px gray;
 }
 
 .intwInfo > span {
@@ -54,15 +61,19 @@ h1 {
 }
 
 .intwOneImg {
-    background-image: url();
+    background-image: url(ikoner/interviewPerson2.jpg);
+    background-position: right;
+
 }
 
 .intwTwoImg {
-    background-image: url();
+    background-image: url(ikoner/interviewPerson1.jpg);
+
 }
 
 .intwThreeImg {
-    background-image: url();
+    background-image: url(ikoner/interviewPerson3.jpg);
+
 }
 
 .intwText {
