@@ -70,7 +70,7 @@ function goToDestinations(country) {
             </select>
             <div id="arrow"></div>
         </div>
-    `
+    `;
 
     //SELECTION FIELD
     const selectCountries = document.getElementById('country');
@@ -78,30 +78,42 @@ function goToDestinations(country) {
     COUNTRIES.forEach(c => {
         let newOption = document.createElement('option');
         newOption.textContent = c.name;
+        newOption.value = c.name;
         newOption.classList.add('selectItem');
         selectCountries.append(newOption);
     });
+    
 
-    let citiesWrapper = document.querySelector('.citiesWrapper');
+    selectCountries.addEventListener('change', () => {
+        let selectedCountry = selectCountries.value;
 
-    selectCountries.addEventListener('onChange', createDestinations);
+        citiesWrapper.innerHTML = '';
+        createDestinations(selectedCountry);
+    });
 
 
     //CREATE CITY DIVS
-    function createDestinations(country) {
+
+    let citiesWrapper = document.querySelector('.citiesWrapper');
+
+    function createDestinations(selectedCountry) {
+        let countryID = COUNTRIES.find(c => c.name === selectedCountry).id;
+        let filterCities = CITIES.filter(c => c.countryID === countryID);
+        console.log(filterCities);
 
         
         // skapar rutorna med destinationer
         // - Denna funktionen kallas på onChange i selectorerna.
         // - Skapar divvar med destinationerna och lägger in dem i wrapper/föräldern
-        for(let i = 0; i < 9; i++) {
+        for(let i = 0; i < filterCities.length; i++) {
             let citiesParent = document.createElement('div');
             citiesParent.classList.add('citiesParent');
             citiesWrapper.append(citiesParent);
-    
+
+
             citiesParent.innerHTML = `
-                <img class="cityImage" src="CSSfiler/ikoner/logotyp.png">
-                <h2 class="cityText"> ${COUNTRIES.name} </h2>   
+                <img class="cityImage" src="JSfiler/Images/${filterCities[i].imagesNormal[1]}">
+                <h2 class="cityText"> ${filterCities[i].name} </h2>   
             `;
         }
 

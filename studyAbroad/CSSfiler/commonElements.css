@@ -104,6 +104,7 @@ footer > div {
 
     display: grid;
     grid-template-columns: 1fr 1fr;
+    z-index: 100;
 }
 
 .navLeft {
