@@ -1,0 +1,73 @@
+:root {
+
+    --backgroundColorLight: #F5F5F5;
+    --backgroundColorDark: #ECECEC;
+    --fontDark: #121C4D;
+    --fontBold: #DC6420;
+    --linkColor: #AAC4D3;
+    --shadow: #9C9C9C;
+    
+    --heading: 'Poppins', sans-serif;
+    --subHeading: 'Poppins', sans-serif;
+    --bodyText: 'Libre Baskerville';
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    padding: 20px;
+    box-sizing: border-box;
+
+    background-color: var(--backgroundColorDark);
+    color: var(--fontDark);
+}
+
+.footerH5 {
+    font-family: var(--subHeading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--fontDark);
+    margin-bottom: 10px;
+}
+
+.footerP {
+    font-family: var(--bodyText);
+    font-size: 0.8rem;
+}
+
+.footerIMG {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.footerFollowDiv {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footerFollowDiv > a {
+    color: var(--fontBold);
+}
+
+footer > div {
+    display: flex;
+}
+
+.topFooterDiv > div {
+    flex-basis: 25%;
+    padding: 10px;
+}
+
+.lowerFooterDiv > div {
+    flex-grow: 1;
+    padding: 10px;
+    border-top: 1px solid var(--fontDark);
+}
+
+.footerDiscoverDiv > p {
+    text-decoration: underline;
+    color: var(--fontBold);
+}
