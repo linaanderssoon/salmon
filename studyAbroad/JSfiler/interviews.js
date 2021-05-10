@@ -23,7 +23,7 @@ function goToInterviews() {
             <div class='intwOneImg'> </div>
             <p class='intwInfo'> 
             <span> Carola Sanchéz, 24 år.</span>
-             Toulouse
+             Toulouse 2018
             </p>
         </div>
 
@@ -73,7 +73,7 @@ function goToInterviews() {
         <div class='intwTwoImg'> </div>
         <p class='intwInfo'> 
         <span> Mattias Ström, 27 år.</span>
-         Paris
+         Paris 2016
         </p>
     </div>
     </div>
@@ -83,7 +83,7 @@ function goToInterviews() {
             <div class='intwThreeImg'> </div>
             <p class='intwInfo'> 
             <span> Lovisa Karlsson, 22 år. </span>
-             Melbourne
+             London 2019
             </p>
         </div>
 
