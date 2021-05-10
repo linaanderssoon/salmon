@@ -2,7 +2,8 @@
 
 
 function goToInterviews() {
-    wrapper.innerHTML = '';
+    // wrapper.innerHTML = '';
+    console.log('tja');
     wrapper.innerHTML = `
     <h1> Intervjuer <h1>
     <div class='interviewHeroImage> </div>

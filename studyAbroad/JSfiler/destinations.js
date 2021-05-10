@@ -43,8 +43,10 @@ function createDestinations(country) {
 // skapar rutorna med destinationer
 // - Denna funktionen kallas på onChange i selectorerna.
 // - Skapar divvar med destinationerna och lägger in dem i wrapper/föräldern
+    let citiesParent = document.createElement('div');
+    citiesParent.classList.add('.citiesParent');
+    citiesWrapper.append(citiesWrapper);
 
-    
 
 }
 
