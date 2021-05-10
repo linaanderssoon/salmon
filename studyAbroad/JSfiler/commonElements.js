@@ -6,18 +6,27 @@ const navDestinations = document.querySelector('.navDestinations');
 const navProgrammes = document.querySelector('.navProgrammes');
 const navInterviews = document.querySelector('.navInterviews');
 
-navHome.addEventListener('click', ()=> {
-    goToHome();
-});
+// navHome.addEventListener('click', ()=> {
+//     console.log('hej');
+
+//     goToHome();
+// });
 
 navDestinations.addEventListener('click', ()=> {
+    console.log('hej');
+
     goToDestinations();
 });
 
 navProgrammes.addEventListener('click', ()=> {
+    console.log('hej');
+
     goToProgrammes();
 });
 
-navInterviews.addEventListener('click', ()=> {
+navInterviews.addEventListener('click', () => {
     goToInterviews();
+    console.log('hej');
 });
+
+
