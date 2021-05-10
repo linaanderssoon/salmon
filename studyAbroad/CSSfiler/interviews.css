@@ -1,12 +1,28 @@
+body {
+    background-color: var(--backgroundColorLight);
+}
+
+h1 {
+    color: var(--fontBold);
+    font-family: var(--heading);
+}
+
+#wrapper {
+    margin: 90px 120px 0px 120px;
+}
+
+
 .interviewParent {
     width: 100%;
     display: flex;
+    margin-top: 30px;
 }
 
 .interviewee {
     display:flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex-grow: 2;
+    margin: 40px;
 }
 
 .intwOneImg, .intwTwoImg, .intwThreeImg {
@@ -16,6 +32,25 @@
     height: 200px;
     width: 200px;
     border-radius: 50%;
+    border: 1px solid black;  
+}
+
+.intwInfo, .interviewText {
+    font-size: 16px;
+    font-family: var(--subHeading);
+    color: var(--fontDark);
+}
+
+.interviewHeroImage {
+    height: 150px;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.intwInfo > span {
+    font-weight: bold;
+    font-family: var(--subHeading);
+    color: var(--fontDark);
 }
 
 .intwOneImg {
@@ -31,5 +66,12 @@
 }
 
 .intwText {
-    flex-grow: 2;
+    flex-grow: 3;
+    font-size: 14px;
+    font-family: var(--bodyText);
+    color: var(--fontDark);
+}
+
+.intwText > span {
+    font-weight: bold;
 }

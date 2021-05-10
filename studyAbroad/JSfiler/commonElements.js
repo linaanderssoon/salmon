@@ -6,11 +6,11 @@ const navDestinations = document.querySelector('.navDestinations');
 const navProgrammes = document.querySelector('.navProgrammes');
 const navInterviews = document.querySelector('.navInterviews');
 
-// navHome.addEventListener('click', ()=> {
-//     console.log('hej');
+navHome.addEventListener('click', ()=> {
+    console.log('hej');
 
-//     goToHome();
-// });
+    goToHome();
+});
 
 navDestinations.addEventListener('click', ()=> {
     console.log('hej');
