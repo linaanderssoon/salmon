@@ -9,6 +9,7 @@
 // - Denna funktionen kallas på onChange i selectorerna.
 // - Skapar divvar med destinationerna och lägger in dem i wrapper/föräldern
 
+createDestinations();
 
 function goToDestinations(country) {
     wrapper.innerHTML = '';
@@ -37,5 +38,14 @@ function goToDestinations(country) {
 }
 
 const citiesWrapper = document.querySelector('.citiesWrapper');
+
+function createDestinations(country) {
+// skapar rutorna med destinationer
+// - Denna funktionen kallas på onChange i selectorerna.
+// - Skapar divvar med destinationerna och lägger in dem i wrapper/föräldern
+
+    
+
+}
 
 
