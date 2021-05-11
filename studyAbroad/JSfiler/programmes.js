@@ -1,7 +1,9 @@
 "use strict";
 
 //SKAPAR WRAPPER FÖR DESTINATIONER OCH DESS INNEHÅLL
-function goToProgrammes() {    
+function goToProgrammes() {  
+    scroll(0,0)
+
     navProgrammes.classList.add('currentPage');
 
     navHome.classList.remove('currentPage');
@@ -31,14 +33,6 @@ function goToProgrammes() {
         </div>
 
         <div class="dropdown">
-        <select name="" id="language">
-            <option id="selectItem"> All languages </option>
-        </select>
-        <div id="arrow"></div>
-        </div>
-
-
-        <div class="dropdown">
         <select name="" id="level">
             <option id="selectItem"> All levels </option>
         </select>
@@ -51,6 +45,8 @@ function goToProgrammes() {
         </select>
         <div id="arrow"></div>
         </div>
+
+        <button class='searchButton'> Sök </button>
 
     </div>
 
@@ -68,12 +64,9 @@ function goToProgrammes() {
     <div class="longAd"> </div>
     `;
 
-    let programmesWrapper = document.querySelector('.programmesWrapper');
-
     //SELECTION FIELDS
     const selectCity = document.getElementById('city');
     const selectUni = document.getElementById('university');
-    const selectLang = document.getElementById('language');
     const selectLevel = document.getElementById('level');
     const selectField = document.getElementById('field');
 
@@ -92,14 +85,6 @@ function goToProgrammes() {
         newOption.value = u.name;
         newOption.classList.add('selectItem');
         selectUni.append(newOption);
-    });
-
-    LANGUAGES.forEach(l => {
-        let newOption = document.createElement('option');
-        newOption.textContent = l.name;
-        newOption.value = l.name;
-        newOption.classList.add('selectItem');
-        selectLang.append(newOption);
     });
     
     LEVELS.forEach(l => {
@@ -180,4 +165,38 @@ function goToProgrammes() {
 
         selectUni.append(newOption);
     }
+
+    document.querySelector('.searchButton').addEventListener('click', () => {
+        let city = selectCity.value;
+        let uni = selectUni.value;
+        let level = selectLevel.value;
+        let field = selectField.value; 
+
+        createProgrammes(city, uni, level, field);
+    });
+
+    let programmesWrapper = document.querySelector('.programmesWrapper');
+
+    function createProgrammes(city, uni, level, field){
+        let cityID = CITIES.find(c => c.name === city).id;
+        let uniID = UNIVERSITIES.find(u => u.name === uni).id;
+        let levelID = LEVELS.indexOf(level);
+        let fieldID = FIELDS.find(f => f.name === field).id;
+
+        let filteredProgrammes = PROGRAMMES.filter(prog => prog.universityID === uniID && prog.level === levelID && prog.subjectID === fieldID);
+
+        console.log(filteredProgrammes);
+        let programmeParent = document.createElement('div');
+        programmeParent.classList.add('progParent');
+        programmeParent.innerHTML = `
+        <div class='progHeadning'></div>
+        <div class='progUniversity'></div>
+        <div class='progLevel'></div>
+        <div class='progLanguage'></div>
+        `;
+
+        programmesWrapper.append(programmeParent);
+    }
+
 }
+
