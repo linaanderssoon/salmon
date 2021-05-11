@@ -56,8 +56,8 @@ h1 {
 }
 
 .intwOneImg {
-    background-image: url(ikoner/interviewPerson2.jpg);
-    background-position: right;
+    background-image: url(ikoner/interviewPerson2.png);
+    background-position: center;
 
 }
 
@@ -81,3 +81,4 @@ h1 {
 .intwText > span {
     font-weight: bold;
 }
+

@@ -13,8 +13,13 @@
 //SKAPAR WRAPPER FÖR DESTINATIONER OCH DESS INNEHÅLL
 function goToDestinations(country) {  
     //Hamna högst upp på sidan
-      //Hamna högst upp på sidan
-      scroll(0,0)
+    scroll(0,0)
+    
+    navDestinations.classList.add('currentPage');
+
+    navInterviews.classList.remove('currentPage');
+    navHome.classList.remove('currentPage');
+    navProgrammes.classList.remove('currentPage');
     
     wrapper.innerHTML = '';
 
