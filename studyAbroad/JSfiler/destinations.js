@@ -67,16 +67,34 @@ function goToDestinations(country) {
 
     //SKAPA DIVVAR MED STÄDER
         //Alla länder ifyllt från start
-    for(let i = 0; i < CITIES.length; i++) {
+    // for(let i = 0; i < CITIES.length; i++) {
+    //     citiesWrapper.append(allCountriesDivs(i));
+    // }
+
+
+    let counter = 9;
+
+    for(let i = 0; i < counter; i++) {
         citiesWrapper.append(allCountriesDivs(i));
     }
 
-        //Baserat på val
+    let heightOfDiv = parseInt(getComputedStyle(citiesWrapper).getPropertyValue('height'));
+
+
+    //Baserat på val
     function createDestinations(selectedCountry) {
+
         if(selectedCountry === 'All countries') {
-            for(let i = 0; i < CITIES.length; i++) {
+            counter = 9; 
+
+            for(let i = 0; i < counter; i++) {
                 citiesWrapper.append(allCountriesDivs(i));
             }
+
+            document.querySelector('.showMore').style.setProperty('display', 'flex');
+
+            let AllParents = document.querySelectorAll('.citiesParent');
+            console.log(AllParents.length);
 
         } else {
             let countryID = COUNTRIES.find(c => c.name === selectedCountry).id;
@@ -92,14 +110,39 @@ function goToDestinations(country) {
                     <h2 class="cityText"> ${filterCities[i].name} </h2>   
                 `;
             }
+
+            document.querySelector('.showMore').style.setProperty('display', 'none');
+            citiesWrapper.style.height = 'auto';
         }
     }
+
+     //VISA MER
+     const showMore = document.querySelector('.showMore');
+     console.log(heightOfDiv);
+ 
+        showMore.addEventListener('click', () => {
+            counter = counter + 9;
+
+            citiesWrapper.innerHTML = '';
+            
+            for(let i = 0; i < counter; i++) {
+                if (i >= CITIES.length){
+                    document.querySelector('.showMore').style.setProperty('display', 'none');
+                    break;
+                };
+
+                citiesWrapper.append(allCountriesDivs(i));
+            }
+        });
+
+     
+ 
 
     function allCountriesDivs(i) {
         let citiesParent = document.createElement('div');
         citiesParent.classList.add('citiesParent');
 
-        
+    
         citiesParent.innerHTML = `
             <img class="cityImage" src="JSfiler/Images/${CITIES[i].imagesNormal[1]}">
             <h2 class="cityText"> ${CITIES[i].name} </h2>   
@@ -107,7 +150,6 @@ function goToDestinations(country) {
 
         return citiesParent;
     }
-
 }
 
 

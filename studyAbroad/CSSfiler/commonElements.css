@@ -109,6 +109,9 @@ footer > div {
     z-index: 100;
 }
 
+.nav > p {
+}
+
 .navLeft {
     grid-column: 1;
 }
