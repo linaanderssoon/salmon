@@ -86,7 +86,7 @@
   transition: transform 0.5s;
 }
 .carousel-container .card-container {
-  width: 540px;
+  width: 359.92px;
   flex-shrink: 0;
   height: 250px;
   padding-right: 15px;
@@ -115,7 +115,6 @@
 }
 
 
-
 .card > * {
   flex: 1;
 }
@@ -125,62 +124,29 @@
   align-items: center;
   font-size: 30px;
 }
-.card .info {
+.card .carouselInfo {
   flex-basis: 40px;
-  color: orangered;
+  color: var(--fontBold);
   flex-grow: 0;
   padding: 10px;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
-.info {
+.carouselInfo {
   position: relative;
-  bottom: 60px;
-  left: 20px;
+  bottom: 70px;
+  left: 70px;
   width: 200px;
-  height: 15px;
+  height: 30px;
   background-color: whitesmoke;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  font-family: var(--heading);
+  font-size: 16px;
 }
 
-.img1{
-  background-image: url(argentina.jpg); 
-}
-
-.img2 {
-  background-image: url(australia.jpg);
-}
-
-.img3 {
-  background-image: url(chile.jpg);
-}
-
-.img4 {
-  background-image: url(france.jpg);
-}
-
-.img5 {
-  background-image: url(mexico.jpg);
-}
-
-.img6 {
-  background-image: url(spain.jpg);
-}
-
-.img7 {
-  background-image: url(sweden.jpg);
-}
-
-.img8 {
-  background-image: url(uk.jpg);
-}
-
-.img9 {
-  background-image: url(usa.jpg);
-}
 
 #arrowImg1{
     background-image: url(ikoner/arrow_back.png);
@@ -268,15 +234,6 @@
 
 .intw3Small {
   background-image: url(ikoner/interviewPerson3_zoomed.jpg);
-}
-
-.smallAd {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 250x;
-  height: 250px;
-  background-color: grey;
 }
 
 .intwContainer {
