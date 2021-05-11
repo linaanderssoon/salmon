@@ -38,8 +38,10 @@ p {
 footer {
     display: flex;
     flex-direction: column;
+
     width: 100vw;
     padding: 0px 40px 0px 40px;
+    margin-top: 50px;
     box-sizing: border-box;
 
     background-color: var(--backgroundColorDark);
@@ -142,4 +144,12 @@ footer > div {
 
 .navRight > p:hover {
     cursor: pointer;
+}
+
+.longAd {
+    height: 100px;
+    width: 100%;
+    margin: 20px 0px;
+
+    background-color: var(--backgroundColorDark);
 }

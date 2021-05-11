@@ -1,16 +1,8 @@
-
 .selectorsDiv {
     height: 50px;
     width: 100%;
 }
 
-.longAd {
-    height: 100px;
-    width: 100%;
-    margin: 20px 0px;
-
-    background-color: var(--backgroundColorDark);
-}
 
 .citiesWrapper {
     width: 100%;
