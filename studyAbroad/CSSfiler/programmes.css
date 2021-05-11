@@ -45,3 +45,44 @@
     background-color:#F5F5F5;
     font-size: 13px;
 }
+
+.searchButton {
+    color: #FFFF;
+    background-color:var(--fontBold);
+    font-size: 13px;
+    border: 1px solid var(--fontBold);
+    font-family: 'Poppins', sans-serif ;
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    box-shadow: 1px 1px 1px rgb(177, 177, 177);
+    transition: all, .2s;
+
+    cursor: pointer;
+}
+
+.searchButton:hover {
+    color: #fff;
+    background-color: var(--fontBold);
+    opacity: .8;
+    box-shadow: 2px 2px 2px rgb(177, 177, 177);
+}
+
+.programmesWrapper {
+    width: 100%;
+    background-color: var(--backgroundColorLight);
+    border: 1px solid black;
+
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.progParent {
+    height: 300px;
+    width: calc(100% / 3);
+    box-sizing: border-box;
+    border: 1px solid black;
+    padding: 20px;
+    cursor: pointer;
+}
