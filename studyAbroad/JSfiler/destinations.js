@@ -117,6 +117,9 @@ function goToDestinations(country) {
             `;
         }
 
+        if (filterCities.length < 9) {
+            document.querySelector('.showMore').style.display = 'none';
+        }
     
 
 
