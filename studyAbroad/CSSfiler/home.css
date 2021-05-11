@@ -70,10 +70,6 @@
     font-family: var(--heading);
   }
 
-
-
-
-
   @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 .carousel-container {
   width: 90%;
@@ -239,4 +235,51 @@
   font-size: 50px;
   font-family: var(--subHeading);
   text-align: center;
+}
+
+.homeInterview {
+  margin: 100px 0px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.homeInterview > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.smallIntw {
+  background-position: center;
+  background-size: cover;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.intw1Small {
+  background-image: url(ikoner/interviewPerson1_zoomed.jpg);
+}
+
+.intw2Small {
+  background-image: url(ikoner/interviewPerson2_zoomed.jpg)
+}
+
+.intw3Small {
+  background-image: url(ikoner/interviewPerson3_zoomed.jpg);
+}
+
+.smallAd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250x;
+  height: 250px;
+  background-color: grey;
+}
+
+.intwContainer {
+  color: var(--fontDark);
+  font-family: var(--bodyText);
 }
