@@ -1,7 +1,11 @@
 'use strict';
 
 
+
 function goToInterviews() {
+    //Hamna högst upp på sidan
+    scroll(0,0)
+    
     navInterviews.classList.add('currentPage');
 
     navHome.classList.remove('currentPage');
@@ -41,9 +45,9 @@ function goToInterviews() {
         "Jag såg fram emot så himla mycket, men om jag bara ska välja en sak så var det nog att träffa mina klasskamrater! Man har utan tvekan mycket gemensamt med allihopa! Alla är minst lika taggade, öppensinnade och snälla som en själv! Jag skulle nog vilja påstå att det är garanterat att man får vänner för livet." <br>
         <br>
         <span> Vad skulle du ge för tips till alla där ute som funderar på att studera utomlands? </span> <br>
-        "Gör det, ni kommer inte att ångra er! Det är definitivt viktigt att vara välinformerad innan man gör beslutet dock eftersom det ändå är ett stort steg, därför kan jag verkligen rekommendera [namnet på vår hemsida] som hjälpte mig hitta den perfekta skolan!" <br>
+        "Gör det, ni kommer inte att ångra er! Det är definitivt viktigt att vara välinformerad innan man gör beslutet dock eftersom det ändå är ett stort steg, därför kan jag verkligen rekommendera Study Abroad som hjälpte mig hitta den perfekta skolan!" <br>
         <br>
-        <span>Hur hittade du [namnet på vår hemsida]? </span> <br>
+        <span>Hur hittade du Study Abroad? </span> <br>
         "Alla jag känner använder er hemsida! Den är lättnavigerad, snygg layout, väldigt informativ och har en fantastisk kundservice som hjälper en med alla frågor man kan ha!" <br>
         </p>
     </div>
@@ -65,7 +69,7 @@ function goToInterviews() {
         <span> Vad skulle du ge för tips till alla där ute som funderar på att studera utomlands? </span> <br>
         “Att våga ta steget definitivt! Jag tyckte det kändes läskigt och stort men jag vet att om jag inte hade åkt så hade jag ångrat det i framtiden… så våga!” <br>
         <br>
-        <span> Hur hittade du [namnet på vår hemsida]? </span> <br>
+        <span> Hur hittade du Study Abroad? </span> <br>
         “När jag väl hade hittat ett program jag var intresserad av läste jag massor på nätet och kollade på youtubevideos för att ta reda på mer information och bli peppad. Tror det var någon i en youtube video som pratade om sidan.” <br>
         </p>
 
@@ -103,7 +107,7 @@ function goToInterviews() {
         <span> Vad skulle du ge för tips till alla där ute som funderar på att studera utomlands? </span> <br>
         “Det är inte så svårt och läskigt som man kan tro så kolla upp bra information, läs på, och våga bestämma dig!” <br>
         <br>
-        <span> Hur hittade du [namnet på vår hemsida]? </span> <br>
+        <span> Hur hittade du Study Abroad? </span> <br>
         “När jag sa till min vän att utlandsstudier låter intressant men att jag var osäker på var man kunde åka och om det var för krångligt så rekommenderade hon er hemsida för användbar information :)” <br>
 
         </p>
