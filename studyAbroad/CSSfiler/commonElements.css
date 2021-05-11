@@ -113,8 +113,6 @@ footer > div {
     z-index: 100;
 }
 
-.nav > p {
-}
 
 .navLeft {
     grid-column: 1;
@@ -124,6 +122,10 @@ footer > div {
     height: 60x;
     width: 60px;
     padding: 10px 0px 0px 20px;
+}
+
+.logotyp:hover {
+    cursor: pointer;
 }
 
 .navRight {
