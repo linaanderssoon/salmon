@@ -7,6 +7,8 @@ navHome.classList.add('currentPage');
 
 
 function goToHome(){
+    //Hamna högst upp på sidan
+    scroll(0,0)  
 
   wrapper.innerHTML = '';
 
