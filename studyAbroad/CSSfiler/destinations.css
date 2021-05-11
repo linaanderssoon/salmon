@@ -14,6 +14,9 @@
 
 .citiesWrapper {
     width: 100%;
+    /* overflow: hidden; */
+    /* height: 900px; */
+
     background-color: var(--backgroundColorLight);
 
     display: flex;
@@ -30,7 +33,6 @@
     padding: 20px;
 
     cursor: pointer;
-
 }
 
 .cityImage {

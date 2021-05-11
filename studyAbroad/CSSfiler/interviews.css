@@ -7,11 +7,6 @@ h1 {
     font-family: var(--heading);
 }
 
-#wrapper {
-    margin: 90px 120px 0px 120px;
-}
-
-
 .interviewParent {
     width: 100%;
     display: flex;
