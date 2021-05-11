@@ -153,3 +153,9 @@ footer > div {
 
     background-color: var(--backgroundColorDark);
 }
+
+.smallAd {
+    width: 250px;
+    height: 250px;
+    background-color: var(--backgroundColorDark);
+}
