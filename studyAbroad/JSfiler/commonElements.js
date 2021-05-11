@@ -6,27 +6,36 @@ const navDestinations = document.querySelector('.navDestinations');
 const navProgrammes = document.querySelector('.navProgrammes');
 const navInterviews = document.querySelector('.navInterviews');
 
-navHome.addEventListener('click', ()=> {
-    console.log('hej');
+let footerProgramme = document.querySelector(".footerProgramme");
+let footerDestinations = document.querySelector(".footerDestinations");
+let footerInterviews = document.querySelector(".footerInterviews");
 
+navHome.addEventListener('click', ()=> {
     goToHome();
 });
 
 navDestinations.addEventListener('click', ()=> {
-    console.log('hej');
-
     goToDestinations();
 });
 
 navProgrammes.addEventListener('click', ()=> {
-    console.log('hej');
-
     goToProgrammes();
 });
 
 navInterviews.addEventListener('click', () => {
     goToInterviews();
-    console.log('hej');
 });
 
+footerDestinations.addEventListener("click", () => {
+    goToDestinations();
+});
 
+footerProgramme.addEventListener("click", () => {
+   goToProgrammes();
+});
+
+footerInterviews.addEventListener("click", () => {
+    
+    goToInterviews();
+
+});

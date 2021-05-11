@@ -61,6 +61,10 @@ footer {
     font-size: 0.8rem;
 }
 
+.footerP:hover {
+    cursor: pointer;
+}
+
 .footerIMG {
     width: 20px;
     height: 20px;
