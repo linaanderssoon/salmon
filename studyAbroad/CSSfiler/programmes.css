@@ -69,6 +69,22 @@
     box-shadow: 2px 2px 2px rgb(177, 177, 177);
 }
 
+.resetButton {
+    color: var(--fontBold);
+    background-color: #FFFF;
+    font-size: 13px;
+    border: 1px solid var(--fontBold);
+    font-family: 'Poppins', sans-serif ;
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    box-shadow: 1px 1px 1px rgb(177, 177, 177);
+    transition: all, .2s;
+
+    cursor: pointer;
+
+}
+
 .programmesWrapper {
     width: 100%;
     background-color: var(--backgroundColorLight);
@@ -95,6 +111,7 @@
     font-weight: bold;
     color: var(--fontBold);
     font-family: var(--heading);
+    margin-bottom: 10px;
 }
 
 .progUniversity {
@@ -112,10 +129,27 @@
     font-family: var(--bodyText);
 }
 
-.location {
-    background-image: url(ikoner/location.png);
-    height: 100%;
+.uniPic, .levelPic, .langPic {
+    height: 20px;
     width: 20px;
     background-size: cover;
-    color: white;
+    margin-right: 10px;
 }
+.uniPic {
+    background-image: url(ikoner/location.png);
+}
+
+.levelPic {
+    background-image: url(ikoner/educationLevel.png);
+}
+
+.langPic {
+    background-image: url(ikoner/language.png);
+}
+
+.infoParent {
+    display: flex;
+    margin: 5px;
+}
+
+

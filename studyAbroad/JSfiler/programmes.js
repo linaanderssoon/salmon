@@ -47,6 +47,8 @@ function goToProgrammes() {
         </div>
 
         <button class='searchButton'> Sök </button>
+        <button class='resetButton'> Rensa </button>
+
 
     </div>
 
@@ -168,28 +170,37 @@ function goToProgrammes() {
 
     let programmesWrapper = document.querySelector('.programmesWrapper');
 
-    //ALLA PROGRAM SKA SYNAS NÖR MAN GÅR IN PÅ SIDAN//
-    PROGRAMMES.forEach(p => {
-        let programmeParent = document.createElement('div');
-        programmeParent.classList.add('progParent');
+    //9 PROGRAM VISAS FÅRN BÖRJAN NÄR MAN GÅR IN PÅ SIDAN//
+    let counter = 9;
+    for(let i = 0; i < counter; i++) {
+        programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
+    }
 
-        let uniName = UNIVERSITIES.find(u => u.id === p.universityID).name;
-        let progLevel = LEVELS[p.level];
-        let progLang = LANGUAGES.find(l => l.id === p.language).name;
+    //VISA MED KNAPP FUNKTION//
+    const showMore = document.querySelector('.showMore');
+    showMore.addEventListener('click', () => {
+        //Varje gång vi klickar på visa mer lägger vi till 9st i counter
+        counter = counter + 9;
 
-        programmeParent.innerHTML = `
-        <div class='progHeadning'> ${p.name}</div>
-        <div class='progUniversity'> <div class='location'> h</div> ${uniName}</div>
-        <div class='progLevel'>${progLevel}</div>
-        <div class='progLanguage'>${progLang}</div>
-        `;
+        programmesWrapper.innerHTML = '';
+            
+        for(let i = 0; i < counter; i++) {
+            //om countern är uppe i maxantal så sluta skapa divvar och ta bort knappen 
+            if (i >= PROGRAMMES.length){
+                document.querySelector('.showMore').style.setProperty('display', 'none');
+                break;
+            };
 
-        programmesWrapper.append(programmeParent);
+            //Annars forstätt skapa divvar
+            programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
+        }
     });
 
 
     //SÖKFUNKTION//
     document.querySelector('.searchButton').addEventListener('click', () => {
+        programmesWrapper.innerHTML ='';
+        
         let city = selectCity.value;
         let uni = selectUni.value;
         let level = selectLevel.value;
@@ -200,7 +211,7 @@ function goToProgrammes() {
 
 
     function createProgrammes(city, uni, level, field){
-        let cityID = CITIES.find(c => c.name === city).id;
+        // let cityID = CITIES.find(c => c.name === city).id;
         let uniID = UNIVERSITIES.find(u => u.name === uni).id;
         let levelID = LEVELS.indexOf(level);
         let fieldID = FIELDS.find(f => f.name === field).id;
@@ -209,25 +220,40 @@ function goToProgrammes() {
 
         console.log(filteredProgrammes);
 
-        filteredProgrammes.forEach(p => {
-            let programmeParent = document.createElement('div');
-            programmeParent.classList.add('progParent');
-
-            let uniName = UNIVERSITIES.find(u => u.id === p.universityID).name;
-            let progLevel = LEVELS[p.level];
-            let progLang = LANGUAGES.find(l => l.id === p.language).name;
-
-            programmeParent.innerHTML = `
-            <div class='progHeadning'> ${p.name}</div>
-            <div class='progUniversity'>${uniName}</div>
-            <div class='progLevel'>${progLevel}</div>
-            <div class='progLanguage'>${progLang}</div>
-            `;
-    
-            programmesWrapper.append(programmeParent);
+        filteredProgrammes.forEach(p => {    
+            programmesWrapper.append(createProgDivs(p));
         });
 
     }
 
-}
+    function createProgDivs(p) {
+        let programmeParent = document.createElement('div');
+        programmeParent.classList.add('progParent');
 
+        let uniName = UNIVERSITIES.find(u => u.id === p.universityID).name;
+        let progLevel = LEVELS[p.level];
+        let progLang = LANGUAGES.find(l => l.id === p.language).name;
+
+        programmeParent.innerHTML = `
+        <div class='progHeadning'> ${p.name}</div>
+
+        <div class='infoParent'> 
+        <div class='uniPic'></div>
+        <div class='progUniversity'>${uniName}</div>
+        </div>
+
+        <div class='infoParent'> 
+        <div class='levelPic'></div>
+        <div class='progLevel'>${progLevel}</div>
+        </div> 
+
+        <div class='infoParent'> 
+        <div class='langPic'></div>
+        <div class='progLanguage'>${progLang}</div>
+        </div> 
+
+        `;
+
+        return programmeParent;
+    }
+}
