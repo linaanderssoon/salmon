@@ -113,6 +113,16 @@ function goToDestinations(country) {
                     <img class="cityImage" src="JSfiler/Images/${filterCities[i].imagesNormal[1]}">
                     <h2 class="cityText"> ${filterCities[i].name} </h2>   
                 `;
+
+                citiesParent.addEventListener('click', (e) => {
+                    makeInfoDiv()
+                    let infoDivDest = document.querySelector('.infoDivDest');
+            
+                    let placementTop = e.target.y;
+                    console.log(e.target);
+            
+                    infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
+                });
             }
 
             //Visa mer knappen ska inte finnas eftersom det aldrig är fler än 9 här
@@ -151,8 +161,44 @@ function goToDestinations(country) {
             <h2 class="cityText"> ${CITIES[i].name} </h2>   
         `;
 
+    
+        citiesParent.addEventListener('click', (e) => {
+            makeInfoDiv()
+            let infoDivDest = document.querySelector('.infoDivDest');
+    
+            let placementTop = e.target.y;
+            infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
+        });
+
+
         return citiesParent;
     }
+
+    function makeInfoDiv() {
+        let infoDivDestParent = document.createElement('div');
+        infoDivDestParent.classList.add('infoDivDestParent');
+        document.body.append(infoDivDestParent);
+
+        let bodyheight = getComputedStyle(document.body).getPropertyValue('height');
+        infoDivDestParent.style.setProperty('height', bodyheight);
+
+        let infoDivDest = document.createElement('div');
+        infoDivDest.classList.add('infoDivDest');
+        citiesWrapper.append(infoDivDest);
+
+
+        let closeInfoDiv = document.createElement('div');
+        closeInfoDiv.classList.add('closeInfoDiv');
+        infoDivDest.append(closeInfoDiv);
+
+        closeInfoDiv.addEventListener('click', () => {
+            infoDivDest.remove();
+            infoDivDestParent.remove();
+        });
+
+        return infoDivDestParent;
+    }
+
 }
 
 
