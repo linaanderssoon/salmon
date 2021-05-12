@@ -3,6 +3,9 @@
 // Wrappern
 const wrapper = document.getElementById('wrapper');
 
+//Loggan
+const logotyp = document.querySelector(".logotyp")
+
 // Navigationen
 const navHome = document.querySelector('.navHome');
 const navDestinations = document.querySelector('.navDestinations');
@@ -43,5 +46,10 @@ footerProgramme.addEventListener("click", () => {
 
 footerInterviews.addEventListener("click", () => {
     goToInterviews();
+});
+
+//Logotyp
+logotyp.addEventListener("click", () => {
+    goToHome();
 });
 
