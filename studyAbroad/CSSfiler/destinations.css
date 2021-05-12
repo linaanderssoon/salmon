@@ -17,15 +17,22 @@
     box-sizing: border-box;
 }
 
+
 .citiesParent {
     height: 300px;
-    width:  calc(100% / 3);
+    width:  calc(100% / 3 - 20px);
     box-sizing: border-box;
 
-    padding: 20px;
+    margin-right: 27px;
+    margin-bottom: 27px;
 
     cursor: pointer;
 }
+
+.citiesParent:nth-child(3n){
+    margin: 0px;
+}
+
 
 .cityImage {
     background-color: var(--backgroundColorDark);
