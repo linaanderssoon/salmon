@@ -141,6 +141,27 @@ prev.addEventListener('click', () => {
   }
   track.style.transform = `translateX(-${index * carouselWidth}px)`;
 });
+
+// Header knapparna
+const headerButtonDestinations = document.querySelector(".headerButtonDestinations");
+const headerButtonProgrammes = document.querySelector(".headerButtonProgrammes");
+const intwPersLink = document.querySelectorAll(".smallIntw");
+
+
+
+headerButtonDestinations.addEventListener("click", () => {
+    goToDestinations();
+});
+
+headerButtonProgrammes.addEventListener("click", () => {
+    goToProgrammes();
+});
+
+intwPersLink.forEach(person => {
+  person.addEventListener("click", () => {
+    goToInterviews();
+  });
+})
    
 }
 

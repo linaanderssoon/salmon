@@ -9,18 +9,10 @@ const navDestinations = document.querySelector('.navDestinations');
 const navProgrammes = document.querySelector('.navProgrammes');
 const navInterviews = document.querySelector('.navInterviews');
 
-// Header knapparna
-const headerButtonDestinations = document.querySelector(".headerButtonDestinations");
-const headerButtonProgrammes = document.querySelector("headerButtonProgrammes");
-
 // Footer
 const footerProgramme = document.querySelector(".footerProgramme");
 const footerDestinations = document.querySelector(".footerDestinations");
 const footerInterviews = document.querySelector(".footerInterviews");
-
-// Intervju-bilderna på startsidan 
-const intwPersLink = document.querySelector(".smallIntw");
-
 
 
 
@@ -41,14 +33,6 @@ navInterviews.addEventListener('click', () => {
     goToInterviews();
 });
 
-//Header knappar
-headerButtonDestinations.addEventListener("click", () => {
-    goToDestinations();
-});
-headerButtonProgrammes.addEventListener("click", () => {
-    goToProgrammes();
-});
-
 // Footerlänk
 footerDestinations.addEventListener("click", () => {
     goToDestinations();
@@ -63,7 +47,3 @@ footerInterviews.addEventListener("click", () => {
 
 });
 
-// Små intervju-bilderna 
-intwPersLink.addEventListener("click", () => {
-    goToInterviews();
-});
