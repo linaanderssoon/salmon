@@ -122,6 +122,8 @@
 .card > * {
   flex: 1;
 }
+
+
 .card .img {
   display: flex;
   justify-content: center;
@@ -139,18 +141,25 @@
 .carouselInfo {
   position: relative;
   bottom: 80px;
-  left: 100px;
+  left: 115px;
   width: 200px;
   height: 40px;
-  background-color: whitesmoke;
+  background-color: var(--backgroundColorLight);
   display: flex;
   align-items: center;
   justify-content: center;
 
   font-family: var(--heading);
   font-size: 16px;
+  transition-duration: 1s;
 }
 
+.carouselInfo:hover {
+  cursor: pointer;
+  color: var(--backgroundColorLight);
+  background-color: var(--fontBold);
+  transition-duration: 1s;
+}
 
 #arrowImg1{
     background-image: url(ikoner/arrow_back.png);

@@ -119,14 +119,24 @@ footer > div {
 }
 
 .logotyp {
-    height: 60x;
-    width: 60px;
+    height: 65px;
+    width: 65px;
     padding: 10px 0px 0px 20px;
+    transition-duration: 2s;
 }
 
+
+
+
 .logotyp:hover {
+    transition-duration: 2s;
     cursor: pointer;
+    
 }
+
+
+
+
 
 .navRight {
     grid-column: 2;
