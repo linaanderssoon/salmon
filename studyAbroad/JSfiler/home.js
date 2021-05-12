@@ -101,13 +101,14 @@ function goToHome(){
       carouselContainer.innerHTML=`
       <div class="card">
       <img class="carouselImg" src="JSfiler/Images/${COUNTRIES[i].imagesNormal[1]}">
-      <h2 class="carouselInfo"> ${COUNTRIES[i].name}</h2> 
+      <h2 class="carouselInfo">${COUNTRIES[i].name}</h2> 
       </div>
       `;
   
       carouselTrack.append(carouselContainer);
     }
 
+    
 
 
 let prev  = document.querySelector('.prev');
@@ -145,8 +146,9 @@ prev.addEventListener('click', () => {
 // Header knapparna
 const headerButtonDestinations = document.querySelector(".headerButtonDestinations");
 const headerButtonProgrammes = document.querySelector(".headerButtonProgrammes");
-const intwPersLink = document.querySelectorAll(".smallIntw");
 
+// Intervju små cirklar
+const intwPersLink = document.querySelectorAll(".smallIntw");
 
 
 headerButtonDestinations.addEventListener("click", () => {
@@ -157,11 +159,17 @@ headerButtonProgrammes.addEventListener("click", () => {
     goToProgrammes();
 });
 
+
 intwPersLink.forEach(person => {
   person.addEventListener("click", () => {
     goToInterviews();
   });
-})
+});
+
+
+
+
+
    
 }
 
