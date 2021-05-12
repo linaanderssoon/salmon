@@ -85,11 +85,11 @@ function goToHome(){
         <br>detta utbyte och har inte
         <br>ångrat det en sekund."
       </p>
+    </div>
   </div>
-</div>
 
-<div class="longAd"></div>
-    `;
+  <div class="longAd"></div>
+  `;
 
 
     let carouselTrack = document.querySelector('.track');

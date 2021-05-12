@@ -21,9 +21,6 @@ const footerInterviews = document.querySelector(".footerInterviews");
 // Intervju-bilderna på startsidan 
 const intwPersLink = document.querySelector(".smallIntw");
 
-
-
-
 // Navlänk
 navHome.addEventListener('click', ()=> {
     goToHome();
