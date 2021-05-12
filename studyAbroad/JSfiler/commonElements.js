@@ -44,6 +44,5 @@ footerProgramme.addEventListener("click", () => {
 
 footerInterviews.addEventListener("click", () => {
     goToInterviews();
-
 });
 
