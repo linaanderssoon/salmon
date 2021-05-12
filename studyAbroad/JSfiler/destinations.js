@@ -87,8 +87,6 @@ function goToDestinations(country) {
         citiesWrapper.append(allCountriesDivs(i));
     }
 
-    let heightOfDiv = parseInt(getComputedStyle(citiesWrapper).getPropertyValue('height'));
-
 
     //Baserat på val
     function createDestinations(selectedCountry) {
@@ -127,7 +125,6 @@ function goToDestinations(country) {
 
      //VISA MER
      const showMore = document.querySelector('.showMore');
-     console.log(heightOfDiv);
  
         showMore.addEventListener('click', () => {
             counter = counter + 9;
