@@ -11,7 +11,7 @@ const navInterviews = document.querySelector('.navInterviews');
 
 // Header knapparna
 const headerButtonDestinations = document.querySelector(".headerButtonDestinations");
-const headerButtonProgrammes = document.querySelector("headerButtonProgrammes");
+const headerButtonProgrammes = document.querySelector(".headerButtonProgrammes");
 
 // Footer
 const footerProgramme = document.querySelector(".footerProgramme");
@@ -64,6 +64,10 @@ footerInterviews.addEventListener("click", () => {
 });
 
 // Små intervju-bilderna 
-intwPersLink.addEventListener("click", () => {
+headerButtonDestinations.addEventListener("click", () => {
+    goToInterviews();
+});
+
+headerButtonProgrammes.addEventListener("click", () => {
     goToInterviews();
 });
