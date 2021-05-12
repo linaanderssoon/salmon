@@ -166,6 +166,29 @@ function goToProgrammes() {
         selectUni.append(newOption);
     }
 
+    let programmesWrapper = document.querySelector('.programmesWrapper');
+
+    //ALLA PROGRAM SKA SYNAS NÖR MAN GÅR IN PÅ SIDAN//
+    PROGRAMMES.forEach(p => {
+        let programmeParent = document.createElement('div');
+        programmeParent.classList.add('progParent');
+
+        let uniName = UNIVERSITIES.find(u => u.id === p.universityID).name;
+        let progLevel = LEVELS[p.level];
+        let progLang = LANGUAGES.find(l => l.id === p.language).name;
+
+        programmeParent.innerHTML = `
+        <div class='progHeadning'> ${p.name}</div>
+        <div class='progUniversity'> <div class='location'> h</div> ${uniName}</div>
+        <div class='progLevel'>${progLevel}</div>
+        <div class='progLanguage'>${progLang}</div>
+        `;
+
+        programmesWrapper.append(programmeParent);
+    });
+
+
+    //SÖKFUNKTION//
     document.querySelector('.searchButton').addEventListener('click', () => {
         let city = selectCity.value;
         let uni = selectUni.value;
@@ -175,7 +198,6 @@ function goToProgrammes() {
         createProgrammes(city, uni, level, field);
     });
 
-    let programmesWrapper = document.querySelector('.programmesWrapper');
 
     function createProgrammes(city, uni, level, field){
         let cityID = CITIES.find(c => c.name === city).id;
@@ -186,16 +208,25 @@ function goToProgrammes() {
         let filteredProgrammes = PROGRAMMES.filter(prog => prog.universityID === uniID && prog.level === levelID && prog.subjectID === fieldID);
 
         console.log(filteredProgrammes);
-        let programmeParent = document.createElement('div');
-        programmeParent.classList.add('progParent');
-        programmeParent.innerHTML = `
-        <div class='progHeadning'></div>
-        <div class='progUniversity'></div>
-        <div class='progLevel'></div>
-        <div class='progLanguage'></div>
-        `;
 
-        programmesWrapper.append(programmeParent);
+        filteredProgrammes.forEach(p => {
+            let programmeParent = document.createElement('div');
+            programmeParent.classList.add('progParent');
+
+            let uniName = UNIVERSITIES.find(u => u.id === p.universityID).name;
+            let progLevel = LEVELS[p.level];
+            let progLang = LANGUAGES.find(l => l.id === p.language).name;
+
+            programmeParent.innerHTML = `
+            <div class='progHeadning'> ${p.name}</div>
+            <div class='progUniversity'>${uniName}</div>
+            <div class='progLevel'>${progLevel}</div>
+            <div class='progLanguage'>${progLang}</div>
+            `;
+    
+            programmesWrapper.append(programmeParent);
+        });
+
     }
 
 }
