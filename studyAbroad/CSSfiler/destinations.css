@@ -50,12 +50,16 @@
 
 .showMore {
     width: 100%;
-    font-size: 18px;
     cursor: pointer;
     
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.showMore > p {
+    font-family: var(--heading);
+    font-size: 16px;
 }
 
 .showMoreImg {

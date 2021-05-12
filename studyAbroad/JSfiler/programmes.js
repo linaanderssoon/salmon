@@ -2,7 +2,7 @@
 
 //SKAPAR WRAPPER FÖR DESTINATIONER OCH DESS INNEHÅLL
 function goToProgrammes() {  
-    scroll(0,0)
+    scroll(0,0);
 
     navProgrammes.classList.add('currentPage');
 

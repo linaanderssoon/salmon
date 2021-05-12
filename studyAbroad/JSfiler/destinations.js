@@ -16,13 +16,14 @@ function goToDestinations(country) {
     scroll(0,0)
     
     navDestinations.classList.add('currentPage');
-
     navInterviews.classList.remove('currentPage');
     navHome.classList.remove('currentPage');
     navProgrammes.classList.remove('currentPage');
     
+    //Töm nuvarande innehåll i wrapper
     wrapper.innerHTML = '';
 
+    //Skapa destinationer html innehåll i wrapper
     wrapper.innerHTML = `
     <div class="destHeader">
         <h1> Destinationer </h1>
@@ -52,7 +53,7 @@ function goToDestinations(country) {
 
     `;
 
-    let citiesWrapper = document.querySelector('.citiesWrapper');
+    const citiesWrapper = document.querySelector('.citiesWrapper');
 
     //SELECTION FIELD
     const selectCountries = document.getElementById('country');
@@ -73,16 +74,8 @@ function goToDestinations(country) {
         createDestinations(selectedCountry);
     });
 
-
-    //SKAPA DIVVAR MED STÄDER
-        //Alla länder ifyllt från start
-    // for(let i = 0; i < CITIES.length; i++) {
-    //     citiesWrapper.append(allCountriesDivs(i));
-    // }
-
-
+    //Skapa 9 divvar med städer från början 
     let counter = 9;
-
     for(let i = 0; i < counter; i++) {
         citiesWrapper.append(allCountriesDivs(i));
     }
@@ -92,12 +85,15 @@ function goToDestinations(country) {
     function createDestinations(selectedCountry) {
 
         if(selectedCountry === 'All countries') {
+            //"Nollställ" counter- så det bara är 9 som visas från början här med 
             counter = 9; 
 
+            //Gör så många divvar som det är nummer i counter
             for(let i = 0; i < counter; i++) {
                 citiesWrapper.append(allCountriesDivs(i));
             }
 
+            //Visa mer knappen ska finnas
             document.querySelector('.showMore').style.setProperty('display', 'flex');
 
             let AllParents = document.querySelectorAll('.citiesParent');
@@ -107,6 +103,7 @@ function goToDestinations(country) {
             let countryID = COUNTRIES.find(c => c.name === selectedCountry).id;
             let filterCities = CITIES.filter(c => c.countryID === countryID);
 
+            //Skapa så många divvar som det finns städer i valt land
             for(let i = 0; i < filterCities.length; i++) {
                 let citiesParent = document.createElement('div');
                 citiesParent.classList.add('citiesParent');
@@ -118,31 +115,31 @@ function goToDestinations(country) {
                 `;
             }
 
+            //Visa mer knappen ska inte finnas eftersom det aldrig är fler än 9 här
             document.querySelector('.showMore').style.setProperty('display', 'none');
             citiesWrapper.style.height = 'auto';
         }
     }
 
-     //VISA MER
-     const showMore = document.querySelector('.showMore');
- 
-        showMore.addEventListener('click', () => {
-            counter = counter + 9;
+    //VISA MER KNAPP
+    const showMore = document.querySelector('.showMore');
+    showMore.addEventListener('click', () => {
+        //Varje gång vi klickar på visa mer lägger vi till 9st i counter
+        counter = counter + 9;
 
-            citiesWrapper.innerHTML = '';
+        citiesWrapper.innerHTML = '';
             
-            for(let i = 0; i < counter; i++) {
-                if (i >= CITIES.length){
-                    document.querySelector('.showMore').style.setProperty('display', 'none');
-                    break;
-                };
+        for(let i = 0; i < counter; i++) {
+            //om countern är uppe i maxantal så sluta skapa divvar och ta bort knappen 
+            if (i >= CITIES.length){
+                document.querySelector('.showMore').style.setProperty('display', 'none');
+                break;
+            };
 
-                citiesWrapper.append(allCountriesDivs(i));
-            }
-        });
-
-     
- 
+            //Annars forstätt skapa divvar
+            citiesWrapper.append(allCountriesDivs(i));
+        }
+    });
 
     function allCountriesDivs(i) {
         let citiesParent = document.createElement('div');
