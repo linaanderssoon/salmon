@@ -29,8 +29,8 @@ function goToHome(){
                <br> upptäcka världen?</h1>
              <p>Här hittar du allt du behöver 
                <br> veta inför dina utlanddstudier</p>
-             <button>Destinationer</button>
-             <button>Program</button>
+             <button class="headerButtonDestinations">Destinationer</button>
+             <button class="headerButtonProgrammes">Program</button>
         </div>
     </div>
 
