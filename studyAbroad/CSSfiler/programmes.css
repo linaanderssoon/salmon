@@ -144,15 +144,15 @@
     margin-right: 10px;
 }
 .uniPic {
-    background-image: url(ikoner/location.png);
+    background-image: url(ikoner/iconLocation.png);
 }
 
 .levelPic {
-    background-image: url(ikoner/educationLevel.png);
+    background-image: url(ikoner/iconLevel.png);
 }
 
 .langPic {
-    background-image: url(ikoner/language.png);
+    background-image: url(ikoner/iconLanguage.png);
 }
 
 .infoParent {
@@ -166,4 +166,38 @@
     justify-content: center;
     color: var(--fontBold);
     font-family: var(--subHeading);
+}
+
+.innerIcon {
+    height: 20px;
+    width: 20px;
+    margin: 5px 10px 5px 0px;
+
+    background-position: center;
+    background-size: cover;
+}
+
+.iconLocation {
+    background-image: url(ikoner/iconLocation.png);
+}
+
+.iconLevel {
+    background-image: url(ikoner/iconLevel.png);
+}
+
+.iconLanguage {
+    background-image: url(ikoner/iconLanguage.png);
+}
+
+.iconEntry {
+    background-image: url(ikoner/iconEntry.png);
+}
+
+
+.iconClass {
+    background-image: url(ikoner/iconClass.png);
+}
+
+.iconInternationalStudents {
+    background-image: url(ikoner/iconInternationalStudents.png);
 }

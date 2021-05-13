@@ -276,32 +276,32 @@ function goToProgrammes() {
             <h2> ${p.name} </h2>
 
             <div class ='infoDivLeftInner' > 
-                <img class='innerIcon'> </img>
+                <div class='innerIcon iconLocation'> </div>
                 <h5> ${uniName} </h5>
             </div>
 
             <div class ='infoDivLeftInner' > 
-                <img class='innerIcon'> </img>
+                <div class='innerIcon iconLevel'> </div>
                 <h5> Nivå: ${progLevel} </h5>
             </div>
 
             <div class ='infoDivLeftInner' > 
-                <img class='innerIcon'> </img>
+                <div class='innerIcon iconLanguage'> </div>
                 <h5> Språk: ${progLang} </h5>
             </div>
 
             <div class ='infoDivLeftInner' > 
-                <img class='innerIcon'> </img>
+                <div class='innerIcon iconEntry'> </div>
                 <h5> Intagningspoäng: ${p.entryGrades} </h5>
             </div>
 
             <div class ='infoDivLeftInner' > 
-                <img class='innerIcon'> </img>
+                <div class='innerIcon iconClass'> </div>
                 <h5> Antal lokala studenter: ${p.localStudents} </h5>
             </div>
 
             <div class ='infoDivLeftInner' > 
-                <img class='innerIcon'> </img>
+                <div class='innerIcon iconInternationalStudents'> </div>
                 <h5> Antal utbytesstudent: ${p.exchangeStudents} </h5>
             </div>
         </div>

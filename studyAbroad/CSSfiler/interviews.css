@@ -40,9 +40,9 @@ h1 {
 }
 
 .interviewHeroImage {
-    height: 250px;
+    height: 300px;
     width: 100%;
-    background-image: url(ikoner/interviewHero.jpeg);
+    background-image: url(ikoner/interviewHeader.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

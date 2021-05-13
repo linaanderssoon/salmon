@@ -131,4 +131,31 @@
     text-decoration: underline;
 }
 
+.innerIcon {
+    height: 20px;
+    width: 20px;
+    margin: 5px;
 
+    background-position: center;
+    background-size: cover;
+}
+
+.iconVisum {
+    background-image: url(ikoner/iconVisum.png);
+}
+
+.iconLanguage {
+    background-image: url(ikoner/iconLanguage.png);
+}
+
+.iconBeer {
+    background-image: url(ikoner/iconBeer.png);
+}
+
+.iconSun {
+    background-image: url(ikoner/iconSun.png);
+}
+
+.iconLocation {
+    background-image: url(ikoner/iconLocation.png);
+}

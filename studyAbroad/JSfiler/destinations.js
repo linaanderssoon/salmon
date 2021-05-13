@@ -201,27 +201,27 @@ function goToDestinations(country) {
                 <h2> ${CITIES[i].name} </h2>
 
                 <div class="infoDivLeftInner">
-                    <img class="innerIcon" src="">
+                    <div class="innerIcon iconVisum" src=""></div>
                     <h5>Visum behövs: ${ternary}</h5>
                 </div>
 
                 <div class="infoDivLeftInner">
-                    <img class="innerIcon" src="">
+                    <div class="innerIcon iconLanguage" src=""></div>
                     <h5>Språk: ${language} </h5>
                 </div>
 
                 <div class="infoDivLeftInner">
-                    <img class="innerIcon" src="">
+                    <div class="innerIcon iconBeer" src=""></div>
                     <h5> ${findClubs.length} studentvänliga klubbar </h5>
                 </div>
 
                 <div class="infoDivLeftInner">
-                    <img class="innerIcon" src="">
+                    <div class="innerIcon iconSun" src=""></div>
                     <h5>${CITIES[i].sun} soldagar om året </h5>
                 </div>
 
                 <div class="infoDivLeftInner">
-                    <img class="innerIcon" src="">
+                    <div class="innerIcon iconLocation" src=""></div>
                     <div class="Unis"></div>
                 </div>
 
