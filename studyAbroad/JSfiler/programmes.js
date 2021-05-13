@@ -20,28 +20,28 @@ function goToProgrammes() {
     <div class="selectorsDiv">
         <div class="dropdown">
             <select name="" id="city">
-                <option id="selectItem"> Alla destinationer </option>
+                <option id="selectItem" value='Alla destinationer'> Alla destinationer </option>
             </select>
             <div id="arrow"></div>
         </div>
 
         <div class="dropdown">
         <select name="" id="university">
-            <option id="selectItem"> Alla universitet </option>
+            <option id="selectItem" value='Alla universitet'> Alla universitet </option>
         </select>
         <div id="arrow"></div>
         </div>
 
         <div class="dropdown">
         <select name="" id="level">
-            <option id="selectItem"> Alla nivåer </option>
+            <option id="selectItem" value='Alla nivåer'> Alla nivåer </option>
         </select>
         <div id="arrow"></div>
         </div>
 
         <div class="dropdown">
         <select name="" id="field">
-            <option id="selectItem"> Alla ämnen </option>
+            <option id="selectItem" value='Alla ämnen'> Alla ämnen </option>
         </select>
         <div id="arrow"></div>
         </div>
@@ -105,7 +105,7 @@ function goToProgrammes() {
 
     // NÄR NÅGOT MARKERAS I DESTINATIONS UPPDETERAS UNIVERSITETVALEN//
     selectCity.addEventListener('change', () => {
-        if (selectCity.value === 'All destinations'){
+        if (selectCity.value === 'Alla destinationer'){
             let currentUniOptions = document.querySelectorAll('#university > .selectItem');
             currentUniOptions.forEach(o => o.remove());
 
@@ -123,10 +123,8 @@ function goToProgrammes() {
 
     //NÄR ETT UNIVERSITET VÄLJS, VÄLJS OCKSÅ STADEN DET LIGGER I//
     selectUni.addEventListener('change', () => {
-        if (selectUni.value === 'All universities') {
-            selectCity.value === 'All destinations';
-
-
+        if (selectUni.value === 'Alla universitet') {
+            selectCity.value === 'Alla destinationer';
         } else {
             // Kolla i vilken stad det universitetet ligger
             let currentUni = selectUni.value;
@@ -158,12 +156,6 @@ function goToProgrammes() {
 
             selectUni.append(newOption);
         });
-
-        let newOption = document.createElement('option');
-        newOption.textContent = 'All universities';
-        newOption.classList.add('selectItem');
-
-        selectUni.append(newOption);
     }
 
     let programmesWrapper = document.querySelector('.programmesWrapper');
@@ -326,7 +318,6 @@ function goToProgrammes() {
         comments.forEach(c => {
             let commentParent = document.createElement('div');
             commentParent.classList.add('commentParent');
-
 
             let stars = document.createElement('div');
             stars.classList.add('stars');
