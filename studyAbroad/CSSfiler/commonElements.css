@@ -201,7 +201,7 @@ footer > div {
 }
 
 .infoDivDest {
-    width: 60%;
+    width: 50%;
     height: 400px;
     background-color: white;
     display: flex;
@@ -216,7 +216,6 @@ footer > div {
 }
 
 .infoDivLeft, .infoDivRight {
-    border: 1px solid black;
     width: 50%;
     height: 100%;
     padding: 15px;
