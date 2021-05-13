@@ -39,6 +39,7 @@
     height: 100%;
 
     position: relative;
+
     
 }
 
@@ -51,7 +52,16 @@
     padding-left: 10px;
     position: relative;
     bottom: 80px;
+
+    transition: 0.5s ease;
 }
+
+.citiesParent:hover .cityText {
+    color: var(--backgroundColorLight);
+    background-color: var(--fontBold);
+}
+
+
 
 .showMore {
     width: 100%;
