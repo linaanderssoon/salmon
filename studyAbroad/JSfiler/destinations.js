@@ -168,6 +168,8 @@ function goToDestinations(country) {
     
             let placementTop = e.target.y;
             infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
+            console.log(e.target);
+
         });
 
 

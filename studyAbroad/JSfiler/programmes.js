@@ -20,36 +20,34 @@ function goToProgrammes() {
     <div class="selectorsDiv">
         <div class="dropdown">
             <select name="" id="city">
-                <option id="selectItem"> All destinations </option>
+                <option id="selectItem"> Alla destinationer </option>
             </select>
             <div id="arrow"></div>
         </div>
 
         <div class="dropdown">
         <select name="" id="university">
-            <option id="selectItem"> All universities </option>
+            <option id="selectItem"> Alla universitet </option>
         </select>
         <div id="arrow"></div>
         </div>
 
         <div class="dropdown">
         <select name="" id="level">
-            <option id="selectItem"> All levels </option>
+            <option id="selectItem"> Alla nivåer </option>
         </select>
         <div id="arrow"></div>
         </div>
 
         <div class="dropdown">
         <select name="" id="field">
-            <option id="selectItem"> All fields </option>
+            <option id="selectItem"> Alla ämnen </option>
         </select>
         <div id="arrow"></div>
         </div>
 
         <button class='searchButton'> Sök </button>
         <button class='resetButton'> Rensa </button>
-
-
     </div>
 
     <div class="longAd"> </div>
@@ -251,9 +249,41 @@ function goToProgrammes() {
         <div class='langPic'></div>
         <div class='progLanguage'>${progLang}</div>
         </div> 
-
         `;
 
+        programmeParent.addEventListener('click', (e) => {
+            makeInfoDiv();
+            let infoDivDest = document.querySelector('.infoDivDest');
+    
+            let placementTop = e.target.y;
+            infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
+            console.log(e.target);
+        });
+
         return programmeParent;
+    }
+
+    function makeInfoDiv() {
+        let infoDivDestParent = document.createElement('div');
+        infoDivDestParent.classList.add('infoDivDestParent');
+        document.body.append(infoDivDestParent);
+
+        let bodyheight = getComputedStyle(document.body).getPropertyValue('height');
+        infoDivDestParent.style.setProperty('height', bodyheight);
+
+        let infoDivDest = document.createElement('div');
+        infoDivDest.classList.add('infoDivDest');
+        programmesWrapper.append(infoDivDest);
+
+        let closeInfoDiv = document.createElement('div');
+        closeInfoDiv.classList.add('closeInfoDiv');
+        infoDivDest.append(closeInfoDiv);
+
+        closeInfoDiv.addEventListener('click', () => {
+            infoDivDest.remove();
+            infoDivDestParent.remove();
+        });
+
+        return infoDivDestParent;
     }
 }

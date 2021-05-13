@@ -117,38 +117,3 @@
     font-size: 13px;
 }
 
-.infoDivDestParent {
-    background-color: var(--shadow);
-    opacity: 0.5;
-
-    width: 100vw;
-    height: 200vh;
-
-    position: absolute;
-    top: 80px;
-    left: 0;
-}
-
-.infoDivDest {
-    width: 60%;
-    height: 400px;
-    background-color: white;
-
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-
-    box-shadow: 0px 0px 10px black;
-
-    z-index: 99;
-}
-
-.closeInfoDiv {
-    height: 20px;
-    width: 20px;
-
-    background-color: black;
-    position: relative;
-    left: calc(100% - 25px);
-    top: 5px;
-}

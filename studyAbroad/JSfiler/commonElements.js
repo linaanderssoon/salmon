@@ -53,3 +53,5 @@ logotyp.addEventListener("click", () => {
     goToHome();
 });
 
+
+

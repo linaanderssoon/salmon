@@ -95,7 +95,7 @@
 }
 
 .progParent {
-    height: 300px;
+    height: 200px;
     width: calc(100% / 3 - 20px);
     box-sizing: border-box;
 
@@ -106,6 +106,8 @@
 
     cursor: pointer;
     box-shadow: 0px 0px 7px var(--shadow);
+
+    position: relative;
 }
 
 .progParent:nth-child(3n){
