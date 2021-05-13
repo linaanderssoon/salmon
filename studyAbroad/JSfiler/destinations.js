@@ -196,7 +196,6 @@ function goToDestinations(country) {
         let findLanguageID = COUNTRIES.find(l => l.id === findCountryID).languageID;
         let language = LANGUAGES.find(l => l.id === findLanguageID).name;
 
-
         infoDivDest.innerHTML = `
             <div class="infoDivLeft">
                 <h2> ${CITIES[i].name} </h2>
@@ -231,7 +230,7 @@ function goToDestinations(country) {
             </div>
 
             <div class="infoDivRight">
-            
+                <div class='scrollBox'> </div>
             </div>
         `
 
@@ -246,6 +245,45 @@ function goToDestinations(country) {
 
             document.querySelector('.Unis').append(goToUni);
 
+        });
+
+        let comments = COMMENTS_CITY.filter(c => c.cityID === i)
+
+        function average(array) {
+            return array.reduce((a, b) => a + b) / array.length;
+        }
+
+        comments.forEach(c => {
+
+            let commentParent = document.createElement('div');
+            commentParent.classList.add('commentParent');
+
+
+            let starsParent = document.createElement('div');
+            starsParent.classList.add('starsParent');
+
+            let starNumber = average([Math.round(c.stars.out, c.stars.food, c.stars.accomodation)]);
+
+            for (let i = 1; i <= starNumber; i++) {
+                let star = document.createElement('div');
+                star.classList.add('star');
+
+                starsParent.append(star);
+
+            }
+
+            let nameAge = document.createElement('div');
+            nameAge.classList.add('commentName');
+            nameAge.innerHTML = c.alias;
+
+            let text = document.createElement('div');
+            text.classList.add('commentText');
+            text.innerHTML = '"' + c.text + '"';
+
+
+            commentParent.append(starsParent, nameAge, text);
+            
+            document.querySelector('.scrollBox').append(commentParent);
         });
 
 
