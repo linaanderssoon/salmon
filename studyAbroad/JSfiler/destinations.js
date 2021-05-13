@@ -188,12 +188,55 @@ function goToDestinations(country) {
         infoDivDest.classList.add('infoDivDest');
         citiesWrapper.append(infoDivDest);
 
+        infoDivDest.innerHTML = `
+            <div class="infoDivLeft">
+                <h2> Stadnamn </h2>
+
+                <div class="infoDivLeftInner">
+                    <img class="innerIcon" src="">
+                    <h5>Visum behövs: </h5>
+                </div>
+
+                <div class="infoDivLeftInner">
+                    <img class="innerIcon" src="">
+                    <h5>Språk: </h5>
+                </div>
+
+                <div class="infoDivLeftInner">
+                    <img class="innerIcon" src="">
+                    <h5>__ studentvänliga klubbar </h5>
+                </div>
+
+                <div class="infoDivLeftInner">
+                    <img class="innerIcon" src="">
+                    <h5>___ soldagar om året </h5>
+                </div>
+
+                <div class="infoDivLeftInner">
+                    <img class="innerIcon" src="">
+                    <h5> Universitet x2 </h5>
+                </div>
+
+
+
+            </div>
+
+            <div class="infoDivRight">
+            
+            </div>
+        `
+
 
         let closeInfoDiv = document.createElement('div');
         closeInfoDiv.classList.add('closeInfoDiv');
         infoDivDest.append(closeInfoDiv);
 
         closeInfoDiv.addEventListener('click', () => {
+            infoDivDest.remove();
+            infoDivDestParent.remove();
+        });
+
+        infoDivDestParent.addEventListener('click', () => {
             infoDivDest.remove();
             infoDivDestParent.remove();
         });

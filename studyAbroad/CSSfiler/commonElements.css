@@ -21,6 +21,19 @@ h1 {
     font-family: var(--heading);
     font-size: 2.5rem;
     margin: 10px 0px;
+    font-weight: 700;
+
+}
+
+h2 {
+    color: var(--fontBold);
+    font-family: var(--heading);
+    font-weight: 500;
+}
+
+h5 {
+    font-family: var(--heading);
+    font-weight: 500;
 }
 
 p {
@@ -125,18 +138,11 @@ footer > div {
     transition-duration: 2s;
 }
 
-
-
-
 .logotyp:hover {
     transition-duration: 2s;
     cursor: pointer;
     
 }
-
-
-
-
 
 .navRight {
     grid-column: 2;
@@ -198,6 +204,7 @@ footer > div {
     width: 60%;
     height: 400px;
     background-color: white;
+    display: flex;
 
     position: absolute;
     left: 50%;
@@ -208,12 +215,31 @@ footer > div {
     z-index: 99;
 }
 
-.closeInfoDiv {
-    height: 20px;
-    width: 20px;
+.infoDivLeft, .infoDivRight {
+    border: 1px solid black;
+    width: 50%;
+    height: 100%;
+    padding: 15px;
 
-    background-color: black;
-    position: relative;
-    left: calc(100% - 25px);
+    box-sizing: border-box;
+}
+
+
+.infoDivLeftInner {
+    height: 50px;
+    display: flex;
+}
+
+.closeInfoDiv {
+    height: 30px;
+    width: 30px;
+
+    position: absolute;
+    left: calc(100% - 30px);
     top: 5px;
+    cursor: pointer;
+
+    background-image: url(ikoner/close_logo.png);
+    background-position: center;
+    background-size: contain;
 }
