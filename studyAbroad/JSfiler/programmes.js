@@ -358,6 +358,11 @@ function goToProgrammes() {
             infoDivDestParent.remove();
         });
 
+        infoDivDestParent.addEventListener('click', () => {
+            infoDivDest.remove();
+            infoDivDestParent.remove();
+        });
+
         return infoDivDestParent;
     }
 }
