@@ -80,6 +80,26 @@ function goToDestinations(country) {
         citiesWrapper.append(allCountriesDivs(i));
     }
 
+    //VISA MER KNAPP
+    const showMore = document.querySelector('.showMore');
+    showMore.addEventListener('click', () => {
+        //Varje gång vi klickar på visa mer lägger vi till 9st i counter
+        counter = counter + 9;
+
+        citiesWrapper.innerHTML = '';
+            
+        for(let i = 0; i < counter; i++) {
+            //om countern är uppe i maxantal så sluta skapa divvar och ta bort knappen 
+            if (i >= CITIES.length){
+                document.querySelector('.showMore').style.setProperty('display', 'none');
+                break;
+            };
+
+            //Annars forstätt skapa divvar
+            citiesWrapper.append(allCountriesDivs(i));
+        }
+    });
+
 
     //Baserat på val
     function createDestinations(selectedCountry) {
@@ -95,9 +115,6 @@ function goToDestinations(country) {
 
             //Visa mer knappen ska finnas
             document.querySelector('.showMore').style.setProperty('display', 'flex');
-
-            let AllParents = document.querySelectorAll('.citiesParent');
-            console.log(AllParents.length);
 
         } else {
             let countryID = COUNTRIES.find(c => c.name === selectedCountry).id;
@@ -127,29 +144,8 @@ function goToDestinations(country) {
 
             //Visa mer knappen ska inte finnas eftersom det aldrig är fler än 9 här
             document.querySelector('.showMore').style.setProperty('display', 'none');
-            citiesWrapper.style.height = 'auto';
         }
     }
-
-    //VISA MER KNAPP
-    const showMore = document.querySelector('.showMore');
-    showMore.addEventListener('click', () => {
-        //Varje gång vi klickar på visa mer lägger vi till 9st i counter
-        counter = counter + 9;
-
-        citiesWrapper.innerHTML = '';
-            
-        for(let i = 0; i < counter; i++) {
-            //om countern är uppe i maxantal så sluta skapa divvar och ta bort knappen 
-            if (i >= CITIES.length){
-                document.querySelector('.showMore').style.setProperty('display', 'none');
-                break;
-            };
-
-            //Annars forstätt skapa divvar
-            citiesWrapper.append(allCountriesDivs(i));
-        }
-    });
 
     function allCountriesDivs(i) {
         let citiesParent = document.createElement('div');
@@ -163,7 +159,7 @@ function goToDestinations(country) {
 
     
         citiesParent.addEventListener('click', (e) => {
-            makeInfoDiv()
+            makeInfoDiv(i)
             let infoDivDest = document.querySelector('.infoDivDest');
     
             let placementTop = e.target.y;
@@ -176,7 +172,7 @@ function goToDestinations(country) {
         return citiesParent;
     }
 
-    function makeInfoDiv() {
+    function makeInfoDiv(i) {
         let infoDivDestParent = document.createElement('div');
         infoDivDestParent.classList.add('infoDivDestParent');
         document.body.append(infoDivDestParent);
@@ -188,33 +184,46 @@ function goToDestinations(country) {
         infoDivDest.classList.add('infoDivDest');
         citiesWrapper.append(infoDivDest);
 
+        //Hitta visum och ändra så true = ja och false = nej
+        let findVisaBoolean= COUNTRIES.find(c => c.id === i).visa;
+        let ternary = (findVisaBoolean === true) ? 'Ja' : 'Nej';
+
+        //Hitta klubbar (sen skrivs längden alltså antalet in i boxen)
+        let findClubs= ENTERTAINMENT_PLACES.filter(c => c.cityID === i);
+
+        //Hitta vilket språk som talas i landet staden ligger i
+        let findCountryID = CITIES.find(c => c.id === i).countryID;
+        let findLanguageID = COUNTRIES.find(l => l.id === findCountryID).languageID;
+        let language = LANGUAGES.find(l => l.id === findLanguageID).name;
+
+
         infoDivDest.innerHTML = `
             <div class="infoDivLeft">
-                <h2> Stadnamn </h2>
+                <h2> ${CITIES[i].name} </h2>
 
                 <div class="infoDivLeftInner">
                     <img class="innerIcon" src="">
-                    <h5>Visum behövs: </h5>
+                    <h5>Visum behövs: ${ternary}</h5>
                 </div>
 
                 <div class="infoDivLeftInner">
                     <img class="innerIcon" src="">
-                    <h5>Språk: </h5>
+                    <h5>Språk: ${language} </h5>
                 </div>
 
                 <div class="infoDivLeftInner">
                     <img class="innerIcon" src="">
-                    <h5>__ studentvänliga klubbar </h5>
+                    <h5> ${findClubs.length} studentvänliga klubbar </h5>
                 </div>
 
                 <div class="infoDivLeftInner">
                     <img class="innerIcon" src="">
-                    <h5>___ soldagar om året </h5>
+                    <h5>${CITIES[i].sun} soldagar om året </h5>
                 </div>
 
                 <div class="infoDivLeftInner">
                     <img class="innerIcon" src="">
-                    <h5> Universitet x2 </h5>
+                    <div class="Unis"></div>
                 </div>
 
 
@@ -225,6 +234,19 @@ function goToDestinations(country) {
             
             </div>
         `
+
+
+        //Universitet som ligger i staden
+        let findUni = UNIVERSITIES.filter(u => u.cityID === i);
+
+        findUni.forEach(u => {
+            let goToUni = document.createElement('h5');
+            goToUni.classList.add('goToUni');
+            goToUni.innerHTML = u.name;
+
+            document.querySelector('.Unis').append(goToUni);
+
+        });
 
 
         let closeInfoDiv = document.createElement('div');
