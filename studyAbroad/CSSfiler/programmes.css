@@ -167,3 +167,34 @@
     color: var(--fontBold);
     font-family: var(--subHeading);
 }
+
+
+.commentParent {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 7px;
+}
+
+.commentName {
+    font-family: var(--subHeading);
+    color: var(--fontDark);
+    font-size: 16px;
+}
+.commentText {
+    font-family: var(--bodyText);
+    color: var(--fontDark);
+    font-size: 12px;
+}
+
+.starsParent {
+    display: flex;
+}
+
+.star {
+    height: 15px;
+    width: 15px;
+    background-image: url(ikoner/star.svg);
+    background-position: center;
+    background-size: cover;
+    fill: #ffd700;
+}
