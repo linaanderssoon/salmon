@@ -218,10 +218,16 @@ function goToProgrammes() {
 
         console.log(filteredProgrammes);
 
-        filteredProgrammes.forEach(p => {    
-            programmesWrapper.append(createProgDivs(p));
-        });
-
+        if (filteredProgrammes.length == 0) {
+            let error = document.createElement('div');
+            error.classList.add('error');
+            error.textContent = 'Det finns tyvärr inga program som matchar din sökning :('
+            programmesWrapper.append(error);
+        } else {
+            filteredProgrammes.forEach(p => {    
+                programmesWrapper.append(createProgDivs(p));
+            });
+        }
     }
 
     function createProgDivs(p) {
@@ -252,7 +258,7 @@ function goToProgrammes() {
         `;
 
         programmeParent.addEventListener('click', (e) => {
-            makeInfoDiv();
+            makeInfoDiv(p, uniName, progLevel, progLang);
             let infoDivDest = document.querySelector('.infoDivDest');
     
             let placementTop = e.target.y;
@@ -263,7 +269,7 @@ function goToProgrammes() {
         return programmeParent;
     }
 
-    function makeInfoDiv() {
+    function makeInfoDiv(p, uniName, progLevel, progLang) {
         let infoDivDestParent = document.createElement('div');
         infoDivDestParent.classList.add('infoDivDestParent');
         document.body.append(infoDivDestParent);
@@ -273,6 +279,45 @@ function goToProgrammes() {
 
         let infoDivDest = document.createElement('div');
         infoDivDest.classList.add('infoDivDest');
+        infoDivDest.innerHTML = `
+        <div class='infoDivLeft'> 
+            <h2> ${p.name} </h2>
+
+            <div class ='infoDivLeftInner' > 
+                <img class='innerIcon'> </img>
+                <h5> ${uniName} </h5>
+            </div>
+
+            <div class ='infoDivLeftInner' > 
+                <img class='innerIcon'> </img>
+                <h5> Nivå: ${progLevel} </h5>
+            </div>
+
+            <div class ='infoDivLeftInner' > 
+                <img class='innerIcon'> </img>
+                <h5> Språk: ${progLang} </h5>
+            </div>
+
+            <div class ='infoDivLeftInner' > 
+                <img class='innerIcon'> </img>
+                <h5> Intagningspoäng, medelvärde: ${p.entryGrades} </h5>
+            </div>
+
+            <div class ='infoDivLeftInner' > 
+                <img class='innerIcon'> </img>
+                <h5> Antal lokala studenter: ${p.localStudents} </h5>
+            </div>
+
+            <div class ='infoDivLeftInner' > 
+                <img class='innerIcon'> </img>
+                <h5> Antal utbytesstudent: ${p.exchangeStudents} </h5>
+            </div>
+        </div>
+
+        <div class='infoDivRight'> 
+        </div>
+        `;
+
         programmesWrapper.append(infoDivDest);
 
         let closeInfoDiv = document.createElement('div');

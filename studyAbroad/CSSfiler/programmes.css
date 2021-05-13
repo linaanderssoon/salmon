@@ -160,4 +160,11 @@
     margin: 5px;
 }
 
+.error {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: var(--fontBold);
+    font-family: var(--subHeading);
+}
 
