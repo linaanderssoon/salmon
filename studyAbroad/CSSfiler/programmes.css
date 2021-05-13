@@ -168,3 +168,20 @@
     font-family: var(--subHeading);
 }
 
+
+.commentParent {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 7px;
+}
+
+.commentName {
+    font-family: var(--subHeading);
+    color: var(--fontDark);
+    font-size: 16px;
+}
+.commentText {
+    font-family: var(--bodyText);
+    color: var(--fontDark);
+    font-size: 12px;
+}

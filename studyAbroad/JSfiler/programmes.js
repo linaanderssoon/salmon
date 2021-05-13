@@ -300,7 +300,7 @@ function goToProgrammes() {
 
             <div class ='infoDivLeftInner' > 
                 <img class='innerIcon'> </img>
-                <h5> Intagningspoäng, medelvärde: ${p.entryGrades} </h5>
+                <h5> Intagningspoäng: ${p.entryGrades} </h5>
             </div>
 
             <div class ='infoDivLeftInner' > 
@@ -315,10 +315,38 @@ function goToProgrammes() {
         </div>
 
         <div class='infoDivRight'> 
+            <div class='scrollBox'> </div>
         </div>
         `;
 
         programmesWrapper.append(infoDivDest);
+
+        let comments = COMMENTS_PROGRAMME.filter(c => c.programmeID === p.id)
+
+        comments.forEach(c => {
+            let commentParent = document.createElement('div');
+            commentParent.classList.add('commentParent');
+
+
+            let stars = document.createElement('div');
+            stars.classList.add('stars');
+            stars.innerHTML = c.stars.courses;
+
+            let nameAge = document.createElement('div');
+            nameAge.classList.add('commentName');
+            nameAge.innerHTML = c.alias;
+
+            let text = document.createElement('div');
+            text.classList.add('commentText');
+            text.innerHTML = '"' + c.text + '"';
+
+
+            commentParent.append(stars, nameAge, text);
+            
+
+            document.querySelector('.scrollBox').append(commentParent);
+        });
+        
 
         let closeInfoDiv = document.createElement('div');
         closeInfoDiv.classList.add('closeInfoDiv');

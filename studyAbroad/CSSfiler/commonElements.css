@@ -224,10 +224,23 @@ footer > div {
     box-sizing: border-box;
 }
 
+.infoDivRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scrollBox {
+    background-color: var(--backgroundColorDark);
+    height: 90%;
+    width: 90%;
+    overflow-y: scroll;
+    padding: 10px;
+}
 
 .infoDivLeftInner {
-    height: 50px;
     display: flex;
+    height: 30px;
 }
 
 .closeInfoDiv {
@@ -242,4 +255,12 @@ footer > div {
     background-image: url(ikoner/close_logo.png);
     background-position: center;
     background-size: contain;
+}
+
+h5 {
+    margin: 5px 0px;
+}
+
+h2 {
+    margin-top: 0px;
 }
