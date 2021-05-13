@@ -259,9 +259,18 @@ function goToDestinations(country) {
             commentParent.classList.add('commentParent');
 
 
-            let stars = document.createElement('div');
-            stars.classList.add('stars');
-            stars.innerHTML = average([Math.round(c.stars.out, c.stars.food, c.stars.accomodation)]);
+            let starsParent = document.createElement('div');
+            starsParent.classList.add('starsParent');
+
+            let starNumber = average([Math.round(c.stars.out, c.stars.food, c.stars.accomodation)]);
+
+            for (let i = 1; i <= starNumber; i++) {
+                let star = document.createElement('div');
+                star.classList.add('star');
+
+                starsParent.append(star);
+
+            }
 
             let nameAge = document.createElement('div');
             nameAge.classList.add('commentName');
@@ -272,7 +281,7 @@ function goToDestinations(country) {
             text.innerHTML = '"' + c.text + '"';
 
 
-            commentParent.append(stars, nameAge, text);
+            commentParent.append(starsParent, nameAge, text);
             
             document.querySelector('.scrollBox').append(commentParent);
         });
