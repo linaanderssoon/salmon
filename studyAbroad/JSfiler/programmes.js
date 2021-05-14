@@ -376,9 +376,9 @@ function goToProgrammes() {
             let infoDivDest = document.querySelector('.infoDivDest');
             console.log(e.clientY);
     
-            let placementTop = e.clientY;
-            console.log(e);
-            infoDivDest.style.setProperty('top', `${placementTop}px`);
+            let placementTop = e.currentTarget.offsetTop;
+            infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
+
         });
 
         return programmeParent;
