@@ -66,7 +66,7 @@ function goToDestinations(country) {
         selectCountries.append(newOption);
     });
     
-
+    let counter = 9;
 
     //ON CHANGE- BYT INNEHÅLLET I WRAPPERN TILL VAL
     selectCountries.addEventListener('change', () => {
@@ -83,12 +83,10 @@ function goToDestinations(country) {
     }
 
      else  {
-
-
-    //Skapa 9 divvar med städer från början 
-    let counter = 9;
-    for(let i = 0; i < counter; i++) {
-        citiesWrapper.append(allCountriesDivs(i));
+        //Skapa 9 divvar med städer från början 
+        let counter = 9;
+        for(let i = 0; i < counter; i++) {
+            citiesWrapper.append(allCountriesDivs(i));
     };}
 
     //VISA MER KNAPP
