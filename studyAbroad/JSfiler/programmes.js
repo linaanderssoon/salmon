@@ -201,24 +201,71 @@ function goToProgrammes() {
 
 
     function createProgrammes(city, uni, level, field){
-        // let cityID = CITIES.find(c => c.name === city).id;
-        let uniID = UNIVERSITIES.find(u => u.name === uni).id;
-        let levelID = LEVELS.indexOf(level);
-        let fieldID = FIELDS.find(f => f.name === field).id;
+        if(field === 'Alla ämnen') {
+            let uniID = UNIVERSITIES.find(u => u.name === uni).id;
+            let levelID = LEVELS.indexOf(level);
 
-        let filteredProgrammes = PROGRAMMES.filter(prog => prog.universityID === uniID && prog.level === levelID && prog.subjectID === fieldID);
-
-        console.log(filteredProgrammes);
-
-        if (filteredProgrammes.length == 0) {
-            let error = document.createElement('div');
-            error.classList.add('error');
-            error.textContent = 'Det finns tyvärr inga program som matchar din sökning :('
-            programmesWrapper.append(error);
-        } else {
-            filteredProgrammes.forEach(p => {    
+            let filtered = PROGRAMMES.filter(prog => prog.universityID === uniID && prog.level === levelID);
+            filtered.forEach(p => {
                 programmesWrapper.append(createProgDivs(p));
             });
+
+            underNine(filtered);
+            noMatches(filtered)
+
+        } else if(level === 'Alla nivåer') {
+            let fieldID = FIELDS.find(f => f.name === field).id;
+            let uniID = UNIVERSITIES.find(u => u.name === uni).id;
+
+            let filtered = PROGRAMMES.filter(prog => prog.universityID === uniID && prog.subjectID === fieldID);
+            filtered.forEach(p => {
+                programmesWrapper.append(createProgDivs(p));
+            });
+
+            underNine(filtered);
+            noMatches(filtered)
+
+        } else if(uni === 'Alla universitet') {
+            let fieldID = FIELDS.find(f => f.name === field).id;
+            let levelID = LEVELS.indexOf(level);
+            let cityID = CITIES.find(c => c.name === city).id;
+
+            let filtered = PROGRAMMES.filter(prog => prog.level === levelID && prog.subjectID === fieldID && UNIVERSITIES.find(u => u.id === prog.universityID).cityID === cityID);
+            filtered.forEach(p => {
+                programmesWrapper.append(createProgDivs(p));
+            });
+
+            underNine(filtered);
+            noMatches(filtered)
+
+        } else {
+            let uniID = UNIVERSITIES.find(u => u.name === uni).id;
+            let levelID = LEVELS.indexOf(level);
+            let fieldID = FIELDS.find(f => f.name === field).id;
+
+            let filtered = PROGRAMMES.filter(prog => prog.universityID === uniID && prog.level === levelID && prog.subjectID === fieldID);
+
+            filtered.forEach(p => {    
+            programmesWrapper.append(createProgDivs(p));
+            });
+
+            underNine(filtered);
+            noMatches(filtered)
+        }
+
+        function underNine(filter) {
+            if(filter.length <= 9) {
+                document.querySelector('.showMore').style.setProperty('display', 'none');
+            }
+        }
+
+        function noMatches(filter) {
+            if(filter.length == 0) {
+                let error = document.createElement('div');
+                error.classList.add('error');
+                error.textContent = 'Det finns tyvärr inga program som matchar din sökning :('
+                programmesWrapper.append(error);
+            } 
         }
     }
 
@@ -331,7 +378,6 @@ function goToProgrammes() {
                 starsParent.append(star);
 
             }
-            // stars.innerHTML = c.stars.courses;
 
             let nameAge = document.createElement('div');
             nameAge.classList.add('commentName');
@@ -341,10 +387,8 @@ function goToProgrammes() {
             text.classList.add('commentText');
             text.innerHTML = '"' + c.text + '"';
 
-
             commentParent.append(starsParent, nameAge, text);
             
-
             document.querySelector('.scrollBox').append(commentParent);
         });
         
