@@ -85,9 +85,8 @@ function goToDestinations(country) {
     showMore.addEventListener('click', () => {
         //Varje gång vi klickar på visa mer lägger vi till 9st i counter
         counter = counter + 9;
-
         citiesWrapper.innerHTML = '';
-            
+
         for(let i = 0; i < counter; i++) {
             //om countern är uppe i maxantal så sluta skapa divvar och ta bort knappen 
             if (i >= CITIES.length){
@@ -132,12 +131,10 @@ function goToDestinations(country) {
                 `;
 
                 citiesParent.addEventListener('click', (e) => {
-                    makeInfoDiv(i);
+                    makeInfoDiv(filterCities[i]);
                     let infoDivDest = document.querySelector('.infoDivDest');
             
-                    let placementTop = e.target.y;
-                    console.log(e.target);
-            
+                    let placementTop = e.target.y;            
                     infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
                 });
             }
@@ -164,8 +161,6 @@ function goToDestinations(country) {
     
             let placementTop = e.target.y;
             infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
-            console.log(e.target);
-
         });
 
 
