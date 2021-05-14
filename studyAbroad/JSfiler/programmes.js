@@ -483,6 +483,12 @@ function goToProgrammes() {
             infoDivDestParent.remove();
         });
 
+        document.querySelector('.nav').addEventListener('click', () => {
+            infoDivDest.remove();
+            infoDivDestParent.remove();
+        });
+
+
         return infoDivDestParent;
     }
 }
