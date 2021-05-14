@@ -18,7 +18,7 @@ function goToInterviews() {
     wrapper.innerHTML = `
     <h1> Intervjuer </h1>
     <div class='interviewHeroImage' > </div>
-    <p class='interviewText'> Här kan du läsa intervjuer med studenter som åkt på utbytesår/termin tidigare år </p>
+    <p class='interviewText'> Här kan du läsa intervjuer med studenter som åkt på utbytesår/termin tidigare år!</p>
 
     <div class='longAd' > </div>
 
