@@ -82,13 +82,14 @@ function goToDestinations(country) {
         selectCountries.dispatchEvent(event);
     }
 
-    /* else */
+     else  {
+
 
     //Skapa 9 divvar med städer från början 
     let counter = 9;
     for(let i = 0; i < counter; i++) {
         citiesWrapper.append(allCountriesDivs(i));
-    };
+    };}
 
     //VISA MER KNAPP
     const showMore = document.querySelector('.showMore');
