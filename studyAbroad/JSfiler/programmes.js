@@ -201,7 +201,80 @@ function goToProgrammes() {
 
 
     function createProgrammes(city, uni, level, field){
-        if(field === 'Alla ämnen') {
+        if (city === 'Alla destinationer' && uni === 'Alla universitet' && level === 'Alla nivåer' && field === 'Alla ämnen') {
+            for(let i = 0; i < counter; i++) {
+                programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
+            }
+
+        } else if (uni === 'Alla universitet' && level === 'Alla nivåer' && field === 'Alla ämnen') {
+            let cityID = CITIES.find(c => c.name === city).id;
+
+            let filtered = PROGRAMMES.filter(prog => UNIVERSITIES.find(u => u.id === prog.universityID).cityID === cityID);
+            filtered.forEach(p => {
+                programmesWrapper.append(createProgDivs(p));
+            });
+
+            underNine(filtered);
+            noMatches(filtered);
+        } else if (city === 'Alla destinationer' && uni === 'Alla universitet' && field === 'Alla ämnen') {
+            let levelID = LEVELS.indexOf(level);
+
+            let filtered = PROGRAMMES.filter(prog => prog.level === levelID);
+            filtered.forEach(p => {
+                programmesWrapper.append(createProgDivs(p));
+            });
+
+            underNine(filtered);
+            noMatches(filtered);
+
+        } else if (city === 'Alla destinationer' && uni === 'Alla universitet' && level === 'Alla nivåer') {
+            let fieldID = FIELDS.find(f => f.name === field).id;
+
+            let filtered = PROGRAMMES.filter(prog => prog.subjectID === fieldID);
+            filtered.forEach(p => {
+                programmesWrapper.append(createProgDivs(p));
+            });
+
+            underNine(filtered);
+            noMatches(filtered);
+
+        } else if (field === 'Alla ämnen' && level === 'Alla nivåer') {
+            let uniID = UNIVERSITIES.find(u => u.name === uni).id;
+            let cityID = CITIES.find(c => c.name === city).id;
+
+            let filtered = PROGRAMMES.filter(prog => prog.universityID === uniID && UNIVERSITIES.find(u => u.id === prog.universityID).cityID === cityID);
+            filtered.forEach(p => {
+                programmesWrapper.append(createProgDivs(p));
+            });
+
+            underNine(filtered);
+            noMatches(filtered);
+
+        } else if (uni === 'Alla universitet' && level === 'Alla nivåer') {
+            let fieldID = FIELDS.find(f => f.name === field).id;
+            let cityID = CITIES.find(c => c.name === city).id;
+
+            let filtered = PROGRAMMES.filter(prog => prog.subjectID === fieldID && UNIVERSITIES.find(u => u.id === prog.universityID).cityID === cityID);
+            filtered.forEach(p => {
+                programmesWrapper.append(createProgDivs(p));
+            });
+
+            underNine(filtered);
+            noMatches(filtered);
+
+        } else if (city === 'Alla destinationer' && uni === 'Alla universitet') {
+            let fieldID = FIELDS.find(f => f.name === field).id;
+            let levelID = LEVELS.indexOf(level);
+
+            let filtered = PROGRAMMES.filter(prog => prog.subjectID === fieldID && prog.level === levelID);
+            filtered.forEach(p => {
+                programmesWrapper.append(createProgDivs(p));
+            });
+
+            underNine(filtered);
+            noMatches(filtered);
+
+        } else if(field === 'Alla ämnen') {
             let uniID = UNIVERSITIES.find(u => u.name === uni).id;
             let levelID = LEVELS.indexOf(level);
 
@@ -211,7 +284,7 @@ function goToProgrammes() {
             });
 
             underNine(filtered);
-            noMatches(filtered)
+            noMatches(filtered);
 
         } else if(level === 'Alla nivåer') {
             let fieldID = FIELDS.find(f => f.name === field).id;
@@ -256,6 +329,8 @@ function goToProgrammes() {
         function underNine(filter) {
             if(filter.length <= 9) {
                 document.querySelector('.showMore').style.setProperty('display', 'none');
+            } else {
+                document.querySelector('.showMore').style.setProperty('display', 'block');
             }
         }
 
