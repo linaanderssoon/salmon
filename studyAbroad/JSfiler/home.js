@@ -5,20 +5,21 @@ goToHome();
 navHome.classList.add('currentPage');
 
 
-
 function goToHome(){
   //Hamna högst upp på sidan
   scroll(0,0)  
 
-  wrapper.innerHTML = '';
+  //Töm nuvarande innehåll i wrapper
+  wrapper.innerHTML = "";
 
+  //Byt klasser i nav
   navHome.classList.add('currentPage');
 
   navInterviews.classList.remove('currentPage');
   navDestinations.classList.remove('currentPage');
   navProgrammes.classList.remove('currentPage');
 
-  
+  //Fyll wrapper
   wrapper.innerHTML = `
     <div class="homeHeader">
           <div class="homeHeaderRight">
@@ -94,6 +95,7 @@ function goToHome(){
 
     let carouselTrack = document.querySelector('.track');
     
+    //Så många bilder/divvar som det finns länder i databasen
     for(let i = 0; i < COUNTRIES.length; i++){
       let carouselContainer = document.createElement("div");
       carouselContainer.classList.add("card-container");
@@ -108,7 +110,20 @@ function goToHome(){
       carouselTrack.append(carouselContainer);
     }
 
-    
+let carouselInfo = document.querySelectorAll(".carouselInfo");
+
+carouselInfo.forEach(c => {
+  c.addEventListener("click", () => 
+  goToDestinations());
+});
+
+/*
+onclick=`selected_country=${COUNTRIES[i].name}`;
+
+if (selected_country === null) { 
+
+}
+*/
 
 
 let prev  = document.querySelector('.prev');
@@ -124,6 +139,7 @@ window.addEventListener('resize', () => {
 
 let index = 0;
 
+//Nästa-knappen
 next.addEventListener('click', () => {
   index++;
   prev.classList.add('show');
@@ -134,6 +150,7 @@ next.addEventListener('click', () => {
   }
 })
 
+//Tillbaka knappen
 prev.addEventListener('click', () => {
   index--;
   next.classList.remove('hide');
@@ -143,23 +160,22 @@ prev.addEventListener('click', () => {
   track.style.transform = `translateX(-${index * carouselWidth}px)`;
 });
 
-// Header knapparna
+// eader knapparna
 const headerButtonDestinations = document.querySelector(".headerButtonDestinations");
 const headerButtonProgrammes = document.querySelector(".headerButtonProgrammes");
 
-// Intervju små cirklar
+// ntervju små cirklar
 const intwPersLink = document.querySelectorAll(".smallIntw");
 
-
+//Header
 headerButtonDestinations.addEventListener("click", () => {
     goToDestinations();
 });
-
 headerButtonProgrammes.addEventListener("click", () => {
     goToProgrammes();
 });
 
-
+//Hamna på intervjusidan när man klickar på intervju-cirklarna
 intwPersLink.forEach(person => {
   person.addEventListener("click", () => {
     goToInterviews();
@@ -169,8 +185,6 @@ intwPersLink.forEach(person => {
 
    
 }
-
-
 
 
 
