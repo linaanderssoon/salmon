@@ -78,7 +78,7 @@ function goToDestinations(country) {
     let counter = 9;
     for(let i = 0; i < counter; i++) {
         citiesWrapper.append(allCountriesDivs(i));
-    }
+    };
 
     //VISA MER KNAPP
     const showMore = document.querySelector('.showMore');
@@ -132,7 +132,7 @@ function goToDestinations(country) {
                 `;
 
                 citiesParent.addEventListener('click', (e) => {
-                    makeInfoDiv()
+                    makeInfoDiv(i);
                     let infoDivDest = document.querySelector('.infoDivDest');
             
                     let placementTop = e.target.y;
