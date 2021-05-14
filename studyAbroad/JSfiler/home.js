@@ -106,16 +106,27 @@ function goToHome(){
       <h2 class="carouselInfo">${COUNTRIES[i].name}</h2> 
       </div>
       `;
-  
+      carouselContainer.querySelector("h2").addEventListener("click", ()=> {
+        goToDestinations(`${COUNTRIES[i].name}`);
+      });
       carouselTrack.append(carouselContainer);
     }
-
+/*
 let carouselInfo = document.querySelectorAll(".carouselInfo");
 
 carouselInfo.forEach(c => {
   c.addEventListener("click", () => 
+  
   goToDestinations());
-});
+});*/
+
+
+
+
+
+
+
+
 
 /*
 onclick=`selected_country=${COUNTRIES[i].name}`;
@@ -123,12 +134,17 @@ onclick=`selected_country=${COUNTRIES[i].name}`;
 if (selected_country === null) { 
 
 }
-*/
 
+if (selectCountries.value === 'All countries') {
+  selectCountries.value === 'All countries';
+} else {
+  
+  ONCHANGE I SELECTORN
+}
+*/
 
 let prev  = document.querySelector('.prev');
 let next = document.querySelector('.next');
-
 let track = document.querySelector('.track');
 
 let carouselWidth = document.querySelector('.carousel-container').offsetWidth;

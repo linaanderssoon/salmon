@@ -66,6 +66,8 @@ function goToDestinations(country) {
         selectCountries.append(newOption);
     });
     
+    let counter = 9;
+
     //ON CHANGE- BYT INNEHÅLLET I WRAPPERN TILL VAL
     selectCountries.addEventListener('change', () => {
         let selectedCountry = selectCountries.value;
@@ -74,11 +76,18 @@ function goToDestinations(country) {
         createDestinations(selectedCountry);
     });
 
-    //Skapa 9 divvar med städer från början 
-    let counter = 9;
-    for(let i = 0; i < counter; i++) {
-        citiesWrapper.append(allCountriesDivs(i));
-    };
+    if (country !== undefined) {
+        selectCountries.value = country;
+        let event = new Event('change');
+        selectCountries.dispatchEvent(event);
+    }
+
+     else  {
+        //Skapa 9 divvar med städer från början 
+        let counter = 9;
+        for(let i = 0; i < counter; i++) {
+            citiesWrapper.append(allCountriesDivs(i));
+    };}
 
     //VISA MER KNAPP
     const showMore = document.querySelector('.showMore');
@@ -159,7 +168,7 @@ function goToDestinations(country) {
             makeInfoDiv(i)
             let infoDivDest = document.querySelector('.infoDivDest');
     
-            let placementTop = e.target.y;
+            let placementTop = e.currentTarget.offsetTop;
             infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
         });
 
@@ -229,7 +238,6 @@ function goToDestinations(country) {
                 <div class='scrollBox'> </div>
             </div>
         `
-
 
         //Universitet som ligger i staden
         let findUni = UNIVERSITIES.filter(u => u.cityID === i);
@@ -304,6 +312,8 @@ function goToDestinations(country) {
         return infoDivDestParent;
     }
 
+
+    
 }
 
 

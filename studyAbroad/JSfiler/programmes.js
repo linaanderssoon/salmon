@@ -285,10 +285,11 @@ function goToProgrammes() {
         programmeParent.addEventListener('click', (e) => {
             makeInfoDiv(p, uniName, progLevel, progLang);
             let infoDivDest = document.querySelector('.infoDivDest');
+            console.log(e.clientY);
     
-            let placementTop = e.target.y;
+            let placementTop = e.currentTarget.offsetTop;
             infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
-            console.log(e.target);
+
         });
 
         return programmeParent;
@@ -392,6 +393,12 @@ function goToProgrammes() {
             infoDivDest.remove();
             infoDivDestParent.remove();
         });
+
+        document.querySelector('.nav').addEventListener('click', () => {
+            infoDivDest.remove();
+            infoDivDestParent.remove();
+        });
+
 
         return infoDivDestParent;
     }
