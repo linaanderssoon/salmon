@@ -106,16 +106,27 @@ function goToHome(){
       <h2 class="carouselInfo">${COUNTRIES[i].name}</h2> 
       </div>
       `;
-  
+      carouselContainer.querySelector("h2").addEventListener("click", ()=> {
+        goToDestinations(`${COUNTRIES[i].name}`);
+      });
       carouselTrack.append(carouselContainer);
     }
-
+/*
 let carouselInfo = document.querySelectorAll(".carouselInfo");
 
 carouselInfo.forEach(c => {
   c.addEventListener("click", () => 
+  
   goToDestinations());
-});
+});*/
+
+
+
+
+
+
+
+
 
 /*
 onclick=`selected_country=${COUNTRIES[i].name}`;
