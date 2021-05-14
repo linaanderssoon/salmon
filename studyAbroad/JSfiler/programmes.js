@@ -20,28 +20,28 @@ function goToProgrammes() {
     <div class="selectorsDiv">
         <div class="dropdown">
             <select name="" id="city">
-                <option id="selectItem" value='Alla destinationer'> Alla destinationer </option>
+                <option id="selectItem" value='-1'> Alla destinationer </option>
             </select>
             <div id="arrow"></div>
         </div>
 
         <div class="dropdown">
         <select name="" id="university">
-            <option id="selectItem" value='Alla universitet'> Alla universitet </option>
+            <option id="selectItem" value='-1'> Alla universitet </option>
         </select>
         <div id="arrow"></div>
         </div>
 
         <div class="dropdown">
         <select name="" id="level">
-            <option id="selectItem" value='Alla nivåer'> Alla nivåer </option>
+            <option id="selectItem" value='-1'> Alla nivåer </option>
         </select>
         <div id="arrow"></div>
         </div>
 
         <div class="dropdown">
         <select name="" id="field">
-            <option id="selectItem" value='Alla ämnen'> Alla ämnen </option>
+            <option id="selectItem" value='-1'> Alla ämnen </option>
         </select>
         <div id="arrow"></div>
         </div>
@@ -74,7 +74,7 @@ function goToProgrammes() {
     CITIES.forEach(c => {
         let newOption = document.createElement('option');
         newOption.textContent = c.name;
-        newOption.value = c.name;
+        newOption.value = c.id;
         newOption.classList.add('selectItem');
         selectCity.append(newOption);
     });
@@ -82,23 +82,23 @@ function goToProgrammes() {
     UNIVERSITIES.forEach(u => {
         let newOption = document.createElement('option');
         newOption.textContent = u.name;
-        newOption.value = u.name;
+        newOption.value = u.id;
         newOption.classList.add('selectItem');
         selectUni.append(newOption);
     });
     
-    LEVELS.forEach(l => {
+    LEVELS.forEach((l, index) => {
         let newOption = document.createElement('option');
         newOption.textContent = l;
-        newOption.value = l;
+        newOption.value = index;
         newOption.classList.add('selectItem');
         selectLevel.append(newOption);
     });
     
-    FIELDS.forEach(f => {
+    FIELDS.forEach((f, index) => {
         let newOption = document.createElement('option');
         newOption.textContent = f.name;
-        newOption.value = f.name;
+        newOption.value = index;
         newOption.classList.add('selectItem');
         selectField.append(newOption);
     });
@@ -190,141 +190,52 @@ function goToProgrammes() {
     //SÖKFUNKTION//
     document.querySelector('.searchButton').addEventListener('click', () => {
         programmesWrapper.innerHTML ='';
-        
-        let city = selectCity.value;
-        let uni = selectUni.value;
-        let level = selectLevel.value;
-        let field = selectField.value; 
 
-        createProgrammes(city, uni, level, field);
+        let cityID = selectCity.value; 
+        let uniID = selectUni.value;
+        let levelID = selectLevel.value;
+        let fieldID = selectField.value; 
+
+        createProgrammes(cityID, uniID, levelID, fieldID);
     });
 
 
-    function createProgrammes(city, uni, level, field){
-        if (city === 'Alla destinationer' && uni === 'Alla universitet' && level === 'Alla nivåer' && field === 'Alla ämnen') {
-            for(let i = 0; i < counter; i++) {
-                programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
-            }
+    function createProgrammes(cityID, uniID, levelID, fieldID) {
+        let filtered = [...PROGRAMMES];
 
-        } else if (uni === 'Alla universitet' && level === 'Alla nivåer' && field === 'Alla ämnen') {
-            let cityID = CITIES.find(c => c.name === city).id;
+        if(cityID !== "-1") {
+            console.log(cityID);
+            filtered = PROGRAMMES.filter(prog => {
+                let temp_cityID = UNIVERSITIES.find(u => u.id === prog.universityID).cityID;
+                console.log(temp_cityID.toString(), cityID);
 
-            let filtered = PROGRAMMES.filter(prog => UNIVERSITIES.find(u => u.id === prog.universityID).cityID === cityID);
-            filtered.forEach(p => {
-                programmesWrapper.append(createProgDivs(p));
+                return temp_cityID == cityID;
+                // UNIVERSITIES.find(u => u.id === prog.universityID).cityID === cityID;
             });
-
-            underNine(filtered);
-            noMatches(filtered);
-        } else if (city === 'Alla destinationer' && uni === 'Alla universitet' && field === 'Alla ämnen') {
-            let levelID = LEVELS.indexOf(level);
-
-            let filtered = PROGRAMMES.filter(prog => prog.level === levelID);
-            filtered.forEach(p => {
-                programmesWrapper.append(createProgDivs(p));
-            });
-
-            underNine(filtered);
-            noMatches(filtered);
-
-        } else if (city === 'Alla destinationer' && uni === 'Alla universitet' && level === 'Alla nivåer') {
-            let fieldID = FIELDS.find(f => f.name === field).id;
-
-            let filtered = PROGRAMMES.filter(prog => prog.subjectID === fieldID);
-            filtered.forEach(p => {
-                programmesWrapper.append(createProgDivs(p));
-            });
-
-            underNine(filtered);
-            noMatches(filtered);
-
-        } else if (field === 'Alla ämnen' && level === 'Alla nivåer') {
-            let uniID = UNIVERSITIES.find(u => u.name === uni).id;
-            let cityID = CITIES.find(c => c.name === city).id;
-
-            let filtered = PROGRAMMES.filter(prog => prog.universityID === uniID && UNIVERSITIES.find(u => u.id === prog.universityID).cityID === cityID);
-            filtered.forEach(p => {
-                programmesWrapper.append(createProgDivs(p));
-            });
-
-            underNine(filtered);
-            noMatches(filtered);
-
-        } else if (uni === 'Alla universitet' && level === 'Alla nivåer') {
-            let fieldID = FIELDS.find(f => f.name === field).id;
-            let cityID = CITIES.find(c => c.name === city).id;
-
-            let filtered = PROGRAMMES.filter(prog => prog.subjectID === fieldID && UNIVERSITIES.find(u => u.id === prog.universityID).cityID === cityID);
-            filtered.forEach(p => {
-                programmesWrapper.append(createProgDivs(p));
-            });
-
-            underNine(filtered);
-            noMatches(filtered);
-
-        } else if (city === 'Alla destinationer' && uni === 'Alla universitet') {
-            let fieldID = FIELDS.find(f => f.name === field).id;
-            let levelID = LEVELS.indexOf(level);
-
-            let filtered = PROGRAMMES.filter(prog => prog.subjectID === fieldID && prog.level === levelID);
-            filtered.forEach(p => {
-                programmesWrapper.append(createProgDivs(p));
-            });
-
-            underNine(filtered);
-            noMatches(filtered);
-
-        } else if(field === 'Alla ämnen') {
-            let uniID = UNIVERSITIES.find(u => u.name === uni).id;
-            let levelID = LEVELS.indexOf(level);
-
-            let filtered = PROGRAMMES.filter(prog => prog.universityID === uniID && prog.level === levelID);
-            filtered.forEach(p => {
-                programmesWrapper.append(createProgDivs(p));
-            });
-
-            underNine(filtered);
-            noMatches(filtered);
-
-        } else if(level === 'Alla nivåer') {
-            let fieldID = FIELDS.find(f => f.name === field).id;
-            let uniID = UNIVERSITIES.find(u => u.name === uni).id;
-
-            let filtered = PROGRAMMES.filter(prog => prog.universityID === uniID && prog.subjectID === fieldID);
-            filtered.forEach(p => {
-                programmesWrapper.append(createProgDivs(p));
-            });
-
-            underNine(filtered);
-            noMatches(filtered)
-
-        } else if(uni === 'Alla universitet') {
-            let fieldID = FIELDS.find(f => f.name === field).id;
-            let levelID = LEVELS.indexOf(level);
-            let cityID = CITIES.find(c => c.name === city).id;
-
-            let filtered = PROGRAMMES.filter(prog => prog.level === levelID && prog.subjectID === fieldID && UNIVERSITIES.find(u => u.id === prog.universityID).cityID === cityID);
-            filtered.forEach(p => {
-                programmesWrapper.append(createProgDivs(p));
-            });
-
-            underNine(filtered);
-            noMatches(filtered)
-
-        } else {
-            let uniID = UNIVERSITIES.find(u => u.name === uni).id;
-            let levelID = LEVELS.indexOf(level);
-            let fieldID = FIELDS.find(f => f.name === field).id;
-
-            let filtered = PROGRAMMES.filter(prog => prog.universityID === uniID && prog.level === levelID && prog.subjectID === fieldID);
-
-            filtered.forEach(p => {    
-            programmesWrapper.append(createProgDivs(p));
-            });
-
-            underNine(filtered);
-            noMatches(filtered)
         }
+
+        if(uniID !== "-1") {
+            filtered = PROGRAMMES.filter(prog => prog.universityID == uniID);
+        }
+
+        if(levelID !== "-1") {
+            filtered = filtered.filter(prog => prog.level == levelID);
+        }
+
+        if(fieldID !== "-1") {
+            filtered = filtered.filter(prog => prog.subjectID == fieldID);
+        }
+        console.log(filtered);
+        console.log(cityID, uniID, levelID, fieldID);
+
+
+
+        filtered.forEach(p => {    
+            programmesWrapper.append(createProgDivs(p));
+        });
+
+        underNine(filtered);
+        noMatches(filtered);
 
         function underNine(filter) {
             if(filter.length <= 9) {
