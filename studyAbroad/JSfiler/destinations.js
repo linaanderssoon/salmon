@@ -131,7 +131,7 @@ function goToDestinations(country) {
                 `;
 
                 citiesParent.addEventListener('click', (e) => {
-                    makeInfoDiv(filterCities[i]);
+                    makeInfoDiv(filterCities[i].id);
                     let infoDivDest = document.querySelector('.infoDivDest');
             
                     let placementTop = e.target.y;            
@@ -180,14 +180,15 @@ function goToDestinations(country) {
         citiesWrapper.append(infoDivDest);
 
         //Hitta visum och ändra så true = ja och false = nej
-        let findVisaBoolean= COUNTRIES.find(c => c.id === i).visa;
+        let findCountryID = CITIES.find(c => c.id === i).countryID;
+        let findVisaBoolean= COUNTRIES.find(c => c.id === findCountryID).visa;
         let ternary = (findVisaBoolean === true) ? 'Ja' : 'Nej';
 
         //Hitta klubbar (sen skrivs längden alltså antalet in i boxen)
         let findClubs= ENTERTAINMENT_PLACES.filter(c => c.cityID === i);
 
         //Hitta vilket språk som talas i landet staden ligger i
-        let findCountryID = CITIES.find(c => c.id === i).countryID;
+        // let findCountryID = CITIES.find(c => c.id === i).countryID;
         let findLanguageID = COUNTRIES.find(l => l.id === findCountryID).languageID;
         let language = LANGUAGES.find(l => l.id === findLanguageID).name;
 
@@ -197,7 +198,7 @@ function goToDestinations(country) {
 
                 <div class="infoDivLeftInner">
                     <div class="innerIcon iconVisum" src=""></div>
-                    <h5>Visum behövs: ${ternary}</h5>
+                    <h5>Visum behövs: ${ternary} </h5>
                 </div>
 
                 <div class="infoDivLeftInner">
@@ -264,7 +265,6 @@ function goToDestinations(country) {
                 star.classList.add('star');
 
                 starsParent.append(star);
-
             }
 
             let nameAge = document.createElement('div');
@@ -292,6 +292,11 @@ function goToDestinations(country) {
         });
 
         infoDivDestParent.addEventListener('click', () => {
+            infoDivDest.remove();
+            infoDivDestParent.remove();
+        });
+
+        document.querySelector('.nav').addEventListener('click', () => {
             infoDivDest.remove();
             infoDivDestParent.remove();
         });
