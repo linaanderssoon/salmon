@@ -127,7 +127,8 @@ if (selected_country === null) {
 if (selectCountries.value === 'All countries') {
   selectCountries.value === 'All countries';
 } else {
-  selectCountries.value === `${COUNTRIES[i].name}`
+  
+  ONCHANGE I SELECTORN
 }
 */
 
