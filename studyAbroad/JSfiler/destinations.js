@@ -230,7 +230,6 @@ function goToDestinations(country) {
             </div>
         `
 
-
         //Universitet som ligger i staden
         let findUni = UNIVERSITIES.filter(u => u.cityID === i);
 
@@ -304,6 +303,8 @@ function goToDestinations(country) {
         return infoDivDestParent;
     }
 
+
+    
 }
 
 

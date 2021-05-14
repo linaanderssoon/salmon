@@ -374,10 +374,11 @@ function goToProgrammes() {
         programmeParent.addEventListener('click', (e) => {
             makeInfoDiv(p, uniName, progLevel, progLang);
             let infoDivDest = document.querySelector('.infoDivDest');
+            console.log(e.clientY);
     
-            let placementTop = e.target.y;
-            infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
-            console.log(e.target);
+            let placementTop = e.clientY;
+            console.log(e);
+            infoDivDest.style.setProperty('top', `${placementTop}px`);
         });
 
         return programmeParent;
