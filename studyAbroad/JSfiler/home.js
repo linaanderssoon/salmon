@@ -123,12 +123,17 @@ onclick=`selected_country=${COUNTRIES[i].name}`;
 if (selected_country === null) { 
 
 }
-*/
 
+if (selectCountries.value === 'All countries') {
+  selectCountries.value === 'All countries';
+} else {
+  
+  ONCHANGE I SELECTORN
+}
+*/
 
 let prev  = document.querySelector('.prev');
 let next = document.querySelector('.next');
-
 let track = document.querySelector('.track');
 
 let carouselWidth = document.querySelector('.carousel-container').offsetWidth;
