@@ -14,7 +14,7 @@
 function goToDestinations(country) {  
     //Hamna högst upp på sidan
     scroll(0,0)
-    
+
     navDestinations.classList.add('currentPage');
     navInterviews.classList.remove('currentPage');
     navHome.classList.remove('currentPage');
@@ -64,6 +64,7 @@ function goToDestinations(country) {
         newOption.value = c.name;
         newOption.classList.add('selectItem');
         selectCountries.append(newOption);
+
     });
     
     let counter = 9;
@@ -71,7 +72,6 @@ function goToDestinations(country) {
     //ON CHANGE- BYT INNEHÅLLET I WRAPPERN TILL VAL
     selectCountries.addEventListener('change', () => {
         let selectedCountry = selectCountries.value;
-
         citiesWrapper.innerHTML = '';
         createDestinations(selectedCountry);
     });
@@ -87,6 +87,7 @@ function goToDestinations(country) {
         let counter = 9;
         for(let i = 0; i < counter; i++) {
             citiesWrapper.append(allCountriesDivs(i));
+            
     };}
 
     //VISA MER KNAPP
@@ -127,12 +128,14 @@ function goToDestinations(country) {
         } else {
             let countryID = COUNTRIES.find(c => c.name === selectedCountry).id;
             let filterCities = CITIES.filter(c => c.countryID === countryID);
+            
 
             //Skapa så många divvar som det finns städer i valt land
             for(let i = 0; i < filterCities.length; i++) {
                 let citiesParent = document.createElement('div');
                 citiesParent.classList.add('citiesParent');
                 citiesWrapper.append(citiesParent);
+                
         
                 citiesParent.innerHTML = `
                     <img class="cityImage" src="JSfiler/Images/${filterCities[i].imagesNormal[1]}">
@@ -145,6 +148,7 @@ function goToDestinations(country) {
             
                     let placementTop = e.target.y;            
                     infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
+
                 });
             }
 
