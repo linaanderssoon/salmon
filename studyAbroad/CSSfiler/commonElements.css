@@ -9,6 +9,9 @@
     --heading: 'Poppins', sans-serif;
     --subHeading: 'Poppins', sans-serif;
     --bodyText: 'Libre Baskerville';
+
+    --boldWeight: 700;
+    --normalWeight: 500;
 }
 
 body {
@@ -21,13 +24,13 @@ h1 {
     font-family: var(--heading);
     font-size: 2.5rem;
     margin: 10px 0px;
-    font-weight: 700;
+    font-weight: var(--boldWeight);
 
 }
 
 h5 {
     font-family: var(--heading);
-    font-weight: 500;
+    font-weight: var(--normalWeight);
     margin: 5px 0px;
 
     font-size: 0.9rem;
@@ -37,7 +40,7 @@ h2 {
     margin-top: 0px;
     color: var(--fontBold);
     font-family: var(--heading);
-    font-weight: 500;
+    font-weight: var(--normalWeight);
 }
 
 
@@ -68,7 +71,7 @@ footer {
 
 .footerH5 {
     font-family: var(--subHeading);
-    font-weight: 700;
+    font-weight: var(--boldWeight);
     font-size: 1.1rem;
     border-bottom: 1px solid var(--fontDark);
     margin-bottom: 10px;

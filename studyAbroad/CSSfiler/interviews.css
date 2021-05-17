@@ -50,7 +50,7 @@ h1 {
 }
 
 .intwInfo > span {
-    font-weight: bold;
+    font-weight: var(--boldWeight);
     font-family: var(--subHeading);
     color: var(--fontDark);
 }
@@ -79,6 +79,6 @@ h1 {
 }
 
 .intwText > span {
-    font-weight: bold;
+    font-weight: var(--boldWeight);
 }
 
