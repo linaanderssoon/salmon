@@ -2,6 +2,8 @@
 
 //SKAPAR WRAPPER FÖR DESTINATIONER OCH DESS INNEHÅLL
 function goToProgrammes() {  
+
+
     scroll(0,0);
 
     navProgrammes.classList.add('currentPage');
@@ -380,7 +382,15 @@ function goToProgrammes() {
 
             <div class ='infoDivLeftInner' > 
                 <div class='innerIcon iconEntry'> </div>
-                <h5> Intagningspoäng: ${p.entryGrades} </h5>
+                <h5> Intagningspoäng: <br>
+                    <div class='entryPointsYear'>
+                        <div> <span> 2016: </span>  ${p.entryGrades[0]} </div>
+                        <div> <span> 2017: </span>  ${p.entryGrades[1]}  </div>
+                        <div> <span> 2018: </span>  ${p.entryGrades[2]}  </div>
+                        <div> <span> 2019: </span>  ${p.entryGrades[3]} </div>
+                        <div> <span> 2020: </span>  ${p.entryGrades[4]} </div> 
+                    </div>
+                </h5>
             </div>
 
             <div class ='infoDivLeftInner' > 
@@ -410,14 +420,27 @@ function goToProgrammes() {
             let starsParent = document.createElement('div');
             starsParent.classList.add('starsParent');
 
+            starsParent.innerHTML =`
+            <div class="grayStarsParent">
+                <div class="grayStar"> </div>
+                <div class="grayStar"> </div>
+                <div class="grayStar"> </div>
+                <div class="grayStar"> </div>
+                <div class="grayStar"> </div>
+            </div>
+            `;
+
+            let goldStarsParent = document.createElement('div');
+            goldStarsParent.classList.add('goldStarsParent');
+            
             let starNumber = c.stars.courses;
 
             for (let i = 1; i <= starNumber; i++) {
                 let star = document.createElement('div');
                 star.classList.add('star');
+                goldStarsParent.append(star);
 
-                starsParent.append(star);
-
+                starsParent.append(goldStarsParent);
             }
 
             let nameAge = document.createElement('div');

@@ -60,11 +60,7 @@ function goToDestinations(country) {
 
 
         
-    //sortera countries
-    COUNTRIES.sort((e1, e2) => e1.name > e2.name ? 1 : -1);
 
-    //sortera cities
-    CITIES.sort((e1, e2) => e1.name > e2.name ? 1 : -1);
 
 
     COUNTRIES.forEach(c => {
