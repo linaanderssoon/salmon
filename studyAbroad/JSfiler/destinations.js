@@ -53,12 +53,12 @@ function goToDestinations(country) {
 
     `;
 
+    //VARIABLES
     const citiesWrapper = document.querySelector('.citiesWrapper');
-
-    //SELECTION FIELD
     const selectCountries = document.getElementById('country');
+    const showMore = document.querySelector('.showMore');
 
-
+    let counter = 9;
         
     //sortera countries
     COUNTRIES.sort((e1, e2) => e1.name > e2.name ? 1 : -1);
@@ -66,7 +66,7 @@ function goToDestinations(country) {
     //sortera cities
     CITIES.sort((e1, e2) => e1.name > e2.name ? 1 : -1);
 
-
+    //Skapa selection alternativ
     COUNTRIES.forEach(c => {
         let newOption = document.createElement('option');
         newOption.textContent = c.name;
@@ -74,16 +74,6 @@ function goToDestinations(country) {
         newOption.classList.add('selectItem');
         selectCountries.append(newOption);
     });
-
-    // //Gör Array av alla items, inte nodeList
-    // let makeArray = Array.from(document.querySelectorAll('.selectItem'));
-        
-    // //sortera array
-    // makeArray.sort((e1, e2) => e1.value > e2.value ? 1 : -1);
-    // console.log(makeArray);
-
-
-    let counter = 9;
 
     //ON CHANGE- BYT INNEHÅLLET I WRAPPERN TILL VAL
     selectCountries.addEventListener('change', () => {
@@ -105,7 +95,6 @@ function goToDestinations(country) {
     };}
 
     //VISA MER KNAPP
-    const showMore = document.querySelector('.showMore');
     showMore.addEventListener('click', () => {
         //Varje gång vi klickar på visa mer lägger vi till 9st i counter
         counter = counter + 9;
@@ -122,7 +111,6 @@ function goToDestinations(country) {
             citiesWrapper.append(allCountriesDivs(i));
         }
     });
-
 
     //Baserat på val
     function createDestinations(selectedCountry) {
