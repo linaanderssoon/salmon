@@ -309,6 +309,7 @@
   height: 400px;
   width: 800px;
   background-image: url(ikoner/quizImage.jpeg);
+  margin-left: -50px;
   Background-position: center;
   Background-size: cover;
 }
@@ -328,7 +329,6 @@
 
 .quiz-container {
   font-family: var(--heading);
-  border-radius:10px;
   text-shadow: 1px 1px white;
   padding: 3rem;
   text-shadow: 0 1px #00000010;
@@ -336,7 +336,6 @@
   display: flex;
   flex-direction: column;
   height: 400px;
-  border: 1px solid var(--fontBold);
   contain: strict;
 }
 
