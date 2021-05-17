@@ -307,10 +307,7 @@ function startQuiz(){
       
           //Lägg till svarpoängen i arrayen
           score.push(answerScore);
-      
           selectedAnswersData.push()
-          
-      
           const totalScore = score.reduce((total, currentNum) => total + currentNum);
       
           //Ökar nuvarande frågenummer (som ska användas som index för varje array)
@@ -320,7 +317,7 @@ function startQuiz(){
            selectedOption.checked = false;
           //Om det är sista frågan i quizet
           if(currentQuestion == totalQuestions - 1) {
-              nextButton.textContent = 'Finish';      
+             nextButton.textContent = 'Finish';      
           }
 
           //Om quizet är färdig så gömmer vi frågorna och visar resultatet
@@ -332,7 +329,7 @@ function startQuiz(){
             <br><button class="restart">Starta om quizet</button>`;
           }
           //Mellan 12-16 poäng
-          else if (12 > totalScore && totalScore < 16) {
+          else if (totalScore > 12 && totalScore < 17) {
             container.style.display = 'none';
             result.innerHTML =`Ett engelsktalande land skulle passa dig bra! Vi tipsar om Autralien, USA eller UK!
             <br><button class="restart">Starta om quizet</button>`;
