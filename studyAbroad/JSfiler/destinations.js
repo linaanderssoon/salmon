@@ -78,6 +78,7 @@ function goToDestinations(country) {
         createDestinations(selectedCountry);
     });
 
+    // OM MAN SKICKAS TILL DESTINATIONS FRÅN KARUSELLEN
     if (country !== undefined) {
         selectCountries.value = country;
         let event = new Event('change');
@@ -249,8 +250,12 @@ function goToDestinations(country) {
             goToUni.classList.add('goToUni');
             goToUni.innerHTML = u.name;
 
-            document.querySelector('.Unis').append(goToUni);
+            goToUni.addEventListener("click", ()=> {
+                console.log(`${u.name}`);
+                goToProgrammes(`${u.name}`);
+            });
 
+            document.querySelector('.Unis').append(goToUni);
         });
 
         let comments = COMMENTS_CITY.filter(c => c.cityID === i.id)

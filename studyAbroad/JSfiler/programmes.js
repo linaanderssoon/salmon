@@ -1,7 +1,7 @@
 "use strict";
 
 //SKAPAR WRAPPER FÖR DESTINATIONER OCH DESS INNEHÅLL
-function goToProgrammes() {  
+function goToProgrammes(university) {  
 
 
     scroll(0,0);
@@ -166,10 +166,17 @@ function goToProgrammes() {
 
     // FUNKTION SOM SKAPAR DIVARNA SOM SKA VARA DÄR FRÅN START //
     function initialProgrammes() {
-        //9 PROGRAM VISAS FRÅN BÖRJAN NÄR MAN GÅR IN PÅ SIDAN//
-        for(let i = 0; i < counter; i++) {
+
+        if (university !== undefined) {
+            selectUni.value = university;
+            let event = new Event('change');
+            selectUni.dispatchEvent(event);
+        } 
+    //9 PROGRAM VISAS FRÅN BÖRJAN NÄR MAN GÅR IN PÅ SIDAN//
+        else  {
+         for(let i = 0; i < counter; i++) {
             programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
-        }  
+            }  
     }
 
     //SÖKFUNKTION//
@@ -479,5 +486,6 @@ function goToProgrammes() {
 
 
         return infoDivDestParent;
+    }
     }
 }
