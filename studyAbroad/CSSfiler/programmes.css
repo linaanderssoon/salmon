@@ -116,7 +116,7 @@
 
 .progHeadning {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: var(--boldWeight);
     color: var(--fontBold);
     font-family: var(--heading);
     margin-bottom: 10px;

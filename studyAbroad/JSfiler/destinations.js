@@ -58,15 +58,31 @@ function goToDestinations(country) {
     //SELECTION FIELD
     const selectCountries = document.getElementById('country');
 
+
+        
+    //sortera countries
+    COUNTRIES.sort((e1, e2) => e1.name > e2.name ? 1 : -1);
+
+    //sortera cities
+    CITIES.sort((e1, e2) => e1.name > e2.name ? 1 : -1);
+
+
     COUNTRIES.forEach(c => {
         let newOption = document.createElement('option');
         newOption.textContent = c.name;
         newOption.value = c.name;
         newOption.classList.add('selectItem');
         selectCountries.append(newOption);
-
     });
-    
+
+    // //Gör Array av alla items, inte nodeList
+    // let makeArray = Array.from(document.querySelectorAll('.selectItem'));
+        
+    // //sortera array
+    // makeArray.sort((e1, e2) => e1.value > e2.value ? 1 : -1);
+    // console.log(makeArray);
+
+
     let counter = 9;
 
     //ON CHANGE- BYT INNEHÅLLET I WRAPPERN TILL VAL
@@ -80,9 +96,7 @@ function goToDestinations(country) {
         selectCountries.value = country;
         let event = new Event('change');
         selectCountries.dispatchEvent(event);
-    }
-
-     else  {
+    } else  {
         //Skapa 9 divvar med städer från början 
         let counter = 9;
         for(let i = 0; i < counter; i++) {
@@ -143,7 +157,7 @@ function goToDestinations(country) {
                 `;
 
                 citiesParent.addEventListener('click', (e) => {
-                    makeInfoDiv(filterCities[i].id);
+                    makeInfoDiv(filterCities[i]);
                     let infoDivDest = document.querySelector('.infoDivDest');
             
                     let placementTop = e.target.y;            
@@ -169,7 +183,7 @@ function goToDestinations(country) {
 
     
         citiesParent.addEventListener('click', (e) => {
-            makeInfoDiv(i)
+            makeInfoDiv(CITIES[i])
             let infoDivDest = document.querySelector('.infoDivDest');
     
             let placementTop = e.currentTarget.offsetTop;
@@ -193,21 +207,21 @@ function goToDestinations(country) {
         citiesWrapper.append(infoDivDest);
 
         //Hitta visum och ändra så true = ja och false = nej
-        let findCountryID = CITIES.find(c => c.id === i).countryID;
+        let findCountryID = CITIES.find(c => c.id === i.id).countryID;
+
         let findVisaBoolean= COUNTRIES.find(c => c.id === findCountryID).visa;
         let ternary = (findVisaBoolean === true) ? 'Ja' : 'Nej';
 
         //Hitta klubbar (sen skrivs längden alltså antalet in i boxen)
-        let findClubs= ENTERTAINMENT_PLACES.filter(c => c.cityID === i);
+        let findClubs= ENTERTAINMENT_PLACES.filter(c => c.cityID === i.id);
 
         //Hitta vilket språk som talas i landet staden ligger i
-        // let findCountryID = CITIES.find(c => c.id === i).countryID;
         let findLanguageID = COUNTRIES.find(l => l.id === findCountryID).languageID;
         let language = LANGUAGES.find(l => l.id === findLanguageID).name;
 
         infoDivDest.innerHTML = `
             <div class="infoDivLeft">
-                <h2> ${CITIES[i].name} </h2>
+                <h2> ${i.name} </h2>
 
                 <div class="infoDivLeftInner">
                     <div class="innerIcon iconVisum" src=""></div>
@@ -226,7 +240,7 @@ function goToDestinations(country) {
 
                 <div class="infoDivLeftInner">
                     <div class="innerIcon iconSun" src=""></div>
-                    <h5>${CITIES[i].sun} soldagar om året </h5>
+                    <h5>${i.sun} soldagar om året </h5>
                 </div>
 
                 <div class="infoDivLeftInner">
@@ -244,7 +258,7 @@ function goToDestinations(country) {
         `
 
         //Universitet som ligger i staden
-        let findUni = UNIVERSITIES.filter(u => u.cityID === i);
+        let findUni = UNIVERSITIES.filter(u => u.cityID === i.id);
 
         findUni.forEach(u => {
             let goToUni = document.createElement('h5');
@@ -255,8 +269,9 @@ function goToDestinations(country) {
 
         });
 
-        let comments = COMMENTS_CITY.filter(c => c.cityID === i)
+        let comments = COMMENTS_CITY.filter(c => c.cityID === i.id)
 
+        //Räkna ut medelvärde av alla tre betygen 
         function average(array) {
             return array.reduce((a, b) => a + b) / array.length;
         }
@@ -270,6 +285,7 @@ function goToDestinations(country) {
             let starsParent = document.createElement('div');
             starsParent.classList.add('starsParent');
 
+            //Antal stjärnor är uträknade medelvärdet av betygen
             let starNumber = average([Math.round(c.stars.out, c.stars.food, c.stars.accomodation)]);
 
             for (let i = 1; i <= starNumber; i++) {
