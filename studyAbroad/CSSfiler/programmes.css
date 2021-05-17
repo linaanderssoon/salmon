@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
-    width: 70%;
+    width: 60%;
 }
 
 #country, #university, #city, #language, #level, #field {
