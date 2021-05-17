@@ -29,7 +29,7 @@ function goToHome(){
             <h1>Är du redo att 
                <br> upptäcka världen?</h1>
              <p>Här hittar du allt du behöver 
-               <br> veta inför dina utlanddstudier</p>
+               <br> veta inför dina utlandsstudier</p>
              <button class="headerButtonDestinations">Destinationer</button>
              <button class="headerButtonProgrammes">Program</button>
         </div>
@@ -40,7 +40,7 @@ function goToHome(){
     <div class="quizImg"></div>
         <div class="quizStartRight">
         <div class="quizTitle">Vart vill du åka?</div>
-        <p>Gör testet för att ta reda på vilket land du borde åka till!</p>
+        <p>Gör testet för att ta reda på vilket land du borde studera i!</p>
         <button>Starta quizet</button>
         </div>
     </div>
@@ -158,10 +158,17 @@ function startQuiz(){
 //Klicka på start så börjar quizzet
 document.querySelector(".quizStartRight > button").addEventListener("click", startQuiz);
 
+const quizContainer = document.querySelector(".quiz-container");
+
 function startQuiz(){
 
+    quizContainer.style.border = "3px solid #DC6420"
+    quizContainer.style.borderRadius = "20px";
+    quizContainer.style.height = "300px";
+    quizContainer.style.padding = "50px";
+
     //Tömmer tidigare innehåll
-    document.querySelector(".quiz-container").innerHTML=`
+    quizContainer.innerHTML=`
     
     <div id="question" class="question"></div>
     <label class="option">
@@ -234,12 +241,12 @@ function startQuiz(){
           "answer3Total": "2"
         },
         {
-          "question": "Välj en rätt som du tycker om!",
-          "answer1": "1",
+          "question": "Fråga?",
+          "answer1": "Svar1",
           "answer1Total": "1",
-          "answer2": "2",
+          "answer2": "Svar2",
           "answer2Total": "2",
-          "answer3": "3",
+          "answer3": "Svar3",
           "answer3Total": "3"
         },
         {
