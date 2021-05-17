@@ -40,7 +40,8 @@ function goToHome(){
     <div class="quizImg"></div>
         <div class="quizStartRight">
         <div class="quizTitle">Vart vill du åka?</div>
-        <p>Gör testet för att ta reda på vilket land du borde studera i!</p>
+        <p>Gör testet för att ta reda på vilket 
+        <br> land du borde studera i!</p>
         <button>Starta quizet</button>
         </div>
     </div>
