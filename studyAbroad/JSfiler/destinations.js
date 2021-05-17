@@ -281,6 +281,21 @@ function goToDestinations(country) {
             let starsParent = document.createElement('div');
             starsParent.classList.add('starsParent');
 
+            starsParent.innerHTML =`
+            <div class="grayStarsParent">
+                <div class="grayStar"> </div>
+                <div class="grayStar"> </div>
+                <div class="grayStar"> </div>
+                <div class="grayStar"> </div>
+                <div class="grayStar"> </div>
+            </div>
+            `;
+
+            let goldStarsParent = document.createElement('div');
+            goldStarsParent.classList.add('goldStarsParent');
+
+            starsParent.append(goldStarsParent);
+
             //Antal stjärnor är uträknade medelvärdet av betygen
             let starNumber = average([Math.round(c.stars.out, c.stars.food, c.stars.accomodation)]);
 
@@ -288,7 +303,7 @@ function goToDestinations(country) {
                 let star = document.createElement('div');
                 star.classList.add('star');
 
-                starsParent.append(star);
+                goldStarsParent.append(star);
             }
 
             let nameAge = document.createElement('div');

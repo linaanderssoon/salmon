@@ -432,6 +432,8 @@ function goToProgrammes() {
 
             let goldStarsParent = document.createElement('div');
             goldStarsParent.classList.add('goldStarsParent');
+            starsParent.append(goldStarsParent);
+
             
             let starNumber = c.stars.courses;
 
@@ -440,7 +442,6 @@ function goToProgrammes() {
                 star.classList.add('star');
                 goldStarsParent.append(star);
 
-                starsParent.append(goldStarsParent);
             }
 
             let nameAge = document.createElement('div');
