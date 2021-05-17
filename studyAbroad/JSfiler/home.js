@@ -35,7 +35,17 @@ function goToHome(){
         </div>
     </div>
 
-    <div class="quiz">QUIZ</div>
+    <div class="quiz-container">
+    <div class="quizStartContainer">
+    <div class="quizImg"></div>
+        <div class="quizStartRight">
+        <div class="quizTitle">Vart vill du åka?</div>
+        <p>Gör testet för att ta reda på vilket land du borde åka till!</p>
+        <button>Starta quizet</button>
+        </div>
+    </div>
+    </div>
+    <div class="result">
 
     <div class="longAd"></div>
 
@@ -92,6 +102,39 @@ function goToHome(){
   <div class="longAd"></div>
   `;
 
+  
+
+//Klicka på start så börjar quizzet
+document.querySelector(".quizStartRight > button").addEventListener("click", startQuiz);
+
+function startQuiz(){
+
+    //Tömmer tidigare innehåll
+    document.querySelector(".quiz-container").innerHTML=`
+    
+    <div id="question" class="question"></div>
+    <label class="option">
+        <input type="radio" name="option" value="1" />
+        <span class="option1"></span>
+    </label>
+    <label class="option">
+        <input type="radio" name="option" value="2" />
+        <span class="option2"></span>
+    </label>
+    <label class="option">
+        <input type="radio" name="option" value="3" />
+        <span class="option3"></span>
+    </label>
+    <!-- Buttons -->
+    <div class="controls">
+        <button class="previous">Föregående</button>
+        <button class="next">Nästa</button>
+    </div>
+    </div>
+    
+
+    `;
+}
 
     let carouselTrack = document.querySelector('.track');
     
@@ -111,37 +154,218 @@ function goToHome(){
       });
       carouselTrack.append(carouselContainer);
     }
-/*
-let carouselInfo = document.querySelectorAll(".carouselInfo");
 
-carouselInfo.forEach(c => {
-  c.addEventListener("click", () => 
-  
-  goToDestinations());
-});*/
+//Klicka på start så börjar quizzet
+document.querySelector(".quizStartRight > button").addEventListener("click", startQuiz);
 
+function startQuiz(){
 
+    //Tömmer tidigare innehåll
+    document.querySelector(".quiz-container").innerHTML=`
+    
+    <div id="question" class="question"></div>
+    <label class="option">
+        <input type="radio" name="option" value="1" />
+        <span class="option1"></span>
+    </label>
+    <label class="option">
+        <input type="radio" name="option" value="2" />
+        <span class="option2"></span>
+    </label>
+    <label class="option">
+        <input type="radio" name="option" value="3" />
+        <span class="option3"></span>
+    </label>
+    <!-- Buttons -->
+    <div class="controls">
+        <button class="previous">Föregående</button>
+        <button class="next">Nästa</button>
+    </div>
+    </div>
+    
 
+    `;
 
+    //Frågor och hur många poäng varje fråga är värd (1-3)
+    const questions = [
+        {
+          "question": "Varför vill du studera utomlands?",
+          "answer1": "Jag vill ha kul och skaffa vänner för livet",
+          "answer1Total": "2",
+          "answer2": "Jag älskar att resa och uppleva nya kulturer",
+          "answer2Total": "3",
+          "answer3": "Jag vill gå på en bra skola och få en bra utbildning",
+          "answer3Total": "1"
+        }  ,
+        {
+          "question": "Vad för typ av klimat föredrar du?",
+          "answer1": "Så mycket sol som möjligt!",
+          "answer1Total": "3",
+          "answer2": "Gärna nära till vattnet!",
+          "answer2Total": "1",
+          "answer3": "Jag är inte särskilt kräsen, så länge det inte är storm varje dag!",
+          "answer3Total": "2"
+        },
+        {
+          "question": "Hur skulle du helst vilja spendera dina helger under ditt utbyte?",
+          "answer1": "Dra till stranden för att sola och bada",
+          "answer1Total": "3",
+          "answer2": "Besöka mysiga caféer och butiker",
+          "answer2Total": "2",
+          "answer3": "Vara aktiv och vandra genom naturen",
+          "answer3Total": "1"
+        },
+        {
+          "question": "Välj ett föredraget transportsätt",
+          "answer1": "Genom att gå! Det är då man får uppleva så mycket av staden som möjligt!",
+          "answer1Total": "1",
+          "answer2": "Cykla! Det är smidigt när man har bråttom någonstans",
+          "answer2Total": "3",
+          "answer3": "Bussen/T-banan! Då kan jag passa på att läsa en bok",
+          "answer3Total": "2"
+        },
+        {
+          "question": "Vill du åka till ett land där de talar samma språk som dig?",
+          "answer1": "Det skulle vara att föredra.",
+          "answer1Total": "1",
+          "answer2": "Jag vill gärna lära mig ett nytt språk",
+          "answer2Total": "3",
+          "answer3": "Ja, det känns lite läskigt annars",
+          "answer3Total": "2"
+        },
+        {
+          "question": "Välj en rätt som du tycker om!",
+          "answer1": "1",
+          "answer1Total": "1",
+          "answer2": "2",
+          "answer2Total": "2",
+          "answer3": "3",
+          "answer3Total": "3"
+        },
+        {
+          "question": "Fråga?",
+          "answer1": "1",
+          "answer1Total": "1",
+          "answer2": "2",
+          "answer2Total": "2",
+          "answer3": "3",
+          "answer3Total": "3"
+        }
+      ]
+      
+      
+      let currentQuestion = 0;
+      let score = [];
+      let selectedAnswersData = [];
+      const totalQuestions =questions.length;
+      
+      const container = document.querySelector('.quiz-container');
+      const questionEl = document.querySelector('.question');
+      const option1 = document.querySelector('.option1');
+      const option2 = document.querySelector('.option2');
+      const option3 = document.querySelector('.option3');
+      const nextButton = document.querySelector('.next');
+      const previousButton = document.querySelector('.previous');
+      const restartButton = document.querySelector('.restart');
+      const result = document.querySelector('.result');
+      
+      
+      //Genererar frågorna 
+      function generateQuestions (index) {
+          //Välj varje fråga genom att skicka den ett visst index
+          const question = questions[index];
+          const option1Total = questions[index].answer1Total;
+          const option2Total = questions[index].answer2Total;
+          const option3Total = questions[index].answer3Total;
+          //Fyller i HTML-elementen
+          questionEl.innerHTML = `${index + 1}. ${question.question}`
+          option1.setAttribute('data-total', `${option1Total}`);
+          option2.setAttribute('data-total', `${option2Total}`);
+          option3.setAttribute('data-total', `${option3Total}`);
+          option1.innerHTML = `${question.answer1}`
+          option2.innerHTML = `${question.answer2}`
+          option3.innerHTML = `${question.answer3}`
+      }
+      
+      
+      function loadNextQuestion () {
+          const selectedOption = document.querySelector('input[type="radio"]:checked');
+          //Kolla så att användaren har fyllt i ett alternativ, annars skicka alert
+          if(!selectedOption) {
+              alert('Var vänligen och välj ett alternativ!');
+              return;
+          }
 
+          const answerScore = Number(selectedOption.nextElementSibling.getAttribute('data-total'));
+      
+          //Lägg till svarpoängen i arrayen
+          score.push(answerScore);
+      
+          selectedAnswersData.push()
+          
+      
+          const totalScore = score.reduce((total, currentNum) => total + currentNum);
+      
+          //Ökar nuvarande frågenummer (som ska användas som index för varje array)
+          currentQuestion++;
+      
+          //När den är färdig, rensa clear
+           selectedOption.checked = false;
+          //Om det är sista frågan i quizet
+          if(currentQuestion == totalQuestions - 1) {
+              nextButton.textContent = 'Finish';      
+          }
 
+          //Om quizet är färdig så gömmer vi frågorna och visar resultatet
+          if(currentQuestion == totalQuestions) {
+          //Mellan 7-11 poäng
+          if(totalScore < 11){
+            container.style.display = 'none';
+            result.innerHTML =`Iväg, men inte för långt! Vi tipsar om Frankrike, Spanien eller Sverige!
+            <br><button class="restart">Starta om quizet</button>`;
+          }
+          //Mellan 12-16 poäng
+          else if (12 > totalScore && totalScore < 16) {
+            container.style.display = 'none';
+            result.innerHTML =`Ett engelsktalande land skulle passa dig bra! Vi tipsar om Autralien, USA eller UK!
+            <br><button class="restart">Starta om quizet</button>`;
+          }
+          //Mellan 17-21 poäng
+          else {
+            container.style.display = 'none';
+            result.innerHTML =`Exotiskt, varmt och lååångt härifrån! Vi tipsar om Chile, Mexico eller Argentina!
+            <br><button class="restart">Starta om quizet</button>`;
+          }
+        }
 
+          generateQuestions(currentQuestion);
+          
+      }
 
-
-/*
-onclick=`selected_country=${COUNTRIES[i].name}`;
-
-if (selected_country === null) { 
-
+      //Laddar föregående fråga
+      function loadPreviousQuestion() {
+          currentQuestion--;
+          score.pop();
+          generateQuestions(currentQuestion);
+      }
+      
+      //Startar om quizet/nollställer den
+      function restartQuiz(e) {
+          if(e.target.matches('button')) {
+          currentQuestion = 0;
+          score = [];
+          location.reload();
+          }
+      
+      }
+      
+      
+      generateQuestions(currentQuestion);
+      nextButton.addEventListener('click', loadNextQuestion);
+      previousButton.addEventListener('click',loadPreviousQuestion);
+      result.addEventListener('click',restartQuiz);
+      
 }
-
-if (selectCountries.value === 'All countries') {
-  selectCountries.value === 'All countries';
-} else {
-  
-  ONCHANGE I SELECTORN
-}
-*/
 
 let prev  = document.querySelector('.prev');
 let next = document.querySelector('.next');
@@ -199,12 +423,4 @@ intwPersLink.forEach(person => {
 });
 
 
-   
 }
-
-
-
-
-
-
-

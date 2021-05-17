@@ -5,6 +5,7 @@
     --fontBold: #DC6420;
     --linkColor: #AAC4D3;
     --shadow: #9C9C9C;
+    --starColor: lightblue;
     
     --heading: 'Poppins', sans-serif;
     --subHeading: 'Poppins', sans-serif;
@@ -31,6 +32,7 @@ h1 {
 h5 {
     font-family: var(--heading);
     font-weight: var(--normalWeight);
+    color: var(--fontDark);
     margin: 5px 0px;
 
     font-size: 0.9rem;
@@ -248,7 +250,6 @@ footer > div {
 
 .infoDivLeftInner {
     display: flex;
-    height: 30px;
 }
 
 .closeInfoDiv {
@@ -285,15 +286,35 @@ footer > div {
 }
 
 .starsParent {
-    display: flex;
+    position: relative;
+    height: 15px;
 }
 
 .star {
     height: 15px;
     width: 15px;
     background-image: url(ikoner/star.svg);
-    fill: gold;
     background-position: center;
     background-size: contain;
-    margin: 3px;
+
 }
+
+.grayStar {
+    height: 15px;
+    width: 15px;
+    background-image: url(ikoner/star_gray.svg);
+    background-position: center;
+    background-size: contain;
+
+
+}
+
+.goldStarsParent, .grayStarsParent {
+    display:flex;
+}
+
+.goldStarsParent {
+    position: relative;
+    top: -15px;
+}
+
