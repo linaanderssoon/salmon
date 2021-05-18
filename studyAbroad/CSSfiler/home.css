@@ -221,9 +221,6 @@ button.restart {
   transition: all 0.4s;
 }
 
-
-
-
 button:hover{
   box-shadow: 2px 2px 4px #353434;
   cursor: pointer;
