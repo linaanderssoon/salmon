@@ -1,54 +1,55 @@
 .homeHeader {
-    position: relative;
+  position: relative;
 }
-.homeHeaderImg {
-    background-image: url(ikoner/heroBild.jpeg);
-    Background-position: center;
-    Background-size: cover;
 
-    position: relative;
-    top: 20px;
-    left: 29.2vw;
-    height: 550px;
-    width: 900px;
+.homeHeaderImg {
+  background-image: url(ikoner/heroBild.jpeg);
+  Background-position: center;
+  Background-size: cover;
+
+  position: relative;
+  top: 20px;
+  left: 29.2vw;
+  height: 550px;
+  width: 900px;
 }
 
 .homeHeaderLeft > h1 {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .homeHeaderLeft > p {
-    margin-top: 5px;
-    font-size: 14px;
+  margin-top: 5px;
+  font-size: 14px;
 }
 
 .homeHeaderLeft > button {
-    height: 35px;
-    width: 175px;
-    border-radius: 40px;
+  height: 35px;
+  width: 175px;
+  border-radius: 40px;
     
     
-    border: 1px solid black;
-    color: var(--fontDark);
+  border: 1px solid black;
+  color: var(--fontDark);
     
-    font-size: 16px;
-    box-shadow: 3px 3px 5px #353434;    
+  font-size: 16px;
+  box-shadow: 3px 3px 5px #353434;    
 }
 
 .homeHeaderLeft > :last-child{
-    margin-left: 15px;
+  margin-left: 15px;
 }
 .homeHeaderLeft > button:hover {
-    box-shadow: 4px 4px 6px #353434; 
-    cursor: pointer;
+  box-shadow: 4px 4px 6px #353434; 
+  cursor: pointer;
 }
 
 .homeHeaderLeft {
-    position: relative;
-    left: 60px;
-    bottom: 400px;
+  position: relative;
+  left: 60px;
+  bottom: 400px;
 
-    color: var(--fontDark);
+  color: var(--fontDark);
 }
 
 
@@ -57,7 +58,7 @@
   width: 100%
 }
 
-  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 .carousel-container {
   width: 85%;
   margin: 50px auto;
@@ -96,21 +97,22 @@
   left: -30px;
   display: none;
 }
+
 .arrows .prev.show {
   display: block;
 }
+
 .arrows .next {
   right: -30px;
 }
+
 .arrows .next.hide {
   display: none;
 }
 
-
 .card > * {
   flex: 1;
 }
-
 
 .card .img {
   display: flex;
@@ -118,6 +120,7 @@
   align-items: center;
   font-size: 30px;
 }
+
 .card .carouselInfo {
   flex-basis: 40px;
   color: var(--fontBold);
@@ -150,15 +153,15 @@
 }
 
 #arrowImg1{
-    background-image: url(ikoner/arrow_back.png);
-    height: 100%;
-    width: 100%;
+  background-image: url(ikoner/arrow_back.png);
+  height: 100%;
+  width: 100%;
 }
 
 #arrowImg2{
-    background-image: url(ikoner/arrow_forward.png);
-    height: 100%;
-    width: 100%;
+  background-image: url(ikoner/arrow_forward.png);
+  height: 100%;
+  width: 100%;
 }
 
 .card > div {
@@ -248,12 +251,6 @@
   font-family: var(--bodyText);
 }
 
-
-
-
-
-
-
 .quizStartContainer {
   display: flex;
   flex-direction: row;
@@ -323,8 +320,8 @@
   display: flex;
   flex-direction: column;
   height: 400px;
-  overflow: scroll;
-
+  /* overflow: scroll; */
+  overflow: hidden;
 }
 
 .question {
@@ -334,6 +331,7 @@
   color:var(--fontDark);
   font-family: var(--subHeading);
 }
+
 .option {
   padding: 1rem;
   color: #fff;
@@ -344,16 +342,20 @@
   transition: all 0.3s;
   display: inline-block;
 }
+
 .option:hover {
   background: #8ab6cf;
 }
+
 .option input:checked .option {
   background: #08038c;
   color: #000;
 }
+
 .controls > * {
   margin: 1rem 0rem;
 }
+
 button {
   padding: 0.5rem 1.5rem;
   border: none;
@@ -365,12 +367,15 @@ button {
   transform: scale(0.98);
   transition: all 0.2s;
 }
+
 button.previous {
   background:  rgb(221, 59, 59);
 }
+
 button.next {
   background:  #569c50;
 }
+
 button.restart {
   background: var(--fontBold);
   color: #00000050;
@@ -378,15 +383,18 @@ button.restart {
   margin-bottom: 1rem;
   transition: all 0.4s;
 }
+
 button.restart:hover {
   color: #00000098;
 }
+
 button:hover,
 button:focus {
   transform: scale(1);
   font-weight: 500;
   box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
+
 .result {
   display: flex;
   flex-direction: column;
@@ -396,9 +404,11 @@ button:focus {
   text-align: center;
   font-size: 2.5rem;
 }
+
 .final-score {
   color: #00000099;
 }
+
 .summary {
   font-size: 1rem;
   text-shadow: 1px 1px #ffffff50;
@@ -411,6 +421,7 @@ button:focus {
   padding: 0 2rem;
   margin-bottom: 2rem;
 }
+
 .summary h1 {
   align-self: center;
 }
