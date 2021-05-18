@@ -107,7 +107,7 @@
 }
 
 #arrow {
-    background-image: url(ikoner/arrowDown.png);
+    background-image: url(ikoner/arrowDown.svg);
     background-size: 25px;
     background-repeat: no-repeat;
     background-position: center;
@@ -148,21 +148,30 @@
 }
 
 .iconVisum {
-    background-image: url(ikoner/iconVisum.png);
+    background-image: url(ikoner/visum.svg);
 }
 
 .iconLanguage {
-    background-image: url(ikoner/iconLanguage.png);
+    background-image: url(ikoner/language.svg);
 }
 
 .iconBeer {
-    background-image: url(ikoner/iconBeer.png);
+    background-image: url(ikoner/beer.svg);
 }
 
 .iconSun {
-    background-image: url(ikoner/iconSun.png);
+    background-image: url(ikoner/sun.svg);
 }
 
 .iconLocation {
-    background-image: url(ikoner/iconLocation.png);
+    background-image: url(ikoner/location.svg);
+}
+
+.goToUni {
+    transition: all, .3s;
+}
+.goToUni:hover {
+    font-size: 15px;
+    cursor: pointer;
+
 }
