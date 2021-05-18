@@ -253,8 +253,10 @@ function goToDestinations(country) {
             goToUni.innerHTML = u.name;
 
             goToUni.addEventListener("click", ()=> {
-                console.log(`${u.name}`);
-                goToProgrammes(`${u.name}`);
+                infoDivDest.remove();
+
+                console.log(`${u.id}`);
+                goToProgrammes(`${u.id}`);
             });
 
             document.querySelector('.Unis').append(goToUni);

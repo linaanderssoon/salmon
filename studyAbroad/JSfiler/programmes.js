@@ -166,6 +166,13 @@ function goToProgrammes(university) {
             selectUni.value = university;
             let event = new Event('change');
             selectUni.dispatchEvent(event);
+
+            let filtered = PROGRAMMES.filter(p => p.universityID == university);
+
+            for (let i = 0; i < counter; i++) {
+                programmesWrapper.append(createProgDivs(filtered[i]));
+            }
+
         } else  {
             for(let i = 0; i < counter; i++) {
                 programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
