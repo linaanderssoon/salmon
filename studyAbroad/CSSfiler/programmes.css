@@ -1,4 +1,5 @@
-.selectorsDiv{
+/* SELCETION FÄLTEN */
+.selectorsDiv {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
@@ -8,14 +9,14 @@
 #country, #university, #city, #language, #level, #field {
     width: 100%;
     height: 30px;
-    border: 1px solid #121C4D;
-    color: #121C4D;
-    background-color: #F5F5F5;
+    border: 1px solid var(--fontDark);
+    color: var(--fontDark);
+    background-color: var(--backgroundColorLight);
     border-radius: 30px;
     padding: 3px 30px 3px 10px;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--heading);
     font-size: 13px;
-    box-shadow: 2px 2px 2px rgb(177, 177, 177);
+    box-shadow: 2px 2px 2px var(--shadow);
     appearance: none;  
 }
 
@@ -25,7 +26,7 @@
 }
 
 #arrow {
-    background-image: url(ikoner/arrowDown.png);
+    background-image: url(ikoner/arrowDown.svg);
     background-size: 25px;
     background-repeat: no-repeat;
     background-position: center;
@@ -42,49 +43,12 @@
 }
 
 #selectItem {
-    color: #121C4D;
-    background-color:#F5F5F5;
+    color: var(--fontDark);
+    background-color: var(--backgroundColorLight);
     font-size: 13px;
 }
 
-.searchButton {
-    color: #FFFF;
-    background-color:var(--fontBold);
-    font-size: 13px;
-    border: 1px solid var(--fontBold);
-    font-family: 'Poppins', sans-serif ;
-    width: 100px;
-    height: 30px;
-    border-radius: 30px;
-    box-shadow: 1px 1px 1px rgb(177, 177, 177);
-    transition: all, .2s;
-
-    cursor: pointer;
-}
-
-.searchButton:hover {
-    color: #fff;
-    background-color: var(--fontBold);
-    opacity: .8;
-    box-shadow: 2px 2px 2px rgb(177, 177, 177);
-}
-
-.resetButton {
-    color: var(--fontBold);
-    background-color: #FFFF;
-    font-size: 13px;
-    border: 1px solid var(--fontBold);
-    font-family: 'Poppins', sans-serif ;
-    width: 100px;
-    height: 30px;
-    border-radius: 30px;
-    box-shadow: 1px 1px 1px rgb(177, 177, 177);
-    transition: all, .2s;
-
-    cursor: pointer;
-
-}
-
+/* PROGRAM DIVARNA */
 .programmesWrapper {
     width: 100%;
     background-color: var(--backgroundColorLight);
@@ -109,42 +73,42 @@
 
     position: relative;
     transition: all .2s;
-
 }
 
 .progParent:hover {
     background-color: var(--backgroundColorLight);
-    box-shadow: 0px 0px 7px var(--shadow);
-
-
-
+    box-shadow: 0px 0px 9px var(--shadow);
 }
 
 .progParent:nth-child(3n){
     margin: 0px;
 }
 
+/* FELMEDDELANDE OM INGA PROGRAM FINNS */
+.error {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: var(--fontBold);
+    font-family: var(--heading);
+}
+
+/* INNEHÅLL I PRGRAM DIVARNA */
 .progHeadning {
     font-size: 18px;
     font-weight: var(--boldWeight);
     color: var(--fontBold);
     font-family: var(--heading);
-    margin-bottom: 10px;
 }
 
-.progUniversity {
-    color: var(--fontDark);
-    font-family: var(--bodyText);
+.infoParent {
     display: flex;
-}
-.progLevel {
-    color: var(--fontDark);
-    font-family: var(--bodyText);
+    margin: 5px 5px 5px 0px;
 }
 
-.progLanguage {
+.progUniversity, .progLevel, .progLanguage {
     color: var(--fontDark);
-    font-family: var(--bodyText);
+    font-family: var(--heading);
 }
 
 .uniPic, .levelPic, .langPic {
@@ -153,33 +117,21 @@
     background-size: cover;
     margin-right: 10px;
 }
+
 .uniPic {
-    background-image: url(ikoner/iconLocation.png);
+    background-image: url(ikoner/location.svg);
 }
 
 .levelPic {
-    background-image: url(ikoner/iconLevel.png);
+    background-image: url(ikoner/educationLevel.svg);
 }
 
 .langPic {
-    background-image: url(ikoner/iconLanguage.png);
-}
-
-.infoParent {
-    display: flex;
-    margin: 5px;
+    background-image: url(ikoner/language.svg);
 }
 
 
-
-.error {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    color: var(--fontBold);
-    font-family: var(--subHeading);
-}
-
+/* IKONER I STORA INFO_DIVEN */
 .innerIcon {
     height: 20px;
     width: 20px;
@@ -187,39 +139,38 @@
 
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .iconLocation {
-    background-image: url(ikoner/iconLocation.png);
+    background-image: url(ikoner/location.svg);
 }
 
 .iconLevel {
-    background-image: url(ikoner/iconLevel.png);
+    background-image: url(ikoner/educationLevel.svg);
 }
 
 .iconLanguage {
-    background-image: url(ikoner/iconLanguage.png);
+    background-image: url(ikoner/language.svg);
 }
 
 .iconEntry {
-    background-image: url(ikoner/iconEntry.png);
+    background-image: url(ikoner/points.svg);
+    background-size: 17px;
 }
 
-
-.iconClass {
-    background-image: url(ikoner/iconClass.png);
+.iconLocalStudents {
+    background-image: url(ikoner/localStudents.svg);
 }
 
 .iconInternationalStudents {
-    background-image: url(ikoner/iconInternationalStudents.png);
+    background-image: url(ikoner/exchangeStudent.svg);
 }
 
 .entryPointsYear {
-    display:flex;
-    width: 100%;
+    display: flex;
     flex-wrap: wrap;
-
-
+    width: 100%;
 }
 
 .entryPointsYear > div {
@@ -228,10 +179,6 @@
     padding: 5px;
     text-align: center;
     color: var(--fontBold);
-    /* display: flex;
-    flex-direction: column; */
-
-
 }
 
 .entryPointsYear > div > span {

@@ -32,7 +32,7 @@ function goToDestinations(country) {
     <div class="selectorsDiv">
         <div class="dropdown">
             <select name="" id="country">
-                <option id="selectItem">All countries</option>
+                <option id="selectItem">Alla länder</option>
             </select>
             <div id="arrow"></div>
         </div>

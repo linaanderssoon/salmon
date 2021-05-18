@@ -2,8 +2,6 @@
 
 //SKAPAR WRAPPER FÖR DESTINATIONER OCH DESS INNEHÅLL
 function goToProgrammes(university) {  
-
-
     scroll(0,0);
 
     navProgrammes.classList.add('currentPage');
@@ -74,11 +72,7 @@ function goToProgrammes(university) {
     let filtered = [...PROGRAMMES];
     let counter = 9;
 
-
-    initialProgrammes();
-
-
-    // SKAPAR ALLA OPTIONS //
+    // SKAPAR ALLA OPTIONS I SELECTION //
     CITIES.forEach(c => {
         let newOption = document.createElement('option');
         newOption.textContent = c.name;
@@ -165,18 +159,18 @@ function goToProgrammes(university) {
     }
 
     // FUNKTION SOM SKAPAR DIVARNA SOM SKA VARA DÄR FRÅN START //
-    function initialProgrammes() {
+    initialProgrammes();
 
+    function initialProgrammes() {
         if (university !== undefined) {
             selectUni.value = university;
             let event = new Event('change');
             selectUni.dispatchEvent(event);
-        } 
-    //9 PROGRAM VISAS FRÅN BÖRJAN NÄR MAN GÅR IN PÅ SIDAN//
-        else  {
-         for(let i = 0; i < counter; i++) {
-            programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
+        } else  {
+            for(let i = 0; i < counter; i++) {
+                programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
             }  
+        }
     }
 
     //SÖKFUNKTION//
@@ -227,7 +221,6 @@ function goToProgrammes(university) {
 
         createProgrammes(cityID, uniID, levelID, fieldID);
     });
-
 
     // FILTRERAR BASERAT PÅ SÖKNING //
     function createProgrammes(cityID, uniID, levelID, fieldID) {
@@ -327,7 +320,7 @@ function goToProgrammes(university) {
         let progLang = LANGUAGES.find(l => l.id === p.language).name;
 
         programmeParent.innerHTML = `
-        <div class='progHeadning'> ${p.name}</div>
+        <h2 class='progHeadning'> ${p.name}</h2>
 
         <div class='infoParent'> 
         <div class='uniPic'></div>
@@ -401,7 +394,7 @@ function goToProgrammes(university) {
             </div>
 
             <div class ='infoDivLeftInner' > 
-                <div class='innerIcon iconClass'> </div>
+                <div class='innerIcon iconLocalStudents'> </div>
                 <h5> Antal lokala studenter: ${p.localStudents} </h5>
             </div>
 
@@ -448,7 +441,6 @@ function goToProgrammes(university) {
                 let star = document.createElement('div');
                 star.classList.add('star');
                 goldStarsParent.append(star);
-
             }
 
             let nameAge = document.createElement('div');
@@ -486,6 +478,5 @@ function goToProgrammes(university) {
 
 
         return infoDivDestParent;
-    }
     }
 }
