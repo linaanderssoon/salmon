@@ -51,6 +51,8 @@ p {
     color: var(--fontDark);
     font-family: var(--bodyText);
     font-size: 0.8rem;
+    box-sizing: border-box;
+
 }
 
 
@@ -178,10 +180,17 @@ footer > div {
 
     font-family: var(--heading);
     font-size: 18px;
+    margin: 0;
 }
 
 .navHome, .navDestinations, .navProgrammes, .navInterviews {
-    color: var(--fontDark)
+    color: var(--fontDark);
+    height: 100%;
+    transition: all, .4s;
+}
+
+.navHome:hover, .navDestinations:hover, .navProgrammes:hover, .navInterviews:hover {
+    font-size: 19px;
 }
 
 .currentPage {

@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 function goToInterviews(place) {
     //Hamna högst upp på sidan
     if(place.classList[0] === 'intw1Small') {
