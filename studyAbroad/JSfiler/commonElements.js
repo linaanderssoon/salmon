@@ -17,40 +17,98 @@ const footerProgramme = document.querySelector(".footerProgramme");
 const footerDestinations = document.querySelector(".footerDestinations");
 const footerInterviews = document.querySelector(".footerInterviews");
 
+let transitionDuration = 350;
 
 // Navlänk
 navHome.addEventListener('click', ()=> {
-    goToHome();
+    //Fade out
+    wrapper.style.opacity = 0;
+
+    //Fade In
+    setTimeout(function(){
+        goToHome();
+        wrapper.style.opacity = 1;
+    }, transitionDuration);
 });
 
 navDestinations.addEventListener('click', ()=> {
-    goToDestinations();
+    //Fade out
+    wrapper.style.opacity = 0;
+
+    //Fade In
+    setTimeout(function(){
+        goToDestinations();
+        wrapper.style.opacity = 1;
+    }, transitionDuration);
 });
 
 navProgrammes.addEventListener('click', ()=> {
-    goToProgrammes();
+    //Fade out
+    wrapper.style.opacity = 0;
+
+    //Fade In
+    setTimeout(function(){
+        goToProgrammes();
+        wrapper.style.opacity = 1;
+    }, transitionDuration);
+
 });
 
 navInterviews.addEventListener('click', (y) => {
-    goToInterviews(y.originalTarget);
+    //Fade out
+    wrapper.style.opacity = 0;
+
+    //Fade In
+    setTimeout(function(){
+        goToInterviews(y.originalTarget);
+        wrapper.style.opacity = 1;
+    }, transitionDuration);
 });
 
 // Footerlänk
 footerDestinations.addEventListener("click", () => {
-    goToDestinations();
+    //Fade out
+    wrapper.style.opacity = 0;
+
+    //Fade In
+    setTimeout(function(){
+        goToDestinations();
+        wrapper.style.opacity = 1;
+    }, transitionDuration);
 });
 
 footerProgramme.addEventListener("click", () => {
-   goToProgrammes();
+    //Fade out
+    wrapper.style.opacity = 0;
+
+    //Fade In
+    setTimeout(function(){
+        goToProgrammes();
+        wrapper.style.opacity = 1;
+    }, transitionDuration);
 });
 
 footerInterviews.addEventListener("click", (y) => {
-    goToInterviews(y.originalTarget);
+    //Fade out
+    wrapper.style.opacity = 0;
+
+    //Fade In
+    setTimeout(function(){
+        goToInterviews(y.originalTarget);
+        wrapper.style.opacity = 1;
+    }, transitionDuration);
 });
 
 //Logotyp
 logotyp.addEventListener("click", () => {
-    goToHome();
+    //Fade out
+    wrapper.style.opacity = 0;
+
+    //Fade In
+    setTimeout(function(){
+        goToHome();
+        wrapper.style.opacity = 1;
+    }, transitionDuration);
 });
 
 

@@ -150,8 +150,17 @@ function startQuiz(){
       <h2 class="carouselInfo">${COUNTRIES[i].name}</h2> 
       </div>
       `;
+      
       carouselContainer.querySelector("h2").addEventListener("click", ()=> {
-        goToDestinations(`${COUNTRIES[i].name}`);
+        //Fade out
+        wrapper.style.opacity = 0;
+
+        //Fade In
+        setTimeout(function(){
+          goToDestinations(`${COUNTRIES[i].name}`);
+          wrapper.style.opacity = 1;
+        }, transitionDuration);
+
       });
       carouselTrack.append(carouselContainer);
     }
@@ -414,16 +423,39 @@ const intwPersLink = document.querySelectorAll(".smallIntw");
 
 //Header
 headerButtonDestinations.addEventListener("click", () => {
-    goToDestinations();
+  //Fade out
+  wrapper.style.opacity = 0;
+
+  //Fade In
+  setTimeout(function(){
+      goToDestinations();
+      wrapper.style.opacity = 1;
+  }, 500);
 });
+
 headerButtonProgrammes.addEventListener("click", () => {
+  //Fade out
+  wrapper.style.opacity = 0;
+
+  //Fade In
+  setTimeout(function(){
     goToProgrammes();
+    wrapper.style.opacity = 1;
+  }, 500);
 });
 
 //Hamna på intervjusidan när man klickar på intervju-cirklarna
 intwPersLink.forEach(person => {
   person.addEventListener("click", (y) => {
-    goToInterviews(y.originalTarget);
+    //Fade out
+    wrapper.style.opacity = 0;
+
+    //Fade In
+    setTimeout(function(){
+        goToInterviews(y.originalTarget);
+        wrapper.style.opacity = 1;
+    }, 500);
+
   });
 });
 
