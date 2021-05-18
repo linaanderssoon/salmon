@@ -3,7 +3,9 @@
 
 
 function goToInterviews(place) {
-    //Hamna högst upp på sidan
+    wrapper.style.marginTop="80px";
+    
+    //Hamna på ett specifikt ställe på sidan
     if(place.classList[0] === 'intw1Small') {
         scroll(0, 1047)
     } else if (place.classList[0] === 'intw2Small') {

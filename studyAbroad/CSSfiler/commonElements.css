@@ -56,7 +56,7 @@ p {
 
 #wrapper {
     background-color: var(--backgroundColorLight);
-    margin: 80px 120px 0px 120px;
+    margin: 0px 120px 0px 120px;
 
 
     -webkit-transition: opacity .5s ease-in-out;
