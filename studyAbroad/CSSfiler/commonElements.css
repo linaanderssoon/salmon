@@ -57,6 +57,14 @@ p {
 #wrapper {
     background-color: var(--backgroundColorLight);
     margin: 80px 120px 0px 120px;
+
+
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -ms-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+
 }
 
 footer {

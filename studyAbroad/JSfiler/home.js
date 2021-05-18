@@ -36,7 +36,6 @@ function goToHome(){
     </div>
 
     <div class="quiz-container">
-    <div class="quizStartContainer">
     <div class="quizImg"></div>
         <div class="quizStartRight">
         <div class="quizTitle">Vart vill du åka?</div>
@@ -45,8 +44,7 @@ function goToHome(){
         <button>Starta quizet</button>
         </div>
     </div>
-    </div>
-    <div class="result">
+
 
     <div class="longAd"></div>
 
@@ -132,7 +130,6 @@ function startQuiz(){
         <button class="next">Nästa</button>
     </div>
     </div>
-    
 
     `;
 }
@@ -150,8 +147,17 @@ function startQuiz(){
       <h2 class="carouselInfo">${COUNTRIES[i].name}</h2> 
       </div>
       `;
+      
       carouselContainer.querySelector("h2").addEventListener("click", ()=> {
-        goToDestinations(`${COUNTRIES[i].name}`);
+        //Fade out
+        wrapper.style.opacity = 0;
+
+        //Fade In
+        setTimeout(function(){
+          goToDestinations(`${COUNTRIES[i].name}`);
+          wrapper.style.opacity = 1;
+        }, transitionDuration);
+
       });
       carouselTrack.append(carouselContainer);
     }
@@ -202,7 +208,7 @@ function startQuiz(){
           "answer1Total": "2",
           "answer2": "Jag älskar att resa och uppleva nya kulturer",
           "answer2Total": "3",
-          "answer3": "Jag vill gå på en bra skola och få en bra utbildning",
+          "answer3": "Jag vill få en bra utbildning",
           "answer3Total": "1"
         }  ,
         {
@@ -242,21 +248,21 @@ function startQuiz(){
           "answer3Total": "2"
         },
         {
-          "question": "Fråga?",
-          "answer1": "Svar1",
-          "answer1Total": "1",
-          "answer2": "Svar2",
-          "answer2Total": "2",
-          "answer3": "Svar3",
-          "answer3Total": "3"
+          "question": "Hur långt bort vill du åka?",
+          "answer1": "Så långt bort som möjligt!",
+          "answer1Total": "3",
+          "answer2": "Nära, det ska vara smidigt att ta en weekend tillbaka om jag känner för det",
+          "answer2Total": "1",
+          "answer3": "Det spelar ingen roll, jag vill bara iväg",
+          "answer3Total": "2"
         },
         {
-          "question": "Fråga?",
-          "answer1": "1",
+          "question": "Välj en maträtt",
+          "answer1": "Fisk och skaldjur",
           "answer1Total": "1",
-          "answer2": "2",
+          "answer2": "Burgare",
           "answer2Total": "2",
-          "answer3": "3",
+          "answer3": "Tacos",
           "answer3Total": "3"
         }
       ]
@@ -274,8 +280,6 @@ function startQuiz(){
       const option3 = document.querySelector('.option3');
       const nextButton = document.querySelector('.next');
       const previousButton = document.querySelector('.previous');
-      const restartButton = document.querySelector('.restart');
-      const result = document.querySelector('.result');
       
       
       //Genererar frågorna 
@@ -325,51 +329,46 @@ function startQuiz(){
           if(currentQuestion == totalQuestions) {
           //Mellan 7-11 poäng
           if(totalScore < 11){
-            container.style.display = 'none';
-            result.innerHTML =`Iväg, men inte för långt! Vi tipsar om Frankrike, Spanien eller Sverige!
-            <br><button class="restart">Starta om quizet</button>`;
+            container.innerHTML="";
+            container.innerHTML =`<div class="result">Iväg, men inte för långt! Vi tipsar om Frankrike, Spanien eller Sverige!
+            <br><button class="restart">Starta om quizet</button></div>`;
           }
           //Mellan 12-16 poäng
           else if (totalScore > 12 && totalScore < 17) {
-            container.style.display = 'none';
-            result.innerHTML =`Ett engelsktalande land skulle passa dig bra! Vi tipsar om Autralien, USA eller UK!
-            <br><button class="restart">Starta om quizet</button>`;
+            container.innerHTML="";
+            container.innerHTML =`<div class="result">Ett engelsktalande land skulle passa dig bra! Vi tipsar om Autralien, USA eller UK!
+            <br><button class="restart">Starta om quizet</button></div>`;
           }
           //Mellan 17-21 poäng
           else {
-            container.style.display = 'none';
-            result.innerHTML =`Exotiskt, varmt och lååångt härifrån! Vi tipsar om Chile, Mexico eller Argentina!
-            <br><button class="restart">Starta om quizet</button>`;
+            container.innerHTML="";
+            container.innerHTML =`<div class="result">Exotiskt, varmt och lååångt härifrån! Vi tipsar om Chile, Mexico eller Argentina!
+            <br><button class="restart">Starta om quizet</button></div>`;
           }
         }
-
           generateQuestions(currentQuestion);
-          
       }
 
       //Laddar föregående fråga
-      function loadPreviousQuestion() {
-          currentQuestion--;
-          score.pop();
-          generateQuestions(currentQuestion);
+       function loadPreviousQuestion() {
+        currentQuestion--;
+        score.pop();
+        generateQuestions(currentQuestion);
       }
-      
-      //Startar om quizet/nollställer den
-      function restartQuiz(e) {
-          if(e.target.matches('button')) {
+      //Startar om quizet/nollställer den samt laddar om sidan
+        function restartQuiz(e) {
+          if(e.target.matches('.restart')) {
           currentQuestion = 0;
           score = [];
-          location.reload();
+          goToHome();
+          scroll(0, 650)
           }
-      
-      }
-      
-      
+        }
+
       generateQuestions(currentQuestion);
       nextButton.addEventListener('click', loadNextQuestion);
       previousButton.addEventListener('click',loadPreviousQuestion);
-      result.addEventListener('click',restartQuiz);
-      
+      container.addEventListener('click',restartQuiz);
 }
 
 let prev  = document.querySelector('.prev');
@@ -414,16 +413,39 @@ const intwPersLink = document.querySelectorAll(".smallIntw");
 
 //Header
 headerButtonDestinations.addEventListener("click", () => {
-    goToDestinations();
+  //Fade out
+  wrapper.style.opacity = 0;
+
+  //Fade In
+  setTimeout(function(){
+      goToDestinations();
+      wrapper.style.opacity = 1;
+  }, 500);
 });
+
 headerButtonProgrammes.addEventListener("click", () => {
+  //Fade out
+  wrapper.style.opacity = 0;
+
+  //Fade In
+  setTimeout(function(){
     goToProgrammes();
+    wrapper.style.opacity = 1;
+  }, 500);
 });
 
 //Hamna på intervjusidan när man klickar på intervju-cirklarna
 intwPersLink.forEach(person => {
   person.addEventListener("click", (y) => {
-    goToInterviews(y.originalTarget);
+    //Fade out
+    wrapper.style.opacity = 0;
+
+    //Fade In
+    setTimeout(function(){
+        goToInterviews(y.originalTarget);
+        wrapper.style.opacity = 1;
+    }, 500);
+
   });
 });
 

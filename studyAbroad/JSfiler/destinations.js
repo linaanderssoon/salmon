@@ -168,8 +168,10 @@ function goToDestinations(country) {
 
     
         citiesParent.addEventListener('click', (e) => {
+            
             makeInfoDiv(CITIES[i])
             let infoDivDest = document.querySelector('.infoDivDest');
+
     
             let placementTop = e.currentTarget.offsetTop;
             infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
