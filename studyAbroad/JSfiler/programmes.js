@@ -3,7 +3,7 @@
 //SKAPAR WRAPPER FÖR DESTINATIONER OCH DESS INNEHÅLL
 function goToProgrammes(university) {  
     scroll(0,0);
-
+    
     navProgrammes.classList.add('currentPage');
 
     navHome.classList.remove('currentPage');

@@ -12,6 +12,8 @@ function goToHome(){
   //Töm nuvarande innehåll i wrapper
   wrapper.innerHTML = "";
 
+  wrapper.style.marginTop="0px";
+
   //Byt klasser i nav
   navHome.classList.add('currentPage');
 
@@ -36,6 +38,7 @@ function goToHome(){
     </div>
 
     <div class="quiz-container">
+    
     <div class="quizImg"></div>
         <div class="quizStartRight">
         <div class="quizTitle">Vart vill du åka?</div>
@@ -43,6 +46,7 @@ function goToHome(){
         <br> land du borde studera i!</p>
         <button>Starta quizet</button>
         </div>
+    
     </div>
 
 
@@ -101,66 +105,6 @@ function goToHome(){
   <div class="longAd"></div>
   `;
 
-  
-
-//Klicka på start så börjar quizzet
-document.querySelector(".quizStartRight > button").addEventListener("click", startQuiz);
-
-function startQuiz(){
-
-    //Tömmer tidigare innehåll
-    document.querySelector(".quiz-container").innerHTML=`
-    
-    <div id="question" class="question"></div>
-    <label class="option">
-        <input type="radio" name="option" value="1" />
-        <span class="option1"></span>
-    </label>
-    <label class="option">
-        <input type="radio" name="option" value="2" />
-        <span class="option2"></span>
-    </label>
-    <label class="option">
-        <input type="radio" name="option" value="3" />
-        <span class="option3"></span>
-    </label>
-    <!-- Buttons -->
-    <div class="controls">
-        <button class="previous">Föregående</button>
-        <button class="next">Nästa</button>
-    </div>
-    </div>
-
-    `;
-}
-
-    let carouselTrack = document.querySelector('.track');
-    
-    //Så många bilder/divvar som det finns länder i databasen
-    for(let i = 0; i < COUNTRIES.length; i++){
-      let carouselContainer = document.createElement("div");
-      carouselContainer.classList.add("card-container");
-  
-      carouselContainer.innerHTML=`
-      <div class="card">
-      <img class="carouselImg" src="JSfiler/Images/${COUNTRIES[i].imagesNormal[1]}">
-      <h2 class="carouselInfo">${COUNTRIES[i].name}</h2> 
-      </div>
-      `;
-      
-      carouselContainer.querySelector("h2").addEventListener("click", ()=> {
-        //Fade out
-        wrapper.style.opacity = 0;
-
-        //Fade In
-        setTimeout(function(){
-          goToDestinations(`${COUNTRIES[i].name}`);
-          wrapper.style.opacity = 1;
-        }, transitionDuration);
-
-      });
-      carouselTrack.append(carouselContainer);
-    }
 
 //Klicka på start så börjar quizzet
 document.querySelector(".quizStartRight > button").addEventListener("click", startQuiz);
@@ -176,7 +120,7 @@ function startQuiz(){
 
     //Tömmer tidigare innehåll
     quizContainer.innerHTML=`
-    
+    <div class="quiz-inner">
     <div id="question" class="question"></div>
     <label class="option">
         <input type="radio" name="option" value="1" />
@@ -192,11 +136,11 @@ function startQuiz(){
     </label>
     <!-- Buttons -->
     <div class="controls">
-        <button class="previous">Föregående</button>
-        <button class="next">Nästa</button>
+        <button class="previous"></button>
+        <button class="next"></button>
     </div>
     </div>
-    
+    </div>
 
     `;
 
@@ -369,6 +313,37 @@ function startQuiz(){
       nextButton.addEventListener('click', loadNextQuestion);
       previousButton.addEventListener('click',loadPreviousQuestion);
       container.addEventListener('click',restartQuiz);
+}
+
+
+// KARUSELL
+
+let carouselTrack = document.querySelector('.track');
+    
+//Så många bilder/divvar som det finns länder i databasen
+for(let i = 0; i < COUNTRIES.length; i++){
+  let carouselContainer = document.createElement("div");
+  carouselContainer.classList.add("card-container");
+
+  carouselContainer.innerHTML=`
+  <div class="card">
+  <img class="carouselImg" src="JSfiler/Images/${COUNTRIES[i].imagesNormal[1]}">
+  <h2 class="carouselInfo">${COUNTRIES[i].name}</h2> 
+  </div>
+  `;
+  
+  carouselContainer.querySelector("h2").addEventListener("click", ()=> {
+    //Fade out
+    wrapper.style.opacity = 0;
+
+    //Fade In
+    setTimeout(function(){
+      goToDestinations(`${COUNTRIES[i].name}`);
+      wrapper.style.opacity = 1;
+    }, transitionDuration);
+
+  });
+  carouselTrack.append(carouselContainer);
 }
 
 let prev  = document.querySelector('.prev');
