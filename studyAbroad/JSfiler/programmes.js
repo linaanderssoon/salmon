@@ -179,7 +179,7 @@ function goToProgrammes(university) {
             for(let i = 0; i < counter; i++) {
                 programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
             }
-            
+
             makeSmallAd();
         }
 
@@ -194,8 +194,8 @@ function goToProgrammes(university) {
         let fieldID = selectField.value; 
 
         createProgrammes(cityID, uniID, levelID, fieldID);
-        makeSmallAd();
 
+        makeSmallAd();
     });
 
     selectUni.addEventListener('change', () => {
@@ -327,7 +327,6 @@ function goToProgrammes(university) {
             }
 
             makeSmallAd();
-
         }
 
     });
