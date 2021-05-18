@@ -258,60 +258,68 @@ function goToDestinations(country) {
             document.querySelector('.Unis').append(goToUni);
         });
 
-        let comments = COMMENTS_CITY.filter(c => c.cityID === i.id)
+        let comments = COMMENTS_CITY.filter(c => c.cityID === i.id);
+        console.log(comments);
 
         //Räkna ut medelvärde av alla tre betygen 
         function average(array) {
             return array.reduce((a, b) => a + b) / array.length;
         }
 
-        comments.forEach(c => {
+        if (comments.length === 0) {
+            let errorComment = document.createElement('div');
+            errorComment.classList.add('errorComments');
+            errorComment.innerHTML = 'Inga recensioner ännu';
+            document.querySelector('.scrollBox').append(errorComment)
+        } else {
+            comments.forEach(c => {
 
-            let commentParent = document.createElement('div');
-            commentParent.classList.add('commentParent');
-
-
-            let starsParent = document.createElement('div');
-            starsParent.classList.add('starsParent');
-
-            starsParent.innerHTML =`
-            <div class="grayStarsParent">
-                <div class="grayStar"> </div>
-                <div class="grayStar"> </div>
-                <div class="grayStar"> </div>
-                <div class="grayStar"> </div>
-                <div class="grayStar"> </div>
-            </div>
-            `;
-
-            let goldStarsParent = document.createElement('div');
-            goldStarsParent.classList.add('goldStarsParent');
-
-            starsParent.append(goldStarsParent);
-
-            //Antal stjärnor är uträknade medelvärdet av betygen
-            let starNumber = average([Math.round(c.stars.out, c.stars.food, c.stars.accomodation)]);
-
-            for (let i = 1; i <= starNumber; i++) {
-                let star = document.createElement('div');
-                star.classList.add('star');
-
-                goldStarsParent.append(star);
-            }
-
-            let nameAge = document.createElement('div');
-            nameAge.classList.add('commentName');
-            nameAge.innerHTML = c.alias;
-
-            let text = document.createElement('div');
-            text.classList.add('commentText');
-            text.innerHTML = '"' + c.text + '"';
+                let commentParent = document.createElement('div');
+                commentParent.classList.add('commentParent');
 
 
-            commentParent.append(starsParent, nameAge, text);
-            
-            document.querySelector('.scrollBox').append(commentParent);
-        });
+                let starsParent = document.createElement('div');
+                starsParent.classList.add('starsParent');
+
+                starsParent.innerHTML =`
+                <div class="grayStarsParent">
+                    <div class="grayStar"> </div>
+                    <div class="grayStar"> </div>
+                    <div class="grayStar"> </div>
+                    <div class="grayStar"> </div>
+                    <div class="grayStar"> </div>
+                </div>
+                `;
+
+                let goldStarsParent = document.createElement('div');
+                goldStarsParent.classList.add('goldStarsParent');
+
+                starsParent.append(goldStarsParent);
+
+                //Antal stjärnor är uträknade medelvärdet av betygen
+                let starNumber = average([Math.round(c.stars.out, c.stars.food, c.stars.accomodation)]);
+
+                for (let i = 1; i <= starNumber; i++) {
+                    let star = document.createElement('div');
+                    star.classList.add('star');
+
+                    goldStarsParent.append(star);
+                }
+
+                let nameAge = document.createElement('div');
+                nameAge.classList.add('commentName');
+                nameAge.innerHTML = c.alias;
+
+                let text = document.createElement('div');
+                text.classList.add('commentText');
+                text.innerHTML = '"' + c.text + '"';
+
+
+                commentParent.append(starsParent, nameAge, text);
+                
+                document.querySelector('.scrollBox').append(commentParent);
+            });
+        }
 
 
         let closeInfoDiv = document.createElement('div');

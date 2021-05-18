@@ -5,7 +5,6 @@
     --fontBold: #DC6420;
     --linkColor: #AAC4D3;
     --shadow: #9C9C9C;
-    --starColor: lightblue;
     
     --heading: 'Poppins', sans-serif;
     --subHeading: 'Poppins', sans-serif;
@@ -144,16 +143,15 @@ footer > div {
 }
 
 .logotyp {
-    height: 65px;
-    width: 65px;
-    padding: 10px 0px 0px 20px;
-    transition-duration: 2s;
+    height: 60px;
+    width: 60px;
+    padding: 10px;
+    transition: transform 1s ease;
 }
 
 .logotyp:hover {
-    transition-duration: 2s;
     cursor: pointer;
-    
+    transform: rotate(-45deg);
 }
 
 .navRight {
@@ -171,7 +169,7 @@ footer > div {
     justify-content: center;
 
     font-family: var(--heading);
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .navHome, .navDestinations, .navProgrammes, .navInterviews {
