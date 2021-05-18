@@ -263,8 +263,7 @@ function goToProgrammes(university) {
 
             programmesWrapper.append(createProgDivs(filtered[i]));
         }
-    
-
+        
         function noMatches() {
             if(filtered.length == 0) {
                 let error = document.createElement('div');

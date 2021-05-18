@@ -222,6 +222,11 @@
   flex-direction: column;
 }
 
+.homeInterview .smallAd {
+  width: 250px;
+  height: 250px;
+}
+
 .smallIntw {
   background-position: center;
   background-size: cover;
