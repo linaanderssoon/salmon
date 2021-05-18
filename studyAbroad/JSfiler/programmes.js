@@ -2,8 +2,10 @@
 
 //SKAPAR WRAPPER FÖR DESTINATIONER OCH DESS INNEHÅLL
 function goToProgrammes(university) {  
-    scroll(0,0);
+    wrapper.style.marginTop="80px";
 
+    scroll(0,0);
+    
     navProgrammes.classList.add('currentPage');
 
     navHome.classList.remove('currentPage');
@@ -166,9 +168,14 @@ function goToProgrammes(university) {
             selectUni.value = university;
             let event = new Event('change');
             selectUni.dispatchEvent(event);
-        } 
-    //9 PROGRAM VISAS FRÅN BÖRJAN NÄR MAN GÅR IN PÅ SIDAN//
-        else  {
+
+            let filtered = PROGRAMMES.filter(p => p.universityID == university);
+
+            for (let i = 0; i < counter; i++) {
+                programmesWrapper.append(createProgDivs(filtered[i]));
+            }
+
+        } else  {
             for(let i = 0; i < counter; i++) {
                 programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
             }
