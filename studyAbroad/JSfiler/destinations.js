@@ -41,7 +41,6 @@ function goToDestinations(country) {
     <div class="longAd"> </div>
 
     <div class="citiesWrapper">
-        
     </div>
 
     <div class="showMore">
@@ -58,7 +57,7 @@ function goToDestinations(country) {
     const selectCountries = document.getElementById('country');
     const showMore = document.querySelector('.showMore');
 
-    let counter = 9;
+    let counter = 8;
         
 
 
@@ -85,11 +84,13 @@ function goToDestinations(country) {
         selectCountries.dispatchEvent(event);
     } else  {
         //Skapa 9 divvar med städer från början 
-        let counter = 9;
+        let counter = 8;
         for(let i = 0; i < counter; i++) {
             citiesWrapper.append(allCountriesDivs(i));
-            
-    };}
+        };
+
+        makeSmallAd();
+    }
 
     //VISA MER KNAPP
     showMore.addEventListener('click', () => {
@@ -107,19 +108,22 @@ function goToDestinations(country) {
             //Annars forstätt skapa divvar
             citiesWrapper.append(allCountriesDivs(i));
         }
+
+        makeSmallAd();
     });
 
     //Baserat på val
     function createDestinations(selectedCountry) {
-
         if(selectedCountry === 'All countries') {
             //"Nollställ" counter- så det bara är 9 som visas från början här med 
-            counter = 9; 
+            counter = 8; 
 
             //Gör så många divvar som det är nummer i counter
             for(let i = 0; i < counter; i++) {
                 citiesWrapper.append(allCountriesDivs(i));
             }
+
+            makeSmallAd();
 
             //Visa mer knappen ska finnas
             document.querySelector('.showMore').style.setProperty('display', 'flex');
@@ -128,28 +132,30 @@ function goToDestinations(country) {
             let countryID = COUNTRIES.find(c => c.name === selectedCountry).id;
             let filterCities = CITIES.filter(c => c.countryID === countryID);
             
-
+            
             //Skapa så många divvar som det finns städer i valt land
             for(let i = 0; i < filterCities.length; i++) {
                 let citiesParent = document.createElement('div');
                 citiesParent.classList.add('citiesParent');
                 citiesWrapper.append(citiesParent);
                 
-        
+                
                 citiesParent.innerHTML = `
                     <img class="cityImage" src="JSfiler/Images/${filterCities[i].imagesNormal[1]}">
                     <h2 class="cityText"> ${filterCities[i].name} </h2>   
-                `;
-
-                citiesParent.addEventListener('click', (e) => {
-                    makeInfoDiv(filterCities[i]);
-                    let infoDivDest = document.querySelector('.infoDivDest');
-            
-                    let placementTop = e.target.y;            
-                    infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
-
-                });
+                    `;
+                    
+                    citiesParent.addEventListener('click', (e) => {
+                        makeInfoDiv(filterCities[i]);
+                        let infoDivDest = document.querySelector('.infoDivDest');
+                        
+                        let placementTop = e.target.y;            
+                        infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
+                        
+                    });
             }
+            
+            makeSmallAd();
 
             //Visa mer knappen ska inte finnas eftersom det aldrig är fler än 9 här
             document.querySelector('.showMore').style.setProperty('display', 'none');
@@ -165,7 +171,6 @@ function goToDestinations(country) {
             <img class="cityImage" src="JSfiler/Images/${CITIES[i].imagesNormal[1]}">
             <h2 class="cityText"> ${CITIES[i].name} </h2>   
         `;
-
     
         citiesParent.addEventListener('click', (e) => {
             
@@ -176,7 +181,6 @@ function goToDestinations(country) {
             let placementTop = e.currentTarget.offsetTop;
             infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
         });
-
 
         return citiesParent;
     }
@@ -348,8 +352,13 @@ function goToDestinations(country) {
         return infoDivDestParent;
     }
 
+    function makeSmallAd(){
+        let smallAd = document.createElement('div');
+        smallAd.classList.add('smallAd');
+        smallAd.innerHTML = 'AD';
+        citiesWrapper.append(smallAd);
+    }
 
-    
 }
 
 

@@ -209,10 +209,9 @@ footer > div {
     background-color: var(--backgroundColorDark);
 }
 
+
 .smallAd {
-    width: 250px;
-    height: 250px;
-    background-color: var(--backgroundColorDark);
+    margin: 0;
 }
 
 .infoDivDestParent {
@@ -332,4 +331,3 @@ footer > div {
     position: relative;
     top: -15px;
 }
-

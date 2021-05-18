@@ -70,7 +70,7 @@ function goToProgrammes(university) {
     const programmesWrapper = document.querySelector('.programmesWrapper');
     const showMore = document.querySelector('.showMore');
     let filtered = [...PROGRAMMES];
-    let counter = 9;
+    let counter = 8;
 
     // SKAPAR ALLA OPTIONS I SELECTION //
     CITIES.forEach(c => {
@@ -176,14 +176,15 @@ function goToProgrammes(university) {
         } else  {
             for(let i = 0; i < counter; i++) {
                 programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
-            }  
+            }
+            
+            makeSmallAd();
         }
-    }
 
     //SÖKFUNKTION//
     selectCity.addEventListener('change', () => {
         programmesWrapper.innerHTML ='';
-        counter = 9;
+        counter = 8;
 
         let cityID = selectCity.value; 
         let uniID = selectUni.value;
@@ -191,11 +192,13 @@ function goToProgrammes(university) {
         let fieldID = selectField.value; 
 
         createProgrammes(cityID, uniID, levelID, fieldID);
+        makeSmallAd();
+
     });
 
     selectUni.addEventListener('change', () => {
         programmesWrapper.innerHTML ='';
-        counter = 9;
+        counter = 8;
 
         let cityID = selectCity.value; 
         let uniID = selectUni.value;
@@ -203,11 +206,13 @@ function goToProgrammes(university) {
         let fieldID = selectField.value; 
 
         createProgrammes(cityID, uniID, levelID, fieldID);
+        makeSmallAd();
+
     });
 
     selectLevel.addEventListener('change', () => {
         programmesWrapper.innerHTML ='';
-        counter = 9;
+        counter = 8;
 
         let cityID = selectCity.value; 
         let uniID = selectUni.value;
@@ -215,11 +220,13 @@ function goToProgrammes(university) {
         let fieldID = selectField.value; 
 
         createProgrammes(cityID, uniID, levelID, fieldID);
+        makeSmallAd();
+
     });
 
     selectField.addEventListener('change', () => {
         programmesWrapper.innerHTML ='';
-        counter = 9;
+        counter = 8;
 
         let cityID = selectCity.value; 
         let uniID = selectUni.value;
@@ -227,6 +234,8 @@ function goToProgrammes(university) {
         let fieldID = selectField.value; 
 
         createProgrammes(cityID, uniID, levelID, fieldID);
+        makeSmallAd();
+
     });
 
     // FILTRERAR BASERAT PÅ SÖKNING //
@@ -296,6 +305,8 @@ function goToProgrammes(university) {
                 //Annars forstätt skapa divvar
                 programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
             }
+
+            makeSmallAd();
             
         } else {
             counter = counter + 9;
@@ -313,6 +324,9 @@ function goToProgrammes(university) {
                 //Annars forstätt skapa divvar
                 programmesWrapper.append(createProgDivs(filtered[i]));
             }
+
+            makeSmallAd();
+
         }
 
     });
@@ -485,5 +499,15 @@ function goToProgrammes(university) {
 
 
         return infoDivDestParent;
+    }
+
+    
+    function makeSmallAd(){
+        let smallAd = document.createElement('div');
+        smallAd.classList.add('smallAdProg');
+        smallAd.innerHTML = 'AD';
+        programmesWrapper.append(smallAd);
+    }
+
     }
 }
