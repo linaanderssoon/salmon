@@ -31,8 +31,8 @@ navProgrammes.addEventListener('click', ()=> {
     goToProgrammes();
 });
 
-navInterviews.addEventListener('click', () => {
-    goToInterviews();
+navInterviews.addEventListener('click', (y) => {
+    goToInterviews(y.originalTarget);
 });
 
 // Footerlänk
@@ -44,8 +44,8 @@ footerProgramme.addEventListener("click", () => {
    goToProgrammes();
 });
 
-footerInterviews.addEventListener("click", () => {
-    goToInterviews();
+footerInterviews.addEventListener("click", (y) => {
+    goToInterviews(y.originalTarget);
 });
 
 //Logotyp

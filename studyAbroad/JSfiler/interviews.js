@@ -2,10 +2,18 @@
 
 
 
-function goToInterviews() {
+function goToInterviews(place) {
     //Hamna högst upp på sidan
-    scroll(0,0)
-    
+    if(place.classList[0] === 'intw1Small') {
+        scroll(0, 1047)
+    } else if (place.classList[0] === 'intw2Small') {
+        scroll(0, 519)
+    } else if (place.classList[0] === 'intw3Small') {
+        scroll(0, 1527)
+    } else {
+        scroll(0,0)
+    };
+
     navInterviews.classList.add('currentPage');
 
     navHome.classList.remove('currentPage');

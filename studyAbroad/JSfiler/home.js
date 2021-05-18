@@ -422,8 +422,8 @@ headerButtonProgrammes.addEventListener("click", () => {
 
 //Hamna på intervjusidan när man klickar på intervju-cirklarna
 intwPersLink.forEach(person => {
-  person.addEventListener("click", () => {
-    goToInterviews();
+  person.addEventListener("click", (y) => {
+    goToInterviews(y.originalTarget);
   });
 });
 
