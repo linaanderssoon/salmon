@@ -111,7 +111,6 @@ logotyp.addEventListener("click", () => {
     }, transitionDuration);
 });
 
-
 // Sortering av arrayerna i bokstavordning
 COUNTRIES.sort((e1, e2) => e1.name > e2.name ? 1 : -1);
 
