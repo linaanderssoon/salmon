@@ -136,8 +136,8 @@ function startQuiz(){
     </label>
     <!-- Buttons -->
     <div class="controls">
-        <button class="previous"></button>
-        <button class="next"></button>
+        <button class="previous">bak</button>
+        <button class="next">fram</button>
     </div>
     </div>
     </div>
@@ -266,7 +266,7 @@ function startQuiz(){
            selectedOption.checked = false;
           //Om det är sista frågan i quizet
           if(currentQuestion == totalQuestions - 1) {
-             nextButton.textContent = 'Finish';      
+             nextButton.textContent = 'Klar';      
           }
 
           //Om quizet är färdig så gömmer vi frågorna och visar resultatet
@@ -305,7 +305,7 @@ function startQuiz(){
           currentQuestion = 0;
           score = [];
           goToHome();
-          scroll(0, 650)
+          scroll(0, 400);
           }
         }
 
