@@ -7,7 +7,6 @@
     --shadow: #9C9C9C;
     
     --heading: 'Poppins', sans-serif;
-    --subHeading: 'Poppins', sans-serif;
     --bodyText: 'Libre Baskerville';
 
     --boldWeight: 700;
@@ -24,35 +23,31 @@ body {
 h1 {
     color: var(--fontBold);
     font-family: var(--heading);
+    font-weight: var(--boldWeight);
     font-size: 2.5rem;
     margin: 10px 0px;
-    font-weight: var(--boldWeight);
-
-}
-
-h5 {
-    font-family: var(--heading);
-    font-weight: var(--normalWeight);
-    color: var(--fontDark);
-    margin: 5px 0px;
-
-    font-size: 0.9rem;
 }
 
 h2 {
-    margin: 0px 0px 10px 0px;
     color: var(--fontBold);
     font-family: var(--heading);
     font-weight: var(--normalWeight);
+    margin: 0px 0px 10px 0px;
 }
 
+h5 {
+    color: var(--fontDark);
+    font-family: var(--heading);
+    font-weight: var(--normalWeight);
+    font-size: 0.9rem;
+    margin: 5px 0px;
+}
 
 p {
     color: var(--fontDark);
     font-family: var(--bodyText);
     font-size: 0.8rem;
     box-sizing: border-box;
-
 }
 
 
@@ -69,6 +64,7 @@ p {
 
 }
 
+/* STYLE AV FOOTER */
 footer {
     display: flex;
     flex-direction: column;
@@ -135,6 +131,7 @@ footer > div {
     color: var(--fontBold);
 }
 
+/* STYLE AV NAVIGATION */
 .nav {
     background-color: var(--backgroundColorLight);
     width: 100vw;
@@ -201,6 +198,7 @@ footer > div {
     cursor: pointer;
 }
 
+/* STYLE AV REKLAMUTRYMMEN */
 .longAd {
     height: 100px;
     width: 100%;
@@ -213,6 +211,7 @@ footer > div {
     margin: 0;
 }
 
+/* STYLE AV DE STORA INFORMATIONS DIVARNA: PROGRAM & DESTINATION */
 .infoDivDestParent {
     background-color: var(--shadow);
     opacity: 0.5;
@@ -235,10 +234,9 @@ footer > div {
     left: 50%;
     transform: translate(-50%);
 
-    box-shadow: 0px 0px 10px black;
+    box-shadow: 0px 0px 10px rgb(75, 75, 75);
 
     z-index: 99;
-
 }
 
 .infoDivLeft, .infoDivRight {
@@ -279,19 +277,18 @@ footer > div {
     background-size: contain;
 }
 
-
 .commentParent {
     background-color: #fff;
     margin-bottom: 10px;
     padding: 7px;
-
 }
 
 .commentName {
-    font-family: var(--subHeading);
+    font-family: var(--heading);
     color: var(--fontDark);
     font-size: 16px;
 }
+
 .commentText {
     font-family: var(--bodyText);
     color: var(--fontDark);
@@ -309,7 +306,6 @@ footer > div {
     background-image: url(ikoner/star.svg);
     background-position: center;
     background-size: contain;
-
 }
 
 .grayStar {
@@ -318,8 +314,6 @@ footer > div {
     background-image: url(ikoner/star_gray.svg);
     background-position: center;
     background-size: contain;
-
-
 }
 
 .goldStarsParent, .grayStarsParent {
