@@ -28,6 +28,7 @@
     box-shadow: 0px 0px 7px var(--shadow);
 }
 
+
 .smallAd {margin: 0;}
 
 .citiesParent:nth-child(3n){
@@ -61,6 +62,10 @@
 .citiesParent:hover .cityText {
     color: var(--backgroundColorLight);
     background-color: var(--fontBold);
+}
+
+.citiesParent:hover {
+    box-shadow: 0px 0px 15px var(--shadow);
 }
 
 

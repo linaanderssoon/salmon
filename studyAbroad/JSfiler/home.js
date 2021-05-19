@@ -53,7 +53,8 @@ function goToHome(){
     <div class="longAd"></div>
 
     <div class="carousel">
-        <h1 id="carouselHeading">Hit kan du åka</h1>
+
+        <h1 class="homeHeading">Hit kan du åka</h1>
         
         <div class="carousel-container">
         <div class="carousel-inner">
@@ -70,6 +71,8 @@ function goToHome(){
         </div>
       </div>
     </div>
+
+    <h1 class="homeHeading">Intervju med tidigare studenter</h1>
 
     <div class="homeInterview">
     <div class="smallAd"></div>
@@ -116,7 +119,7 @@ function startQuiz(){
     quizContainer.style.border = "3px solid #DC6420"
     quizContainer.style.borderRadius = "20px";
     quizContainer.style.height = "300px";
-    quizContainer.style.padding = "50px";
+    quizContainer.style.padding = "60px 40px 40px 40px";
 
     //Tömmer tidigare innehåll
     quizContainer.innerHTML=`
@@ -136,8 +139,8 @@ function startQuiz(){
     </label>
     <!-- Buttons -->
     <div class="controls">
-        <button class="previous">bak</button>
-        <button class="next">fram</button>
+        <button class="previous"></button>
+        <button class="next"></button>
     </div>
     </div>
     </div>
@@ -174,13 +177,13 @@ function startQuiz(){
           "answer3Total": "1"
         },
         {
-          "question": "Välj ett föredraget transportsätt",
-          "answer1": "Genom att gå! Det är då man får uppleva så mycket av staden som möjligt!",
+          "question": "Välj en maträtt",
+          "answer1": "Fisk och skaldjur",
           "answer1Total": "1",
-          "answer2": "Cykla! Det är smidigt när man har bråttom någonstans",
-          "answer2Total": "3",
-          "answer3": "Bussen/T-banan! Då kan jag passa på att läsa en bok",
-          "answer3Total": "2"
+          "answer2": "Burgare",
+          "answer2Total": "2",
+          "answer3": "Tacos",
+          "answer3Total": "3"
         },
         {
           "question": "Vill du åka till ett land där de talar samma språk som dig?",
@@ -201,13 +204,13 @@ function startQuiz(){
           "answer3Total": "2"
         },
         {
-          "question": "Välj en maträtt",
-          "answer1": "Fisk och skaldjur",
+          "question": "Välj ett föredraget transportsätt",
+          "answer1": "Genom att gå! Det är då man får uppleva så mycket av staden som möjligt!",
           "answer1Total": "1",
-          "answer2": "Burgare",
-          "answer2Total": "2",
-          "answer3": "Tacos",
-          "answer3Total": "3"
+          "answer2": "Cykla! Det är smidigt när man har bråttom någonstans",
+          "answer2Total": "3",
+          "answer3": "Bussen/T-banan! Då kan jag passa på att läsa en bok",
+          "answer3Total": "2"
         }
       ]
       
@@ -215,15 +218,15 @@ function startQuiz(){
       let currentQuestion = 0;
       let score = [];
       let selectedAnswersData = [];
-      const totalQuestions =questions.length;
+      let totalQuestions =questions.length;
       
-      const container = document.querySelector('.quiz-container');
-      const questionEl = document.querySelector('.question');
-      const option1 = document.querySelector('.option1');
-      const option2 = document.querySelector('.option2');
-      const option3 = document.querySelector('.option3');
-      const nextButton = document.querySelector('.next');
-      const previousButton = document.querySelector('.previous');
+      let container = document.querySelector(".quiz-container");
+      let questionEl = document.querySelector(".question");
+      let option1 = document.querySelector(".option1");
+      let option2 = document.querySelector(".option2");
+      let option3 = document.querySelector(".option3");
+      let nextButton = document.querySelector(".controls");
+      let previousButton = document.querySelector(".previous");
       
       
       //Genererar frågorna 
@@ -245,19 +248,19 @@ function startQuiz(){
       
       
       function loadNextQuestion () {
-          const selectedOption = document.querySelector('input[type="radio"]:checked');
+          let selectedOption = document.querySelector('input[type="radio"]:checked');
           //Kolla så att användaren har fyllt i ett alternativ, annars skicka alert
           if(!selectedOption) {
               alert('Var vänligen och välj ett alternativ!');
               return;
           }
 
-          const answerScore = Number(selectedOption.nextElementSibling.getAttribute('data-total'));
+          let answerScore = Number(selectedOption.nextElementSibling.getAttribute('data-total'));
       
           //Lägg till svarpoängen i arrayen
           score.push(answerScore);
           selectedAnswersData.push()
-          const totalScore = score.reduce((total, currentNum) => total + currentNum);
+          let totalScore = score.reduce((total, currentNum) => total + currentNum);
       
           //Ökar nuvarande frågenummer (som ska användas som index för varje array)
           currentQuestion++;
@@ -266,7 +269,10 @@ function startQuiz(){
            selectedOption.checked = false;
           //Om det är sista frågan i quizet
           if(currentQuestion == totalQuestions - 1) {
-             nextButton.textContent = 'Klar';      
+             nextButton.innerHTML = `
+             <button class="previous"></button>
+             <button class="quizLastButton"></button>
+             `;      
           }
 
           //Om quizet är färdig så gömmer vi frågorna och visar resultatet
@@ -274,19 +280,22 @@ function startQuiz(){
           //Mellan 7-11 poäng
           if(totalScore < 11){
             container.innerHTML="";
-            container.innerHTML =`<div class="result">Iväg, men inte för långt! Vi tipsar om Frankrike, Spanien eller Sverige!
+            container.innerHTML =`<div class="result">Iväg, men inte för långt! 
+            <br> Vi tipsar om Frankrike, Spanien eller Sverige!
             <br><button class="restart">Starta om quizet</button></div>`;
           }
           //Mellan 12-16 poäng
           else if (totalScore > 12 && totalScore < 17) {
             container.innerHTML="";
-            container.innerHTML =`<div class="result">Ett engelsktalande land skulle passa dig bra! Vi tipsar om Autralien, USA eller UK!
+            container.innerHTML =`<div class="result">Ett engelsktalande land skulle passa dig bra! 
+            <br> Vi tipsar om Autralien, USA eller UK!
             <br><button class="restart">Starta om quizet</button></div>`;
           }
           //Mellan 17-21 poäng
           else {
             container.innerHTML="";
-            container.innerHTML =`<div class="result">Exotiskt, varmt och lååångt härifrån! Vi tipsar om Chile, Mexico eller Argentina!
+            container.innerHTML =`<div class="result">Exotiskt, varmt och lååångt härifrån! 
+            <br> Vi tipsar om Chile, Mexico eller Argentina!
             <br><button class="restart">Starta om quizet</button></div>`;
           }
         }
