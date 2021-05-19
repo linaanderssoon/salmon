@@ -174,7 +174,7 @@ function goToProgrammes(university) {
             for (let i = 0; i < counter; i++) {
                 programmesWrapper.append(createProgDivs(filtered[i]));
 
-                if (i <= counter){
+                if (i < counter){
                    document.querySelector('.showMore').style.setProperty('display', 'none');
                 }
                 
