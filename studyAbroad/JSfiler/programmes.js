@@ -130,7 +130,6 @@ function goToProgrammes(city, university) {
     selectUni.addEventListener('change', () => {
         if (selectUni.value === '-1') {
             selectCity.value === '-1';
-            console.log('boven??? Hämta alla cityIDs?');
         } else {
             // Kolla i vilken stad det universitetet ligger
             let currentUni = selectUni.value;
@@ -162,21 +161,18 @@ function goToProgrammes(city, university) {
     }
 
     // FUNKTION SOM SKAPAR DIVARNA SOM SKA VARA DÄR FRÅN START //
-
-
     if (university !== undefined) {
-        console.log(university);
         newOptions(city);
 
         selectUni.value = university;
         let event = new Event('change');
         selectUni.dispatchEvent(event);
-
+        
         let hej = PROGRAMMES.filter(p => p.universityID == university);
 
+        counter = 8;
         for (let i = 0; i < counter; i++) {
             programmesWrapper.append(createProgDivs(hej[i]));
-
             // if (i <= counter){
             //     document.querySelector('.showMore').style.setProperty('display', 'none');
             // }
@@ -249,7 +245,7 @@ function goToProgrammes(city, university) {
     // FILTRERAR BASERAT PÅ SÖKNING //
     function createProgrammes(cityID, uniID, levelID, fieldID) {
 
-        console.log(cityID);
+        // console.log(cityID, uniID, levelID, fieldID);
 
         if(cityID !== "-1") {
             filtered = PROGRAMMES.filter(prog => {
@@ -350,14 +346,14 @@ function goToProgrammes(city, university) {
         let programmeParent = document.createElement('div');
         programmeParent.classList.add('progParent');
 
+        let uniName = UNIVERSITIES.find(u => u.id === p.universityID).name;
+
+        let progLevel = LEVELS[p.level];
+        let progLang = LANGUAGES.find(l => l.id === p.language).name;
+
         if(p == undefined) {
             console.log('VAD GÖR VI NÄR P ÄR UNDEFINED?');
         }
-
-        let uniName = UNIVERSITIES.find(u => u.id === p.universityID).name;
-        let progLevel = LEVELS[p.level];
-        let progLang = LANGUAGES.find(l => l.id === p.language).name;
-        console.log(uniName, progLevel, progLang );
 
         programmeParent.innerHTML = `
         <h2 class='progHeadning'> ${p.name}</h2>
