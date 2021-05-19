@@ -354,7 +354,7 @@ let carouselWidth = document.querySelector('.carousel-container').offsetWidth;
 
 window.addEventListener('resize', () => {
   carouselWidth = document.querySelector('.carousel-container').offsetWidth;
-})
+});
 
 let index = 0;
 
