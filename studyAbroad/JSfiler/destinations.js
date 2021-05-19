@@ -260,7 +260,7 @@ function goToDestinations(country) {
 
             goToUni.addEventListener("click", ()=> {
                 infoDivDest.remove();
-
+                infoDivDestParent.remove();
                 console.log(`${u.id}`);
                 goToProgrammes(`${u.cityID}`,`${u.id}`);
             });

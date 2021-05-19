@@ -178,6 +178,13 @@ function goToProgrammes(city, university) {
             }
             makeSmallAd();
 
+                if (i < counter){
+                   document.querySelector('.showMore').style.setProperty('display', 'none');
+                }
+                
+            }
+            //makeSmallAd();
+            
         } else  {
             for(let i = 0; i < counter; i++) {
                 programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
