@@ -121,6 +121,8 @@ function goToProgrammes(city, university) {
                 selectUni.append(newOption);
             });
 
+            // underNine();
+
         } else {
             newOptions(selectCity.value);
         }  
@@ -175,29 +177,19 @@ function goToProgrammes(city, university) {
 
             for (let i = 0; i < counter; i++) {
                 programmesWrapper.append(createProgDivs(filtered[i]));
+
+                // if (i <= counter){
+                //     document.querySelector('.showMore').style.setProperty('display', 'none');
+                // }
             }
             makeSmallAd();
 
-                // if (i <= counter){
-                //    document.querySelector('.showMore').style.setProperty('display', 'none');
-                // }
-                
-            }
-
-            if (i <= counter){
-                document.querySelector('.showMore').style.setProperty('display', 'none');
-            }
-
-            //makeSmallAd();
-            
         } else  {
             for(let i = 0; i < counter; i++) {
                 programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
             }
             makeSmallAd();
-
-        }
-
+        }          
     }
 
     //SÖKFUNKTION//
@@ -299,11 +291,9 @@ function goToProgrammes(city, university) {
             } 
         }
 
-        console.log(filtered.length);
-
         function underNine() {
             if(filtered.length <= 8) {
-                document.querySelector('.showMore').style.setProperty('display', 'none');
+                // document.querySelector('.showMore').style.setProperty('display', 'none');
             } else {
                 document.querySelector('.showMore').style.setProperty('display', 'flex');
             }
@@ -322,7 +312,7 @@ function goToProgrammes(city, university) {
             for(let i = 0; i < counter; i++) {
                 //om countern är uppe i maxantal så sluta skapa divvar och ta bort knappen 
                 if (i >= PROGRAMMES.length){
-                    document.querySelector('.showMore').style.setProperty('display', 'none');
+                    // document.querySelector('.showMore').style.setProperty('display', 'none');
                     break;
                 };
 
@@ -340,7 +330,7 @@ function goToProgrammes(city, university) {
             for(let i = 0; i < counter; i++) {
                 //om countern är uppe i maxantal så sluta skapa divvar och ta bort knappen 
                 if (i >= filtered.length){
-                    document.querySelector('.showMore').style.setProperty('display', 'none');
+                    // document.querySelector('.showMore').style.setProperty('display', 'none');
                     break;
                 };
     
