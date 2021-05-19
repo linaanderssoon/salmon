@@ -121,8 +121,6 @@ function goToProgrammes(city, university) {
                 selectUni.append(newOption);
             });
 
-            // underNine();
-
         } else {
             newOptions(selectCity.value);
         }  
@@ -132,6 +130,7 @@ function goToProgrammes(city, university) {
     selectUni.addEventListener('change', () => {
         if (selectUni.value === '-1') {
             selectCity.value === '-1';
+            console.log('boven??? Hämta alla cityIDs?');
         } else {
             // Kolla i vilken stad det universitetet ligger
             let currentUni = selectUni.value;
@@ -167,6 +166,7 @@ function goToProgrammes(city, university) {
 
     function initialProgrammes() {
         if (university !== undefined) {
+            console.log(university);
             newOptions(city);
 
             selectUni.value = university;
@@ -250,6 +250,8 @@ function goToProgrammes(city, university) {
     // FILTRERAR BASERAT PÅ SÖKNING //
     function createProgrammes(cityID, uniID, levelID, fieldID) {
 
+        console.log(cityID);
+
         if(cityID !== "-1") {
             filtered = PROGRAMMES.filter(prog => {
                 let temp_cityID = UNIVERSITIES.find(u => u.id === prog.universityID).cityID;
@@ -293,7 +295,7 @@ function goToProgrammes(city, university) {
 
         function underNine() {
             if(filtered.length <= 8) {
-                // document.querySelector('.showMore').style.setProperty('display', 'none');
+                document.querySelector('.showMore').style.setProperty('display', 'none');
             } else {
                 document.querySelector('.showMore').style.setProperty('display', 'flex');
             }
@@ -324,13 +326,12 @@ function goToProgrammes(city, university) {
             
         } else {
             counter = counter + 9;
-            console.log(counter);
 
             programmesWrapper.innerHTML = '';                
             for(let i = 0; i < counter; i++) {
                 //om countern är uppe i maxantal så sluta skapa divvar och ta bort knappen 
                 if (i >= filtered.length){
-                    // document.querySelector('.showMore').style.setProperty('display', 'none');
+                    document.querySelector('.showMore').style.setProperty('display', 'none');
                     break;
                 };
     
@@ -347,6 +348,10 @@ function goToProgrammes(city, university) {
     function createProgDivs(p) {
         let programmeParent = document.createElement('div');
         programmeParent.classList.add('progParent');
+
+        if(p == undefined) {
+            console.log('VAD GÖR VI NÄR P ÄR UNDEFINED?');
+        }
 
         let uniName = UNIVERSITIES.find(u => u.id === p.universityID).name;
         let progLevel = LEVELS[p.level];
