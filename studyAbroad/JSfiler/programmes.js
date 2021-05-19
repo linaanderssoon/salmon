@@ -1,7 +1,7 @@
 "use strict";
 
 //SKAPAR WRAPPER FÖR DESTINATIONER OCH DESS INNEHÅLL
-function goToProgrammes(university) {  
+function goToProgrammes(city, university) {  
     wrapper.style.marginTop="80px";
 
     scroll(0,0);
@@ -165,6 +165,8 @@ function goToProgrammes(university) {
 
     function initialProgrammes() {
         if (university !== undefined) {
+            newOptions(city);
+
             selectUni.value = university;
             let event = new Event('change');
             selectUni.dispatchEvent(event);
@@ -174,14 +176,17 @@ function goToProgrammes(university) {
             for (let i = 0; i < counter; i++) {
                 programmesWrapper.append(createProgDivs(filtered[i]));
             }
+            makeSmallAd();
 
         } else  {
             for(let i = 0; i < counter; i++) {
                 programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
             }
-
             makeSmallAd();
+
         }
+
+    }
 
     //SÖKFUNKTION//
     selectCity.addEventListener('change', () => {
@@ -280,7 +285,7 @@ function goToProgrammes(university) {
             } 
         }
 
-        function underNine() {
+        function underNine(filtered) {
             if(filtered.length <= 9) {
                 document.querySelector('.showMore').style.setProperty('display', 'none');
             }
@@ -508,6 +513,5 @@ function goToProgrammes(university) {
         smallAd.innerHTML = 'AD';
         programmesWrapper.append(smallAd);
     }
-
-    }
+  
 }

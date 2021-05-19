@@ -262,7 +262,7 @@ function goToDestinations(country) {
                 infoDivDest.remove();
 
                 console.log(`${u.id}`);
-                goToProgrammes(`${u.id}`);
+                goToProgrammes(`${u.cityID}`,`${u.id}`);
             });
 
             document.querySelector('.Unis').append(goToUni);
