@@ -4,15 +4,19 @@
 function goToProgrammes(city, university) {  
     wrapper.style.marginTop="80px";
 
+    // Hamna högst upp på sidan 
     scroll(0,0);
     
+    // Markera rätt i naven
     navProgrammes.classList.add('currentPage');
-
     navHome.classList.remove('currentPage');
     navDestinations.classList.remove('currentPage');
     navInterviews.classList.remove('currentPage');
 
+    // Töm innehållet i nuvarande wrapper
     wrapper.innerHTML = '';
+
+    // Skapa nytt innehåll i wrappern
     wrapper.innerHTML = `
     <div class="progHeader">
         <h1> Program </h1>
@@ -160,34 +164,8 @@ function goToProgrammes(city, university) {
         });
     }
 
-    // FUNKTION SOM SKAPAR DIVARNA SOM SKA VARA DÄR FRÅN START //
-    if (university !== undefined) {
-        newOptions(city);
 
-        selectUni.value = university;
-        let event = new Event('change');
-        selectUni.dispatchEvent(event);
-        
-        let hej = PROGRAMMES.filter(p => p.universityID == university);
-
-        counter = 8;
-        for (let i = 0; i < counter; i++) {
-            programmesWrapper.append(createProgDivs(hej[i]));
-            // if (i <= counter){
-            //     document.querySelector('.showMore').style.setProperty('display', 'none');
-            // }
-        }
-        makeSmallAd();
-
-    } else  {
-        for(let i = 0; i < counter; i++) {
-            programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
-        }
-        makeSmallAd();
-    }          
-    
-
-    //SÖKFUNKTION//
+    //SÖKFUNKTION ONCHANGE//
     selectCity.addEventListener('change', () => {
         programmesWrapper.innerHTML ='';
         counter = 8;
@@ -197,7 +175,7 @@ function goToProgrammes(city, university) {
         let levelID = selectLevel.value;
         let fieldID = selectField.value; 
 
-        createProgrammes(cityID, uniID, levelID, fieldID);
+        filterProgrammes(cityID, uniID, levelID, fieldID);
         makeSmallAd();
     });
 
@@ -210,7 +188,7 @@ function goToProgrammes(city, university) {
         let levelID = selectLevel.value;
         let fieldID = selectField.value; 
 
-        createProgrammes(cityID, uniID, levelID, fieldID);
+        filterProgrammes(cityID, uniID, levelID, fieldID);
         makeSmallAd();
 
     });
@@ -224,9 +202,8 @@ function goToProgrammes(city, university) {
         let levelID = selectLevel.value;
         let fieldID = selectField.value; 
 
-        createProgrammes(cityID, uniID, levelID, fieldID);
+        filterProgrammes(cityID, uniID, levelID, fieldID);
         makeSmallAd();
-
     });
 
     selectField.addEventListener('change', () => {
@@ -238,26 +215,77 @@ function goToProgrammes(city, university) {
         let levelID = selectLevel.value;
         let fieldID = selectField.value; 
 
-        createProgrammes(cityID, uniID, levelID, fieldID);
+        filterProgrammes(cityID, uniID, levelID, fieldID);
         makeSmallAd();
     });
 
+    // FUNKTION SOM SKAPAR DIVARNA SOM SKA VARA DÄR FRÅN START //
+    if (university !== undefined) {
+        newOptions(city);
+
+        selectUni.value = university;
+        let event = new Event('change');
+        selectUni.dispatchEvent(event);
+
+        makeSmallAd();
+    } else  {
+        for(let i = 0; i < counter; i++) {
+            programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
+        }
+        makeSmallAd();
+    }       
+    
+    //VISA MED KNAPP FUNKTION //
+    showMore.addEventListener('click', () => {
+        if(selectCity === "-1" && selectUni === "-1" && selectLevel === "-1" && selectField === "-1") {
+            //Varje gång vi klickar på visa mer lägger vi till 9st i counter
+            counter = counter + 9;
+    
+            programmesWrapper.innerHTML = '';
+                    
+            for(let i = 0; i < counter; i++) {
+                //om countern är uppe i maxantal så sluta skapa divvar och ta bort knappen 
+                if (i >= PROGRAMMES.length){
+                    // document.querySelector('.showMore').style.setProperty('display', 'none');
+                    break;
+                };
+    
+                //Annars forstätt skapa divvar
+                programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
+            }
+    
+            makeSmallAd();
+                
+        } else {
+            counter = counter + 9;
+    
+            programmesWrapper.innerHTML = '';                
+            for(let i = 0; i < counter; i++) {
+                //om countern är uppe i maxantal så sluta skapa divvar och ta bort knappen 
+                if (i >= filtered.length){
+                    document.querySelector('.showMore').style.setProperty('display', 'none');
+                    break;
+                };
+        
+                //Annars forstätt skapa divvar
+                programmesWrapper.append(createProgDivs(filtered[i]));
+            }
+             makeSmallAd();
+        }
+    
+    });
+    
+   
     // FILTRERAR BASERAT PÅ SÖKNING //
-    function createProgrammes(cityID, uniID, levelID, fieldID) {
-
-        // console.log(cityID, uniID, levelID, fieldID);
-
+    function filterProgrammes(cityID, uniID, levelID, fieldID) {
         if(cityID !== "-1") {
             filtered = PROGRAMMES.filter(prog => {
                 let temp_cityID = UNIVERSITIES.find(u => u.id === prog.universityID).cityID;
-                // console.log(temp_cityID.toString(), cityID);
 
                 return temp_cityID == cityID;
             });
-
         } else if (cityID == "-1") {
             filtered = [...PROGRAMMES];
-            console.log(filtered);
         }
 
         if(uniID !== "-1") {
@@ -299,47 +327,6 @@ function goToProgrammes(city, university) {
         }
     }
 
-     //VISA MED KNAPP FUNKTION //
-     showMore.addEventListener('click', () => {
-        if(selectCity === "-1" && selectUni === "-1" && selectLevel === "-1" && selectField === "-1") {
-            //Varje gång vi klickar på visa mer lägger vi till 9st i counter
-            counter = counter + 9;
-            // console.log(counter);
-
-            programmesWrapper.innerHTML = '';
-                
-            for(let i = 0; i < counter; i++) {
-                //om countern är uppe i maxantal så sluta skapa divvar och ta bort knappen 
-                if (i >= PROGRAMMES.length){
-                    // document.querySelector('.showMore').style.setProperty('display', 'none');
-                    break;
-                };
-
-                //Annars forstätt skapa divvar
-                programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
-            }
-
-            makeSmallAd();
-            
-        } else {
-            counter = counter + 9;
-
-            programmesWrapper.innerHTML = '';                
-            for(let i = 0; i < counter; i++) {
-                //om countern är uppe i maxantal så sluta skapa divvar och ta bort knappen 
-                if (i >= filtered.length){
-                    document.querySelector('.showMore').style.setProperty('display', 'none');
-                    break;
-                };
-    
-                //Annars forstätt skapa divvar
-                programmesWrapper.append(createProgDivs(filtered[i]));
-            }
-
-            makeSmallAd();
-        }
-
-    });
 
     // SKAPAR SMÅ PORGRAM DIVVARNA //
     function createProgDivs(p) {
