@@ -162,35 +162,34 @@ function goToProgrammes(city, university) {
     }
 
     // FUNKTION SOM SKAPAR DIVARNA SOM SKA VARA DÄR FRÅN START //
-    initialProgrammes();
 
-    function initialProgrammes() {
-        if (university !== undefined) {
-            console.log(university);
-            newOptions(city);
 
-            selectUni.value = university;
-            let event = new Event('change');
-            selectUni.dispatchEvent(event);
+    if (university !== undefined) {
+        console.log(university);
+        newOptions(city);
 
-            let filtered = PROGRAMMES.filter(p => p.universityID == university);
+        selectUni.value = university;
+        let event = new Event('change');
+        selectUni.dispatchEvent(event);
 
-            for (let i = 0; i < counter; i++) {
-                programmesWrapper.append(createProgDivs(filtered[i]));
+        let hej = PROGRAMMES.filter(p => p.universityID == university);
 
-                // if (i <= counter){
-                //     document.querySelector('.showMore').style.setProperty('display', 'none');
-                // }
-            }
-            makeSmallAd();
+        for (let i = 0; i < counter; i++) {
+            programmesWrapper.append(createProgDivs(hej[i]));
 
-        } else  {
-            for(let i = 0; i < counter; i++) {
-                programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
-            }
-            makeSmallAd();
-        }          
-    }
+            // if (i <= counter){
+            //     document.querySelector('.showMore').style.setProperty('display', 'none');
+            // }
+        }
+        makeSmallAd();
+
+    } else  {
+        for(let i = 0; i < counter; i++) {
+            programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
+        }
+        makeSmallAd();
+    }          
+    
 
     //SÖKFUNKTION//
     selectCity.addEventListener('change', () => {
@@ -260,11 +259,13 @@ function goToProgrammes(city, university) {
                 return temp_cityID == cityID;
             });
 
+        } else if (cityID == "-1") {
+            filtered = [...PROGRAMMES];
+            console.log(filtered);
         }
 
         if(uniID !== "-1") {
             filtered = PROGRAMMES.filter(prog => prog.universityID == uniID);
-
         }
 
         if(levelID !== "-1") {
@@ -356,6 +357,7 @@ function goToProgrammes(city, university) {
         let uniName = UNIVERSITIES.find(u => u.id === p.universityID).name;
         let progLevel = LEVELS[p.level];
         let progLang = LANGUAGES.find(l => l.id === p.language).name;
+        console.log(uniName, progLevel, progLang );
 
         programmeParent.innerHTML = `
         <h2 class='progHeadning'> ${p.name}</h2>
