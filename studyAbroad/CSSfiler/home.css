@@ -30,7 +30,7 @@
   width: 175px;
   border-radius: 40px;
     
-  border: 1px solid black;
+  /* border: 1px solid black; */
   color: var(--fontDark);
     
   color: var(--fontBold);
@@ -38,7 +38,7 @@
   transition: 1s;
 
   font-size: 16px;
-  box-shadow: 2px 2px 4px #353434;    
+  box-shadow: 2px 2px 4px var(--shadow);    
 }
 
 .homeHeaderLeft > :last-child{
@@ -50,7 +50,7 @@
   background-color: var(--fontBold);
   color: var(--backgroundColorLight);
 
-  box-shadow: 4px 4px 6px #353434; 
+  box-shadow: 4px 4px 6px var(--shadow); 
   cursor: pointer;
 }
 
@@ -88,7 +88,7 @@
   border-radius: 40px;
 
   font-size: 40px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   background-color: var(--backgroundColorLight);
   color: var(--fontBold);
   box-shadow: 3px 3px 5px #353434; 
@@ -141,7 +141,6 @@
   margin: 20px;
   display: flex;
   height: 400px;
-  /* overflow: scroll; */
   overflow: hidden;
   z-index: 10;
   margin-top: -200px;
@@ -182,8 +181,6 @@
   background: #08038c;
   color: #000;
 }
-
-
 
 .controls > button {
   height: 40px;
@@ -445,6 +442,11 @@ button:hover{
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.homeInterview .smallAd {
+  width: 250px;
+  height: 250px;
 }
 
 .smallIntw {
