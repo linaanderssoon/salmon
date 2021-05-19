@@ -174,11 +174,16 @@ function goToProgrammes(university) {
             for (let i = 0; i < counter; i++) {
                 programmesWrapper.append(createProgDivs(filtered[i]));
 
-                if (i < counter){
-                   document.querySelector('.showMore').style.setProperty('display', 'none');
-                }
+                // if (i <= counter){
+                //    document.querySelector('.showMore').style.setProperty('display', 'none');
+                // }
                 
             }
+
+            if (i <= counter){
+                document.querySelector('.showMore').style.setProperty('display', 'none');
+            }
+
             //makeSmallAd();
             
         } else  {
@@ -200,7 +205,6 @@ function goToProgrammes(university) {
         let fieldID = selectField.value; 
 
         createProgrammes(cityID, uniID, levelID, fieldID);
-
         makeSmallAd();
     });
 
@@ -243,7 +247,6 @@ function goToProgrammes(university) {
 
         createProgrammes(cityID, uniID, levelID, fieldID);
         makeSmallAd();
-
     });
 
     // FILTRERAR BASERAT PÅ SÖKNING //
@@ -256,18 +259,22 @@ function goToProgrammes(university) {
 
                 return temp_cityID == cityID;
             });
+
         }
 
         if(uniID !== "-1") {
             filtered = PROGRAMMES.filter(prog => prog.universityID == uniID);
+
         }
 
         if(levelID !== "-1") {
             filtered = filtered.filter(prog => prog.level == levelID);
+
         }
 
         if(fieldID !== "-1") {
             filtered = filtered.filter(prog => prog.subjectID == fieldID);
+
         }
 
         for(let i = 0; i < counter; i++) {
@@ -286,9 +293,13 @@ function goToProgrammes(university) {
             } 
         }
 
+        console.log(filtered.length);
+
         function underNine() {
-            if(filtered.length <= 9) {
+            if(filtered.length <= 8) {
                 document.querySelector('.showMore').style.setProperty('display', 'none');
+            } else {
+                document.querySelector('.showMore').style.setProperty('display', 'flex');
             }
         }
     }
@@ -298,7 +309,7 @@ function goToProgrammes(university) {
         if(selectCity === "-1" && selectUni === "-1" && selectLevel === "-1" && selectField === "-1") {
             //Varje gång vi klickar på visa mer lägger vi till 9st i counter
             counter = counter + 9;
-            console.log(counter);
+            // console.log(counter);
 
             programmesWrapper.innerHTML = '';
                 
@@ -319,8 +330,7 @@ function goToProgrammes(university) {
             counter = counter + 9;
             console.log(counter);
 
-            programmesWrapper.innerHTML = '';
-                
+            programmesWrapper.innerHTML = '';                
             for(let i = 0; i < counter; i++) {
                 //om countern är uppe i maxantal så sluta skapa divvar och ta bort knappen 
                 if (i >= filtered.length){
@@ -373,6 +383,7 @@ function goToProgrammes(university) {
             infoDivDest.style.setProperty('top', `calc(${placementTop}px - 50px)`);
 
         });
+
 
         return programmeParent;
     }

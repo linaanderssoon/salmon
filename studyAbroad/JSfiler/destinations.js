@@ -116,8 +116,8 @@ function goToDestinations(country) {
 
     //Baserat på val
     function createDestinations(selectedCountry) {
-        if(selectedCountry === 'All countries') {
-            //"Nollställ" counter- så det bara är 9 som visas från början här med 
+        if(selectedCountry === 'Alla länder') {
+            //"Nollställ" counter- så det bara är 8 (+ ad) som visas från början här med 
             counter = 8; 
 
             //Gör så många divvar som det är nummer i counter
@@ -125,6 +125,7 @@ function goToDestinations(country) {
                 citiesWrapper.append(allCountriesDivs(i));
             }
 
+            //Gör reklamruta
             makeSmallAd();
 
             //Visa mer knappen ska finnas
@@ -269,7 +270,6 @@ function goToDestinations(country) {
         });
 
         let comments = COMMENTS_CITY.filter(c => c.cityID === i.id);
-        console.log(comments);
 
         //Räkna ut medelvärde av alla tre betygen 
         function average(array) {
