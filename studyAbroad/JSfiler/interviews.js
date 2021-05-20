@@ -90,7 +90,7 @@ function goToInterviews(place) {
         <div class='intwTwoImg'> </div>
         <p class='intwInfo'> 
         <span> Mattias Ström, 27 år.</span>
-         Paris 2016
+         <br> Paris 2016
         </p>
     </div>
     </div>

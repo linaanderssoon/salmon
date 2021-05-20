@@ -222,7 +222,7 @@ button.quizLastButton {
 
   border: 1px solid var(--fontBold);
   border-radius: 40px;
-  margin-right: var(--marginBase); 
+  margin: var(--marginBase) var(--marginBase) 0px 0px; 
 
   font-size: var(--szsL);
 
