@@ -71,7 +71,7 @@ function goToHome(){
       </div>
     </div>
 
-    <h1 class="homeHeading">Intervju med tidigare studenter</h1>
+    <h1 class="homeHeading">Intervjuer med tidigare studenter</h1>
 
     <div class="homeInterview">
     <div class="smallAd"></div>
@@ -118,8 +118,10 @@ function goToHome(){
  function startQuiz(){
     quizContainer.style.border = "3px solid #DC6420"
     quizContainer.style.borderRadius = "20px";
-    quizContainer.style.height = "300px";
-    quizContainer.style.padding = "60px 40px 40px 40px";
+    quizContainer.style.height = "200px";
+    quizContainer.style.padding = "10px 40px 65px 40px";
+    quizContainer.style.width = "93%";
+    quizContainer.style.right = "20px";
 
     //Tömmer tidigare innehåll
     quizContainer.innerHTML=`
@@ -217,15 +219,20 @@ function goToHome(){
       let currentQuestion = 0;
       let score = [];
       let selectedAnswersData = [];
-      let totalQuestions =questions.length;
+      let totalQuestions = questions.length;
       
-      let container = document.querySelector(".quiz-container");
-      let questionEl = document.querySelector(".question");
-      let option1 = document.querySelector(".option1");
-      let option2 = document.querySelector(".option2");
-      let option3 = document.querySelector(".option3");
-      let nextButton = document.querySelector(".controls");
-      let previousButton = document.querySelector(".previous");
+      const container = document.querySelector('.quiz-container');
+      const questionEl = document.querySelector('.question');
+      const option1 = document.querySelector('.option1');
+      const option2 = document.querySelector('.option2');
+      const option3 = document.querySelector('.option3');
+      const nextButton = document.querySelector('.next');
+      const previousButton = document.querySelector('.previous');
+
+      generateQuestions(currentQuestion);
+      nextButton.addEventListener("click", loadNextQuestion);
+      previousButton.addEventListener("click",loadPreviousQuestion);
+      container.addEventListener("click",restartQuiz);
       
       
       //Genererar frågorna 
@@ -245,28 +252,36 @@ function goToHome(){
           option3.innerHTML = `${question.answer3}`
       }
       
-      
-      function loadNextQuestion () {
+   
         
-        const answerScore = Number(selectedOption.nextElementSibling.getAttribute("data-total"));
+      function loadNextQuestion () {
+        const selectedOption = document.querySelector('input[type="radio"]:checked');
+        //Kolla så att användaren har fyllt i ett alternativ, annars skicka alert
+        if(!selectedOption) {
+            alert('Var vänligen och välj ett alternativ!');
+            return;
+        }
+
+        const answerScore = Number(selectedOption.nextElementSibling.getAttribute('data-total'));
     
         //Lägg till svarpoängen i arrayen
         score.push(answerScore);
-        selectedAnswersData.push();
+    
+        selectedAnswersData.push()
+        
+    
         const totalScore = score.reduce((total, currentNum) => total + currentNum);
     
         //Ökar nuvarande frågenummer (som ska användas som index för varje array)
         currentQuestion++;
-    
+
         //När den är färdig, rensa clear
         selectedOption.checked = false;
         //Om det är sista frågan i quizet
-          if(currentQuestion == totalQuestions - 1) {
-             nextButton.innerHTML = `
-             <button class="previous"></button>
-             <button class="quizLastButton"></button>
-             `;      
+        if(currentQuestion == totalQuestions - 1) {
+          document.querySelector(".next").classList.toggle("quizLastButton");    
           }
+
 
           //Om quizet är färdig så gömmer vi frågorna och visar resultatet
           if(currentQuestion == totalQuestions) {
@@ -275,50 +290,61 @@ function goToHome(){
             container.innerHTML="";
             container.innerHTML =`<div class="result">Iväg, men inte för långt! 
             <br> Vi tipsar om Frankrike, Spanien eller Sverige!
-            <br><button class="restart">Starta om quizet</button></div>`;
+            <br><button class="restart">Starta om quizet</button>
+            </div>
+            `;
           }
           //Mellan 12-16 poäng
           else if (totalScore > 12 && totalScore < 17) {
             container.innerHTML="";
             container.innerHTML =`<div class="result">Ett engelsktalande land skulle passa dig bra! 
             <br> Vi tipsar om Autralien, USA eller UK!
-            <br><button class="restart">Starta om quizet</button></div>`;
+            <br><button class="restart">Starta om quizet</button>
+            </div>
+            `;
           }
           //Mellan 17-21 poäng
           else {
             container.innerHTML="";
             container.innerHTML =`<div class="result">Exotiskt, varmt och lååångt härifrån! 
             <br> Vi tipsar om Chile, Mexico eller Argentina!
-            <br><button class="restart">Starta om quizet</button></div>`;
+            <br><button class="restart">Starta om quizet</button>
+            </div>
+            `;
           }
         }
           generateQuestions(currentQuestion);
       }
 
-      ///Laddar föregående fråga
-       function loadPreviousQuestion() {
-        currentQuestion--;
-        score.pop();
-        generateQuestions(currentQuestion);
-      }
+     //Laddar föregående fråga
+     function loadPreviousQuestion() {
+      currentQuestion--;
+      score.pop();
+      generateQuestions(currentQuestion);
+  }
       //Startar om quizet/nollställer den samt laddar om sidan
         function restartQuiz(e) {
           if(e.target.matches(".restart")) {
           currentQuestion = 0;
           score = [];
           goToHome();
-          scroll(0, 400);
           }
+          scroll(0, 400);
         }
 
-      generateQuestions(currentQuestion);
-      nextButton.addEventListener("click", loadNextQuestion);
-      previousButton.addEventListener("click",loadPreviousQuestion);
-      container.addEventListener("click",restartQuiz);
+        
+        function scrollToCarousel() {
+          scrollTo(0, 500);
+        }
+            
+      
+
+
 }
 
 
- // KARUSELL
+
+ //// KARUSELL ////
 
 let carouselTrack = document.querySelector(".track");
     
