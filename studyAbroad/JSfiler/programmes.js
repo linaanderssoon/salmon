@@ -302,12 +302,22 @@ function goToProgrammes(city, university) {
 
         }
 
-        for(let i = 0; i < counter; i++) {
-            noMatches();
-            underNine();
-
-            programmesWrapper.append(createProgDivs(filtered[i]));
+        if (filtered.length <= 8) {
+            for(let i = 0; i < filtered.length; i++) {
+                noMatches();
+                underNine();
+    
+                programmesWrapper.append(createProgDivs(filtered[i]));
+            }   
+        } else if (filtered.length > 8) {
+            for(let i = 0; i < counter; i++) {
+                noMatches();
+                underNine();
+    
+                programmesWrapper.append(createProgDivs(filtered[i]));
+            }   
         }
+
         
         function noMatches() {
             if(filtered.length == 0) {
