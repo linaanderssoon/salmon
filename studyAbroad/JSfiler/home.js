@@ -4,7 +4,6 @@ goToHome();
 
 navHome.classList.add('currentPage');
 
-
 function goToHome(){
   //Hamna högst upp på sidan
   scroll(0,0)  
@@ -52,9 +51,9 @@ function goToHome(){
 
     <div class="longAd"></div>
 
-    <div class="carousel">
+    <h1 class="homeHeading">Hit kan du åka</h1>
 
-        <h1 class="homeHeading">Hit kan du åka</h1>
+    <div class="carousel">
         
         <div class="carousel-container">
         <div class="carousel-inner">
@@ -109,13 +108,14 @@ function goToHome(){
   `;
 
 
-//Klicka på start så börjar quizzet
-document.querySelector(".quizStartRight > button").addEventListener("click", startQuiz);
+  //// QUIZ ////
 
-const quizContainer = document.querySelector(".quiz-container");
+ //Klicka på start så börjar quizzet
+ document.querySelector(".quizStartRight > button").addEventListener("click", startQuiz);
 
-function startQuiz(){
+ const quizContainer = document.querySelector(".quiz-container");
 
+ function startQuiz(){
     quizContainer.style.border = "3px solid #DC6420"
     quizContainer.style.borderRadius = "20px";
     quizContainer.style.height = "300px";
@@ -144,7 +144,6 @@ function startQuiz(){
     </div>
     </div>
     </div>
-
     `;
 
     //Frågor och hur många poäng varje fråga är värd (1-3)
@@ -248,26 +247,20 @@ function startQuiz(){
       
       
       function loadNextQuestion () {
-          let selectedOption = document.querySelector('input[type="radio"]:checked');
-          //Kolla så att användaren har fyllt i ett alternativ, annars skicka alert
-          if(!selectedOption) {
-              alert('Var vänligen och välj ett alternativ!');
-              return;
-          }
-
-          let answerScore = Number(selectedOption.nextElementSibling.getAttribute('data-total'));
-      
-          //Lägg till svarpoängen i arrayen
-          score.push(answerScore);
-          selectedAnswersData.push()
-          let totalScore = score.reduce((total, currentNum) => total + currentNum);
-      
-          //Ökar nuvarande frågenummer (som ska användas som index för varje array)
-          currentQuestion++;
-      
-          //När den är färdig, rensa clear
-           selectedOption.checked = false;
-          //Om det är sista frågan i quizet
+        
+        const answerScore = Number(selectedOption.nextElementSibling.getAttribute("data-total"));
+    
+        //Lägg till svarpoängen i arrayen
+        score.push(answerScore);
+        selectedAnswersData.push();
+        const totalScore = score.reduce((total, currentNum) => total + currentNum);
+    
+        //Ökar nuvarande frågenummer (som ska användas som index för varje array)
+        currentQuestion++;
+    
+        //När den är färdig, rensa clear
+        selectedOption.checked = false;
+        //Om det är sista frågan i quizet
           if(currentQuestion == totalQuestions - 1) {
              nextButton.innerHTML = `
              <button class="previous"></button>
@@ -302,7 +295,7 @@ function startQuiz(){
           generateQuestions(currentQuestion);
       }
 
-      //Laddar föregående fråga
+      ///Laddar föregående fråga
        function loadPreviousQuestion() {
         currentQuestion--;
         score.pop();
@@ -310,7 +303,7 @@ function startQuiz(){
       }
       //Startar om quizet/nollställer den samt laddar om sidan
         function restartQuiz(e) {
-          if(e.target.matches('.restart')) {
+          if(e.target.matches(".restart")) {
           currentQuestion = 0;
           score = [];
           goToHome();
@@ -319,15 +312,15 @@ function startQuiz(){
         }
 
       generateQuestions(currentQuestion);
-      nextButton.addEventListener('click', loadNextQuestion);
-      previousButton.addEventListener('click',loadPreviousQuestion);
-      container.addEventListener('click',restartQuiz);
+      nextButton.addEventListener("click", loadNextQuestion);
+      previousButton.addEventListener("click",loadPreviousQuestion);
+      container.addEventListener("click",restartQuiz);
 }
 
 
-// KARUSELL
+ // KARUSELL
 
-let carouselTrack = document.querySelector('.track');
+let carouselTrack = document.querySelector(".track");
     
 //Så många bilder/divvar som det finns länder i databasen
 for(let i = 0; i < COUNTRIES.length; i++){
@@ -355,35 +348,35 @@ for(let i = 0; i < COUNTRIES.length; i++){
   carouselTrack.append(carouselContainer);
 }
 
-let prev  = document.querySelector('.prev');
-let next = document.querySelector('.next');
-let track = document.querySelector('.track');
+let prev  = document.querySelector(".prev");
+let next = document.querySelector(".next");
+let track = document.querySelector(".track");
 
-let carouselWidth = document.querySelector('.carousel-container').offsetWidth;
-
-window.addEventListener('resize', () => {
-  carouselWidth = document.querySelector('.carousel-container').offsetWidth;
-});
+let carouselWidth = document.querySelector(".carousel-container").offsetWidth;
+/*
+window.addEventListener("resize", () => {
+  carouselWidth = document.querySelector(".carousel-container").offsetWidth;
+}); */
 
 let index = 0;
 
 //Nästa-knappen
-next.addEventListener('click', () => {
+next.addEventListener("click", () => {
   index++;
-  prev.classList.add('show');
+  prev.classList.add("show");
   track.style.transform = `translateX(-${index * carouselWidth}px)`;
   
   if (track.offsetWidth - (index * carouselWidth) < carouselWidth) {
-    next.classList.add('hide');
+    next.classList.add("hide");
   }
 })
 
 //Tillbaka knappen
-prev.addEventListener('click', () => {
+prev.addEventListener("click", () => {
   index--;
-  next.classList.remove('hide');
+  next.classList.remove("hide");
   if (index === 0) {
-    prev.classList.remove('show');
+    prev.classList.remove("show");
   }
   track.style.transform = `translateX(-${index * carouselWidth}px)`;
 });
@@ -432,6 +425,4 @@ intwPersLink.forEach(person => {
 
   });
 });
-
-
-}
+ }
