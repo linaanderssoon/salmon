@@ -126,6 +126,7 @@
 .iconEntry {
     background-image: url(ikoner/points.svg);
     background-size: 17px;
+    padding-right: 2px;
 }
 
 .iconLocalStudents {
