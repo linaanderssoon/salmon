@@ -118,7 +118,7 @@ function goToHome(){
  function startQuiz(){
     quizContainer.style.border = "3px solid #DC6420"
     quizContainer.style.borderRadius = "20px";
-    quizContainer.style.height = "200px";
+    quizContainer.style.height = "175px";
     quizContainer.style.padding = "10px 40px 65px 40px";
     quizContainer.style.width = "93%";
     quizContainer.style.right = "20px";
@@ -329,17 +329,8 @@ function goToHome(){
           score = [];
           goToHome();
           }
-          scroll(0, 400);
+          scroll(0, 440);
         }
-
-        
-        function scrollToCarousel() {
-          scrollTo(0, 500);
-        }
-            
-      
-
-
 }
 
 
