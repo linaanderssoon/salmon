@@ -302,18 +302,18 @@ function goToProgrammes(city, university) {
 
         if (filtered.length <= 8) {
             for(let i = 0; i < filtered.length; i++) {
-                noMatches();
-                underNine();
-    
+                
                 programmesWrapper.append(createProgDivs(filtered[i]));
             }   
+            noMatches();
+            underNine();
         } else if (filtered.length > 8) {
             for(let i = 0; i < counter; i++) {
-                noMatches();
-                underNine();
-    
+                
                 programmesWrapper.append(createProgDivs(filtered[i]));
             }   
+            noMatches();
+            underNine();
         }
 
         
@@ -344,11 +344,7 @@ function goToProgrammes(city, university) {
         let uniName = UNIVERSITIES.find(u => u.id === p.universityID).name;
 
         let progLevel = LEVELS[p.level];
-        let progLang = LANGUAGES.find(l => l.id === p.language).name;
-
-        if(p == undefined) {
-            console.log('VAD GÖR VI NÄR P ÄR UNDEFINED?');
-        }
+        let progLang = LANGUAGES.find(l => l.id === p.language).name;''
 
         programmeParent.innerHTML = `
         <h2 class='progHeadning'> ${p.name}</h2>

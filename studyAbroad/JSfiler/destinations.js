@@ -205,7 +205,6 @@ function goToDestinations(country) {
         let findCountryName = COUNTRIES.find(country => country.id === findCountryID).name;
         let countryFlag = COUNTRIES.find(country => country.id === findCountryID).flag;
 
-
         let findVisaBoolean= COUNTRIES.find(c => c.id === findCountryID).visa;
         let ternary = (findVisaBoolean === true) ? 'Ja' : 'Nej';
 
