@@ -362,10 +362,13 @@ function goToDestinations(country) {
     }
 
     function makeSmallAd(){
+        let adBox = document.createElement('div');
+        adBox.classList.add('smallAd');
+        citiesWrapper.append(adBox)
+
         let smallAd = document.createElement('div');
-        smallAd.classList.add('smallAd');
-        smallAd.innerHTML = 'AD';
-        citiesWrapper.append(smallAd);
+        smallAd.classList.add('innerSmallAd');
+        adBox.append(smallAd);
     }
 
 }

@@ -75,7 +75,23 @@
     transition: all .2s;
 }
 
-.smallAdProg {margin: 0;}
+.smallAdProg {
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    background-color: var(--backgroundColorLight);
+    box-shadow: none;
+}
+
+.innerSmallAdProg{
+    width: 200px;
+    height: 200px;
+
+    background-image: url(ikoner/smallAd.png);
+    background-position: center;
+    background-size: cover;
+}
 
 .progParent:hover {
     background-color: var(--backgroundColorLight);
