@@ -203,11 +203,20 @@ footer > div {
 
 /* STYLE AV REKLAMUTRYMMEN */
 .longAd {
-    height: 100px;
+    height: calc((100vw - 240px) * 0.15)  ;
     width: 100%;
     margin: calc(var(--marginBase) * 2) 0px;
 
-    background-color: var(--backgroundColorDark);
+    background-position: top;
+    background-size: cover;
+}
+
+.longAdOne {
+    background-image: url(ikoner/longAdOne.png);
+}
+
+.longAdTwo {
+    background-image: url(ikoner/longAdTwo.png);
 }
 
 .smallAd, .smallAdProg {

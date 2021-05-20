@@ -32,7 +32,7 @@ function goToInterviews(place) {
         <div class='smallAdIntw'> AD </div>
     </div>
 
-    <div class='longAd' > </div>
+    <div class='longAd longAdOne' > </div>
 
     <div class='interviewParent'> 
         <div class='interviewee'>
@@ -127,6 +127,6 @@ function goToInterviews(place) {
 
     <div class='boxAd' > </div>
 
-    <div class='longAd' > </div>
+    <div class='longAd longAdTwo' > </div>
     `;    
 }

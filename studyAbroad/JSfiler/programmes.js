@@ -54,7 +54,7 @@ function goToProgrammes(city, university) {
 
     </div>
 
-    <div class="longAd"> </div>
+    <div class="longAd longAdOne"> </div>
 
     <div class="programmesWrapper">
         
@@ -65,7 +65,7 @@ function goToProgrammes(city, university) {
         <img class="showMoreImg" src="CSSfiler/ikoner/arrowDown.png">
     </div>
 
-    <div class="longAd"> </div>
+    <div class="longAd longAdTwo"> </div>
     `;
 
     // VARIABLER //
