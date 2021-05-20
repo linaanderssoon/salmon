@@ -1,54 +1,12 @@
-/* SELCETION FÄLTEN */
+/* PARENT TILL SELCETION FÄLTEN */
 .selectorsDiv {
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: calc(var(--marginBase) * 3);
     width: 60%;
 }
 
-#country, #university, #city, #language, #level, #field {
-    width: 100%;
-    height: 30px;
-    border: 1px solid var(--fontDark);
-    color: var(--fontDark);
-    background-color: var(--backgroundColorLight);
-    border-radius: 30px;
-    padding: 3px 30px 3px 10px;
-    font-family: var(--heading);
-    font-size: 13px;
-    box-shadow: 2px 2px 2px var(--shadow);
-    appearance: none;  
-}
-
-.dropdown {
-    position: relative;
-    width: 150px;
-}
-
-#arrow {
-    background-image: url(ikoner/arrowDown.svg);
-    background-size: 25px;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    height: 25px;
-    width: 25px;
-    padding: 3px 10px 3px 3px;
-
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    pointer-events: none;
-}
-
-#selectItem {
-    color: var(--fontDark);
-    background-color: var(--backgroundColorLight);
-    font-size: 13px;
-}
-
-/* PROGRAM DIVARNA */
+/* SMÅ DIVAR FÖR PROGRAMMEN */
 .programmesWrapper {
     width: 100%;
     background-color: var(--backgroundColorLight);
@@ -63,9 +21,10 @@
     width: calc(100% / 3 - 20px);
     box-sizing: border-box;
 
-    margin-right: 27px;
-    margin-bottom: 27px;
-    padding: 20px;
+    margin-right: calc(var(--marginBase) * 3);
+    margin-bottom: calc(var(--marginBase) * 3);
+
+    padding: calc(var(--paddingBase) * 2);
     background-color: #ffff;
 
     cursor: pointer;
@@ -102,16 +61,9 @@
     margin: 0px;
 }
 
-/* FELMEDDELANDE OM INGA PROGRAM FINNS */
-.error {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    color: var(--fontBold);
-    font-family: var(--heading);
-}
 
-/* INNEHÅLL I PRGRAM DIVARNA */
+
+/* INNEHÅLL I SMÅ PROGRAM DIVARNA */
 .progHeadning {
     font-size: 18px;
     font-weight: var(--boldWeight);
@@ -121,7 +73,7 @@
 
 .infoParent {
     display: flex;
-    margin: 5px 5px 5px 0px;
+    margin: calc(var(--marginBase) / 2) calc(var(--marginBase) / 2) calc(var(--marginBase) / 2) calc(var(--marginBase) / 2) 0px;
 }
 
 .progUniversity, .progLevel, .progLanguage {
@@ -133,7 +85,7 @@
     height: 20px;
     width: 20px;
     background-size: cover;
-    margin-right: 10px;
+    margin-right: var(--marginBase);
 }
 
 .uniPic {
@@ -149,12 +101,12 @@
 }
 
 
-/* IKONER I STORA INFO_DIVEN */
+/* IKONER I STORA INFO-DIVEN */
 .innerIcon {
     height: 20px;
     width: 20px;
-    margin: 5px 10px 5px 0px;
-
+    margin: calc(var(--marginBase) / 2) var(--marginBase) calc(var(--marginBase) / 2) 0px;
+    
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -193,12 +145,22 @@
 
 .entryPointsYear > div {
     background-color: var(--backgroundColorDark);
-    margin: 3px;
-    padding: 5px;
+    margin: calc(var(--marginBase) / 3);
+    padding: calc(var(--paddingBase) / 2);
     text-align: center;
     color: var(--fontBold);
 }
 
 .entryPointsYear > div > span {
     color: var(--fontDark);
+}
+
+/* FELMEDDELANDE OM INGA PROGRAM FINNS */
+.error {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: var(--fontBold);
+    font-family: var(--heading);
+    margin: calc(var(--marginBase) * 2) 0px calc(var(--marginBase) * 4) 0px;
 }

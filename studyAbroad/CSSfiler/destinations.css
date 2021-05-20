@@ -1,9 +1,10 @@
+/* PARENT TILL SELECTION FÄLT */
 .selectorsDiv {
     height: 50px;
     width: 100%;
 }
 
-
+/* SMÅ DIVARAR FÖR STÄDERNA */
 .citiesWrapper {
     width: 100%;
     background-color: var(--backgroundColorLight);
@@ -15,14 +16,13 @@
     position: relative;
 }
 
-
 .citiesParent, .smallAd {
     height: 300px;
     width:  calc(100% / 3 - 20px);
     box-sizing: border-box;
 
-    margin-right: 27px;
-    margin-bottom: 27px;
+    margin-right: calc(var(--marginBase) * 3);
+    margin-bottom: calc(var(--marginBase) * 3);
 
     cursor: pointer;
     box-shadow: 0px 0px 7px var(--shadow);
@@ -41,17 +41,21 @@
     background-image: url(ikoner/smallAd.png);
 }
 
+.citiesParent:hover {
+    box-shadow: 0px 0px 15px var(--shadow);
+}
+
 .citiesParent:nth-child(3n){
     margin: 0px;
 }
 
-
+/* INNEHÅLL I SMÅ STÄDER DIVARNA */
 .cityImage {
     background-color: var(--backgroundColorDark);
     width: 100%;
     height: 100%;
 
-    position: relative;
+    position: relative; 
 }
 
 .cityText {
@@ -60,7 +64,7 @@
     color: var(--fontBold);
     font-family: var(--heading);
 
-    padding-left: 10px;
+    padding-left: var(--paddingBase);
     position: relative;
     bottom: 80px;
 
@@ -72,81 +76,8 @@
     background-color: var(--fontBold);
 }
 
-.citiesParent:hover {
-    box-shadow: 0px 0px 15px var(--shadow);
-}
 
-
-
-.showMore {
-    width: 100%;
-    cursor: pointer;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.showMore > p {
-    font-family: var(--heading);
-    font-size: 16px;
-}
-
-.showMoreImg {
-    width: 25px;
-    height: 25px;
-}
-
-
-#country {
-    width: 100%;
-    height: 30px;
-    border: 1px solid #121C4D;
-    color: #121C4D;
-    background-color: #F5F5F5;
-    border-radius: 30px;
-    padding: 3px 30px 3px 10px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    box-shadow: 2px 2px 2px rgb(177, 177, 177);
-    appearance: none;
-
-    cursor: pointer;
-}
-
-.dropdown {
-    position: relative;
-    width: 150px;
-}
-
-#arrow {
-    background-image: url(ikoner/arrowDown.svg);
-    background-size: 25px;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    height: 25px;
-    width: 25px;
-    padding: 3px 10px 3px 3px;
-
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    pointer-events: none;
-}
-
-#selectItem {
-    color: #121C4D;
-    background-color:#F5F5F5;
-    font-size: 13px;
-}
-
-.errorComments {
-    font-size: 16px;
-    font-family: var(--heading);
-}
-
+/* IKONER I STORA INFO-DIVEN */
 .Unis {
     text-decoration: underline;
 }
@@ -160,7 +91,7 @@
 .innerIcon {
     height: 20px;
     width: 20px;
-    margin: 5px;
+    margin: calc(var(--marginBase) / 2);
 
     background-position: center;
     background-size: cover;
@@ -189,8 +120,14 @@
 .goToUni {
     transition: all, .3s;
 }
+
 .goToUni:hover {
     font-size: 15px;
     cursor: pointer;
+}
 
+/* FELMEDDELANDE OM INGA KOMMENTERER FINNS */
+.errorComments {
+    font-size: 16px;
+    font-family: var(--heading);
 }

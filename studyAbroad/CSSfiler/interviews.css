@@ -12,15 +12,15 @@ h3 {
     font-family: var(--bodyText);
     font-size: 16px;
     font-weight: var(--normalWeight);
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px var(--marginBase) 0px;
 }
 
 .interviewParent {
     width: 100%;
     display: flex;
-    margin-top: 30px;
+    margin-top: calc(var(--marginBase) * 3);
     background-color: white;
-    padding: 20px;
+    padding: calc(var(--paddingBase) * 2);
     box-sizing: border-box;
 }
 
@@ -28,7 +28,7 @@ h3 {
     display:flex;
     flex-direction: column;
     flex-grow: 2;
-    margin: 40px;
+    margin: calc(var(--marginBase) * 4);
 }
 
 .intwOneImg, .intwTwoImg, .intwThreeImg {
@@ -81,17 +81,14 @@ h3 {
 .intwOneImg {
     background-image: url(ikoner/interviewPerson2.png);
     background-position: center;
-
 }
 
 .intwTwoImg {
     background-image: url(ikoner/interviewPerson1.jpg);
-
 }
 
 .intwThreeImg {
     background-image: url(ikoner/interviewPerson3.jpg);
-
 }
 
 .intwText {
