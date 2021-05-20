@@ -412,5 +412,5 @@ footer > div {
 #selectItem {
     color: var(--fontDark);
     background-color: var(--backgroundColorLight);
-    font-size: 13px;
+    font-size: var(--szsS);
 }
