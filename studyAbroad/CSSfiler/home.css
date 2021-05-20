@@ -20,10 +20,6 @@
   font-size: 50px;
 }
 
-.homeHeaderLeft > p {
-  margin-top: calc(var(--marginBase) / 2);
-  font-size: 14px;
-}
 
 .homeHeaderLeft > button {
   height: 35px;
@@ -35,7 +31,8 @@
   background-color: var(--backgroundColorLight);
   transition: 1s;
 
-  font-size: 16px;
+  font-size: var(--szsM);
+  font-family: var(--heading);
   box-shadow: 2px 2px 4px var(--shadow);    
 }
 
@@ -79,13 +76,14 @@ button:hover {
 }
 
 .quizStartRight > button{
-  height: 75px;
+  height: 55px;
   width: 100%;
   margin-top: calc(var(--marginBase) * 5);
   border-radius: 80px;
 
-  font-size: 40px;
+  font-size: var(--szsL);
   font-weight: 250;
+  font-family: var(--heading);
 
   border: 1px solid var(--backgroundColorLight);
   background-color: var(--backgroundColorLight);
@@ -100,17 +98,12 @@ button:hover {
   color: var(--backgroundColorLight);
   border: 1px solid var(--fontDark);
 
-  font-size: 40px;
   box-shadow: 4px 4px 4px #353434;  
   transition-duration: 0.8s;
 }
 
-.quizStartRight > p {
+.quizStartRight > h3 {
   text-align: center;
-  font-size: 14px;
-  font-family: var(--bodyText);
-
-  color: var(--fontDark);
 }
 
 .quizImg {
@@ -131,7 +124,7 @@ button:hover {
 
 .quizTitle {
   font-family: var(--heading);
-  font-size: 40px;
+  font-size: var(--szsXL);
   font-weight: bold;
 
   color: var(--fontBold);
@@ -169,7 +162,7 @@ button:hover {
   width: 98%;
   border-radius: 5px;
   height: 30px;
-  font-size: 18px;
+  font-size: var(--szsM);
 
   transition: all 0.3s;
   display: inline-block;
@@ -231,7 +224,7 @@ button.quizLastButton {
   border-radius: 40px;
   margin-right: var(--marginBase); 
 
-  font-size: 25px;
+  font-size: var(--szsL);
 
   height: 50px;
   width: 250px;
@@ -257,7 +250,7 @@ button.quizLastButton {
   align-items: center;
   text-align: center;
 
-  font-size: 30px;
+  font-size: 25px;
   width: 100%;
   margin-top: calc(var(--marginBase) * 4);
 }
@@ -347,7 +340,6 @@ button.quizLastButton {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
 }
 
 .card .carouselInfo {
@@ -370,7 +362,7 @@ button.quizLastButton {
   justify-content: center;
 
   font-family: var(--heading);
-  font-size: 16px;
+  font-size: var(--szsL);
   transition-duration: 1s;
 }
 
@@ -415,8 +407,6 @@ button.quizLastButton {
   top: 130px;
 }
 
-
-
 #arrowPrev, #arrowNext {
   border: 1px solid var(--backgroundColorLight);
 
@@ -435,7 +425,6 @@ button.quizLastButton {
 .homeHeading {
   color: #DC6420;
 
-  font-size: 50px;
   font-family: var(--heading);
   text-align: center;
 }
@@ -463,7 +452,6 @@ button.quizLastButton {
   background-image: url(ikoner/smallAd.png);
   background-position: center;
   background-size: cover;
-
 }
 
 .smallIntw {

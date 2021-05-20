@@ -20,7 +20,7 @@ function goToProgrammes(city, university) {
     wrapper.innerHTML = `
     <div class="progHeader">
         <h1> Program </h1>
-        <p> Här kan du söka bland alla tillgänliga program.</p>
+        <h3> Här kan du söka bland alla tillgänliga program.</h3>
     </div>
 
     <div class="selectorsDiv">
@@ -351,17 +351,17 @@ function goToProgrammes(city, university) {
 
         <div class='infoParent'> 
         <div class='uniPic'></div>
-        <div class='progUniversity'>${uniName}</div>
+        <h5 class='progUniversity'>${uniName}</h5>
         </div>
 
         <div class='infoParent'> 
         <div class='levelPic'></div>
-        <div class='progLevel'>${progLevel}</div>
+        <h5 class='progLevel'>${progLevel}</h5>
         </div> 
 
         <div class='infoParent'> 
         <div class='langPic'></div>
-        <div class='progLanguage'>${progLang}</div>
+        <h5 class='progLanguage'>${progLang}</h5>
         </div> 
         `;
 

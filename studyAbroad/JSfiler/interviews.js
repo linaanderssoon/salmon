@@ -25,14 +25,13 @@ function goToInterviews(place) {
 
     wrapper.innerHTML = `
     <h1> Intervjuer </h1>
-    <h3 class='interviewText'> Om du funderar på att studera utomlands men vill höra folks erfarenheter först så har du hamnat rätt. Här kan du läsa intervjuer med studenter som åkt på utbytesår/termin tidigare år! De berättar om deras upplevelser, lärdomar och bästa tips inför studier utomlands. </h3>
+    <h3> Om du funderar på att studera utomlands men vill höra folks erfarenheter först så har du hamnat rätt. Här kan du läsa intervjuer med studenter som åkt på utbytesår/termin tidigare år! De berättar om deras upplevelser, lärdomar och bästa tips inför studier utomlands. </h3>
 
     <div class= 'heroImgAndSmallAd'> 
         <div class='interviewHeroImage'> </div>
         <div class='smallAdIntw'></div>
     </div>
 
-    <div class='longAd longAdOne' > </div>
 
     <div class='interviewParent'> 
         <div class='interviewee'>
@@ -63,6 +62,8 @@ function goToInterviews(place) {
         "Alla jag känner använder er hemsida! Den är lättnavigerad, snygg layout, väldigt informativ och har en fantastisk kundservice som hjälper en med alla frågor man kan ha!" <br>
         </p>
     </div>
+
+    <div class='longAd longAdOne' > </div>
 
     <div class='interviewParent'> 
         <p class='intwText'>

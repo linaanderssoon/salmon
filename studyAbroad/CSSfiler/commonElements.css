@@ -14,6 +14,12 @@
 
     --marginBase: 10px;
     --paddingBase: 10px;
+
+    --szsXS: 12px;
+    --szsS: 14px;
+    --szsM: 15px;
+    --szsL: 20px;
+    --szsXL: 40px;
 }
 
 body {
@@ -28,7 +34,7 @@ h1 {
     color: var(--fontBold);
     font-family: var(--heading);
     font-weight: var(--boldWeight);
-    font-size: 2.5rem;
+    font-size: var(--szsXL);
     margin: var(--marginBase) 0px;
 }
 
@@ -37,20 +43,29 @@ h2 {
     font-family: var(--heading);
     font-weight: var(--normalWeight);
     margin: 0px 0px var(--marginBase) 0px;
+    font-size: var(--szsL);
+}
+
+h3 {
+    color: var(--fontDark);
+    font-family: var(--bodyText);
+    font-size: var(--szsM);
+    font-weight: var(--normalWeight);
+    margin: 0px 0px var(--marginBase) 0px;
 }
 
 h5 {
     color: var(--fontDark);
     font-family: var(--heading);
     font-weight: var(--normalWeight);
-    font-size: 0.9rem;
+    font-size: var(--szsM);
     margin: calc(var(--marginBase) / 2) 0px;
 }
 
 p {
     color: var(--fontDark);
     font-family: var(--bodyText);
-    font-size: 0.8rem;
+    font-size: var(--szsM);
     box-sizing: border-box;
 }
 
@@ -83,16 +98,15 @@ footer {
 }
 
 .footerH5 {
-    font-family: var(--subHeading);
+    font-family: var(--heading);
     font-weight: var(--boldWeight);
-    font-size: 1.1rem;
     border-bottom: 1px solid var(--fontDark);
     margin-bottom: var(--marginBase);
 }
 
 .footerP {
     font-family: var(--bodyText);
-    font-size: 0.8rem;
+    font-size: var(--szsXS);
 }
 
 .footerP:hover {
@@ -179,7 +193,7 @@ footer > div {
     justify-content: center;
 
     font-family: var(--heading);
-    font-size: 18px;
+    font-size: 19px;
     margin: 0;
 }
 
@@ -190,7 +204,7 @@ footer > div {
 }
 
 .navHome:hover, .navDestinations:hover, .navProgrammes:hover, .navInterviews:hover {
-    font-size: 19px;
+    font-size: var(--szsL);
 }
 
 .currentPage {
@@ -205,7 +219,7 @@ footer > div {
 .longAd {
     height: calc((100vw - 240px) * 0.15)  ;
     width: 100%;
-    margin: calc(var(--marginBase) * 2) 0px;
+    margin: calc(var(--marginBase) * 3) 0px;
 
     background-position: top;
     background-size: cover;
@@ -298,13 +312,13 @@ footer > div {
 .commentName {
     font-family: var(--heading);
     color: var(--fontDark);
-    font-size: 16px;
+    font-size: var(--szsM);
 }
 
 .commentText {
     font-family: var(--bodyText);
     color: var(--fontDark);
-    font-size: 12px;
+    font-size: var(--szsXS);
 }
 
 .starsParent {
@@ -350,7 +364,7 @@ footer > div {
 
 .showMore > p {
     font-family: var(--heading);
-    font-size: 16px;
+    font-size: var(--szsM);
 }
 
 .showMoreImg {
@@ -368,14 +382,14 @@ footer > div {
     border-radius: 30px;
     padding: calc(var(--paddingBase) / 3) calc(var(--paddingBase) * 3) calc(var(--paddingBase) / 3) var(--paddingBase);
     font-family: var(--heading);
-    font-size: 13px;
+    font-size: var(--szsS);
     box-shadow: 2px 2px 2px var(--shadow);
     appearance: none;   
 }
 
 .dropdown {
     position: relative;
-    width: 150px;
+    width: 175px;
 }
 
 #arrow {

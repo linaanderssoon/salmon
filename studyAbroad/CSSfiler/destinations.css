@@ -122,12 +122,12 @@
 }
 
 .goToUni:hover {
-    font-size: 15px;
+    font-size: var(--szsM);
     cursor: pointer;
 }
 
 /* FELMEDDELANDE OM INGA KOMMENTERER FINNS */
 .errorComments {
-    font-size: 16px;
+    font-size: var(--szsM);
     font-family: var(--heading);
 }

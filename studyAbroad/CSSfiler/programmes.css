@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: calc(var(--marginBase) * 3);
-    width: 60%;
+    width: 70%;
 }
 
 /* SMÅ DIVAR FÖR PROGRAMMEN */
@@ -65,14 +65,12 @@
 
 /* INNEHÅLL I SMÅ PROGRAM DIVARNA */
 .progHeadning {
-    font-size: 18px;
     font-weight: var(--boldWeight);
-    color: var(--fontBold);
-    font-family: var(--heading);
 }
 
 .infoParent {
     display: flex;
+    align-items: center;
     margin: calc(var(--marginBase) / 2) calc(var(--marginBase) / 2) calc(var(--marginBase) / 2) calc(var(--marginBase) / 2) 0px;
 }
 
