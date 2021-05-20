@@ -29,7 +29,7 @@ function goToInterviews(place) {
 
     <div class= 'heroImgAndSmallAd'> 
         <div class='interviewHeroImage'> </div>
-        <div class='smallAdIntw'> AD </div>
+        <div class='smallAdIntw'></div>
     </div>
 
     <div class='longAd longAdOne' > </div>

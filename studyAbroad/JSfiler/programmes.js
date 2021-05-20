@@ -518,10 +518,13 @@ function goToProgrammes(city, university) {
 
     
     function makeSmallAd(){
+        let adBox = document.createElement('div');
+        adBox.classList.add('smallAdProg');
+        programmesWrapper.append(adBox)
+
         let smallAd = document.createElement('div');
-        smallAd.classList.add('smallAdProg');
-        smallAd.innerHTML = 'AD';
-        programmesWrapper.append(smallAd);
+        smallAd.classList.add('innerSmallAdProg');
+        adBox.append(smallAd);
     }
   
 }
