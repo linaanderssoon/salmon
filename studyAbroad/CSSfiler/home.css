@@ -21,7 +21,7 @@
 }
 
 .homeHeaderLeft > p {
-  margin-top: 5px;
+  margin-top: calc(var(--marginBase) / 2);
   font-size: 14px;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .homeHeaderLeft > :last-child{
-  margin-left: 15px;
+  margin-left: calc(var(--marginBase) * 1.5);
 }
 
 .homeHeaderLeft > button:hover {
@@ -66,19 +66,12 @@ button:hover {
 }
 
 /******** QUIZ ********/
-.quizStartContainer {
-  display: flex;
-  flex-direction: row;
 
-  margin-bottom: 200px;
-  width: 100%;
-  margin-top: -10px;
-}
 
 .quizStartRight{
   display: flex;
   flex-direction: column;
-  margin-left: 40px;
+  margin-left: calc(var(--marginBase) * 4);
 }
 
 .quizStartRight > div {
@@ -88,7 +81,7 @@ button:hover {
 .quizStartRight > button{
   height: 75px;
   width: 100%;
-  margin-top: 50px;
+  margin-top: calc(var(--marginBase) * 5);
   border-radius: 80px;
 
   font-size: 40px;
@@ -123,7 +116,7 @@ button:hover {
 .quizImg {
   height: 400px;
   width: 800px;
-  margin-left: -20px;
+  margin-left: -20px; 
 
   background-image: url(ikoner/quizImage.jpeg);
   background-position: center;
@@ -146,7 +139,7 @@ button:hover {
 
 .quiz-container {
   font-family: var(--heading);
-  margin: 20px;
+  margin: calc(var(--marginBase) * 2);
   display: flex;
   z-index: 10;
   margin-top: -200px;
@@ -160,16 +153,15 @@ button:hover {
 }
 
 .question {
-  margin: 10px 0px;
-  font-size: 20px;
+  margin: var(--marginBase) 0px; 
   font-family: var(--subHeading);
   color:var(--fontDark);
   font-family: var(--subHeading);
 }
 
 .option {
-  padding: 10px;
-  margin: 2px 0px;
+  padding: var(--paddingBase);
+  margin: calc(var(--marginBase) / 5) 0px;  
 
   color: var(--backgroundColorLight);
   background: #AAC4D3;
@@ -194,7 +186,7 @@ button:hover {
 
 .controls > button {
   height: 35px;
-  margin-top: 10px;
+  margin-top: var(--marginBase); 
   border-radius: 20px;
   width: 35px;
 
@@ -213,7 +205,7 @@ button:hover {
 
 button.previous {
   background-image: url(ikoner/arrowLeft.svg);
-  margin-right: 10px;
+  margin-right: var(--marginBase); 
 }
 
 button.next {
@@ -237,7 +229,7 @@ button.quizLastButton {
 
   border: 1px solid var(--fontBold);
   border-radius: 40px;
-  margin-right: 10px;
+  margin-right: var(--marginBase); 
 
   font-size: 25px;
 
@@ -267,7 +259,7 @@ button.quizLastButton {
 
   font-size: 30px;
   width: 100%;
-  margin-top: 40px;
+  margin-top: calc(var(--marginBase) * 4);
 }
 
 .final-score {
@@ -283,7 +275,7 @@ button.quizLastButton {
   border: 3px solid skyblue;
   font-family: var(--subHeading);
 
-  margin: 5px;
+  margin: calc(var(--marginBase) / 2);
   height: 70px;
   width: 100px;
 
@@ -301,7 +293,7 @@ button.quizLastButton {
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 .carousel-container {
   width: 85%;
-  margin: 15px auto;
+  margin: calc(var(--marginBase) * 1.5) auto;
   min-height: 200px;
   position: relative;
 }
@@ -315,9 +307,7 @@ button.quizLastButton {
   transition: transform 0.5s;
 }
 .carousel-container .card-container {
-  flex-shrink: 0;
-  height: 250px;
-  padding-right: 15px;
+  padding-right: calc(var(--paddingBase) * 1.5);
   box-sizing: border-box;
 }
 
@@ -364,7 +354,7 @@ button.quizLastButton {
   flex-basis: 40px;
   color: var(--fontBold);
   flex-grow: 0;
-  padding: 10px;
+  padding: var(--paddingBase);
   box-sizing: border-box;
 }
 
@@ -453,7 +443,7 @@ button.quizLastButton {
 /******** INTERVJU ********/
 
 .homeInterview {
-  margin: 50px 0px;
+  margin: var(--marginBase) 0px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
