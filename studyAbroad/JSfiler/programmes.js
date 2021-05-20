@@ -226,8 +226,6 @@ function goToProgrammes(city, university) {
         selectUni.value = university;
         let event = new Event('change');
         selectUni.dispatchEvent(event);
-
-        makeSmallAd();
     } else  {
         for(let i = 0; i < counter; i++) {
             programmesWrapper.append(createProgDivs(PROGRAMMES[i]));
@@ -447,48 +445,56 @@ function goToProgrammes(city, university) {
 
         let comments = COMMENTS_PROGRAMME.filter(c => c.programmeID === p.id)
 
-        comments.forEach(c => {
-            let commentParent = document.createElement('div');
-            commentParent.classList.add('commentParent');
+        if (comments.length === 0) {
+            let errorComment = document.createElement('div');
+            errorComment.classList.add('errorComments');
+            errorComment.innerHTML = 'Inga recensioner ännu';
+            document.querySelector('.scrollBox').append(errorComment)
 
-            let starsParent = document.createElement('div');
-            starsParent.classList.add('starsParent');
+        } else {
+            comments.forEach(c => {
+                let commentParent = document.createElement('div');
+                commentParent.classList.add('commentParent');
 
-            starsParent.innerHTML =`
-            <div class="grayStarsParent">
-                <div class="grayStar"> </div>
-                <div class="grayStar"> </div>
-                <div class="grayStar"> </div>
-                <div class="grayStar"> </div>
-                <div class="grayStar"> </div>
-            </div>
-            `;
+                let starsParent = document.createElement('div');
+                starsParent.classList.add('starsParent');
 
-            let goldStarsParent = document.createElement('div');
-            goldStarsParent.classList.add('goldStarsParent');
-            starsParent.append(goldStarsParent);
+                starsParent.innerHTML =`
+                <div class="grayStarsParent">
+                    <div class="grayStar"> </div>
+                    <div class="grayStar"> </div>
+                    <div class="grayStar"> </div>
+                    <div class="grayStar"> </div>
+                    <div class="grayStar"> </div>
+                </div>
+                `;
 
-            
-            let starNumber = c.stars.courses;
+                let goldStarsParent = document.createElement('div');
+                goldStarsParent.classList.add('goldStarsParent');
+                starsParent.append(goldStarsParent);
 
-            for (let i = 1; i <= starNumber; i++) {
-                let star = document.createElement('div');
-                star.classList.add('star');
-                goldStarsParent.append(star);
-            }
+                
+                let starNumber = c.stars.courses;
 
-            let nameAge = document.createElement('div');
-            nameAge.classList.add('commentName');
-            nameAge.innerHTML = c.alias;
+                for (let i = 1; i <= starNumber; i++) {
+                    let star = document.createElement('div');
+                    star.classList.add('star');
+                    goldStarsParent.append(star);
+                }
 
-            let text = document.createElement('div');
-            text.classList.add('commentText');
-            text.innerHTML = '"' + c.text + '"';
+                let nameAge = document.createElement('div');
+                nameAge.classList.add('commentName');
+                nameAge.innerHTML = c.alias;
 
-            commentParent.append(starsParent, nameAge, text);
-            
-            document.querySelector('.scrollBox').append(commentParent);
-        });
+                let text = document.createElement('div');
+                text.classList.add('commentText');
+                text.innerHTML = '"' + c.text + '"';
+
+                commentParent.append(starsParent, nameAge, text);
+                
+                document.querySelector('.scrollBox').append(commentParent);
+            });
+        }
         
 
         let closeInfoDiv = document.createElement('div');

@@ -25,8 +25,12 @@ function goToInterviews(place) {
 
     wrapper.innerHTML = `
     <h1> Intervjuer </h1>
-    <div class='interviewHeroImage' > </div>
-    <p class='interviewText'> Här kan du läsa intervjuer med studenter som åkt på utbytesår/termin tidigare år!</p>
+    <h3 class='interviewText'> Om du funderar på att studera utomlands men vill höra folks erfarenheter först så har du hamnat rätt. Här kan du läsa intervjuer med studenter som åkt på utbytesår/termin tidigare år! De berättar om deras upplevelser, lärdomar och bästa tips inför studier utomlands. </h3>
+
+    <div class= 'heroImgAndSmallAd'> 
+        <div class='interviewHeroImage'> </div>
+        <div class='smallAdIntw'> AD </div>
+    </div>
 
     <div class='longAd' > </div>
 

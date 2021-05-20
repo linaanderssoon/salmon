@@ -202,6 +202,9 @@ function goToDestinations(country) {
 
         //Hitta visum och ändra så true = ja och false = nej
         let findCountryID = CITIES.find(c => c.id === i.id).countryID;
+        let findCountryName = COUNTRIES.find(country => country.id === findCountryID).name;
+        let countryFlag = COUNTRIES.find(country => country.id === findCountryID).flag;
+
 
         let findVisaBoolean= COUNTRIES.find(c => c.id === findCountryID).visa;
         let ternary = (findVisaBoolean === true) ? 'Ja' : 'Nej';
@@ -216,6 +219,11 @@ function goToDestinations(country) {
         infoDivDest.innerHTML = `
             <div class="infoDivLeft">
                 <h2> ${i.name} </h2>
+
+                <div class="infoDivLeftInner">
+                    <img class="flags" src="JSfiler/Images/Flags/${countryFlag}">
+                    <h5> ${findCountryName} </h5>
+                </div>
 
                 <div class="infoDivLeftInner">
                     <div class="innerIcon iconVisum" src=""></div>

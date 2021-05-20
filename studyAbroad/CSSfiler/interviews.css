@@ -7,6 +7,14 @@ h1 {
     font-family: var(--heading);
 }
 
+h3 {
+    color: var(--fontDark);
+    font-family: var(--bodyText);
+    font-size: 16px;
+    font-weight: var(--normalWeight);
+    margin: 0px 0px 10px 0px;
+}
+
 .interviewParent {
     width: 100%;
     display: flex;
@@ -33,20 +41,31 @@ h1 {
     border: 2px solid var(--fontBold);  
 }
 
-.intwInfo, .interviewText {
+.intwInfo {
     font-size: 16px;
-    font-family: var(--subHeading);
+    font-family: var(--heading);
     color: var(--fontDark);
+}
+
+.heroImgAndSmallAd{
+    display: flex;
 }
 
 .interviewHeroImage {
     height: 300px;
-    width: 100%;
+    flex-grow: 2;
+    margin-right: 20px;
     background-image: url(ikoner/interviewHeader.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 3px 3px 3px gray;
+}
+
+.smallAdIntw {
+    border: 1px solid black;
+    width: 300px;
+    height: 300px;
 }
 
 .intwInfo > span {
