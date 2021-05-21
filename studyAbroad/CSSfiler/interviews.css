@@ -7,13 +7,7 @@ h1 {
     font-family: var(--heading);
 }
 
-h3 {
-    color: var(--fontDark);
-    font-family: var(--bodyText);
-    font-size: 16px;
-    font-weight: var(--normalWeight);
-    margin: 0px 0px var(--marginBase) 0px;
-}
+
 
 .interviewParent {
     width: 100%;
@@ -42,13 +36,15 @@ h3 {
 }
 
 .intwInfo {
-    font-size: 16px;
+    font-size: var(--szsM);
     font-family: var(--heading);
     color: var(--fontDark);
 }
 
 .heroImgAndSmallAd{
     display: flex;
+    margin-top: calc(var(--marginBase) * 2);
+    margin-bottom: calc(var(--marginBase) * 2);
 }
 
 .interviewHeroImage {
@@ -60,6 +56,8 @@ h3 {
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 3px 3px 3px gray;
+
+
 }
 
 .smallAdIntw {
@@ -93,7 +91,7 @@ h3 {
 
 .intwText {
     flex-grow: 3;
-    font-size: 14px;
+    font-size: var(--szsS);
     font-family: var(--bodyText);
     color: var(--fontDark);
 }

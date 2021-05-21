@@ -66,6 +66,8 @@
     font-family: var(--heading);
 
     padding-left: var(--paddingBase);
+    padding-top:var(--paddingBase);
+    padding-bottom: var(--paddingBase);
     position: relative;
     bottom: 80px;
 
@@ -123,12 +125,13 @@
 }
 
 .goToUni:hover {
-    font-size: 15px;
+    font-size: 16px;
     cursor: pointer;
 }
 
 /* FELMEDDELANDE OM INGA KOMMENTERER FINNS */
 .errorComments {
-    font-size: 16px;
+    font-size: var(--szsM);
     font-family: var(--heading);
+    color: var(--fontDark);
 }

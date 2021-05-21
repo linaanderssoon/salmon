@@ -29,8 +29,8 @@ function goToHome(){
         <div class="homeHeaderLeft">
             <h1>Är du redo att 
                <br> upptäcka världen?</h1>
-             <p>Här hittar du allt du behöver 
-               <br> veta inför dina utlandsstudier</p>
+             <h3>Här hittar du allt du behöver 
+               <br> veta inför dina utlandsstudier</h3>
              <button class="headerButtonDestinations">Destinationer</button>
              <button class="headerButtonProgrammes">Program</button>
         </div>
@@ -41,8 +41,8 @@ function goToHome(){
     <div class="quizImg"></div>
         <div class="quizStartRight">
         <div class="quizTitle">Vart vill du åka?</div>
-        <p>Gör testet för att ta reda på vilket 
-        <br> land du borde studera i!</p>
+        <h3>Gör testet för att ta reda på vilket 
+        <br> land du borde studera i!</h3>
         <button>Starta quizet</button>
         </div>
     

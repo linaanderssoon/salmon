@@ -29,7 +29,7 @@ function goToDestinations(country) {
     wrapper.innerHTML = `
     <div class="destHeader">
         <h1> Destinationer </h1>
-        <p> Här kan du söka bland alla tillgänliga destinationer.</p>
+        <h3> Här kan du söka bland alla tillgänliga destinationer.</h3>
     </div>
     <div class="selectorsDiv">
         <div class="dropdown">
