@@ -14,6 +14,9 @@
 
     --marginBase: 10px;
     --paddingBase: 10px;
+
+    --longAd: url(ikoner/annons_horizontell.jpg);
+    --smallAd: url(ikoner/annons_kvadratisk.jpg);
 }
 
 body {
@@ -211,12 +214,11 @@ footer > div {
     background-size: cover;
 }
 
-.longAdOne {
-    background-image: url(ikoner/longAdOne.png);
-}
-
-.longAdTwo {
-    background-image: url(ikoner/longAdTwo.png);
+.longAdOne, .longAdTwo {
+    background-image: var(--longAd);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .smallAd, .smallAdProg {

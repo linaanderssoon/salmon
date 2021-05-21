@@ -47,7 +47,7 @@
     width: 200px;
     height: 200px;
 
-    background-image: url(ikoner/smallAd.png);
+    background-image: var(--smallAd);
     background-position: center;
     background-size: cover;
 }
