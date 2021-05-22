@@ -49,7 +49,7 @@ function goToHome(){
     </div>
 
 
-    <div class="longAd longAdOne"></div>
+    <div class="longAd"></div>
 
     <h1 class="homeHeading">Hit kan du åka</h1>
 
@@ -104,7 +104,7 @@ function goToHome(){
     </div>
   </div>
 
-  <div class="longAd longAdTwo"></div>
+  <div class="longAd"></div>
   `;
 
 

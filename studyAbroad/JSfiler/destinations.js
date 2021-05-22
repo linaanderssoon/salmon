@@ -40,7 +40,7 @@ function goToDestinations(country) {
         </div>
     </div>
 
-    <div class="longAd longAdOne"> </div>
+    <div class="longAd"> </div>
 
     <div class="citiesWrapper">
     </div>
@@ -50,7 +50,7 @@ function goToDestinations(country) {
         <img class="showMoreImg" src="CSSfiler/ikoner/arrowDown.png">
     </div>
 
-    <div class="longAd longAdTwo"> </div>
+    <div class="longAd"> </div>
 
     `;
 

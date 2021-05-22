@@ -224,11 +224,7 @@ footer > div {
     width: 100%;
     margin: calc(var(--marginBase) * 3) 0px;
 
-    background-position: top;
-    background-size: cover;
-}
 
-.longAdOne, .longAdTwo {
     background-image: var(--longAd);
     background-size: contain;
     background-position: center;
