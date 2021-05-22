@@ -116,6 +116,7 @@ function goToHome(){
  const quizContainer = document.querySelector(".quiz-container");
 
  function startQuiz(){
+    //Styla om containern
     quizContainer.style.border = "3px solid #DC6420"
     quizContainer.style.borderRadius = "20px";
     quizContainer.style.height = "175px";
@@ -123,7 +124,7 @@ function goToHome(){
     quizContainer.style.width = "93%";
     quizContainer.style.right = "20px";
 
-    //Tömmer tidigare innehåll
+    //Tömmer tidigare innehåll och fyller med nytt
     quizContainer.innerHTML=`
     <div class="quiz-inner">
     <div id="question" class="question"></div>
@@ -148,7 +149,10 @@ function goToHome(){
     </div>
     `;
 
-    //Frågor och hur många poäng varje fråga är värd (1-3)
+    //Frågorna och hur många poäng varje fråga är värd per respektive fråga (1-3)
+    // 1 poäng = Frankrike/Spanien/Sverige
+    // 2 poäng = UK/USA/Australien
+    // 3 poäng = Chile/Mexico/Argentina
     const questions = [
         {
           "question": "Varför vill du studera utomlands?",
@@ -331,82 +335,81 @@ function goToHome(){
           }
           scroll(0, 440);
         }
-}
+ }
 
 
 
  //// KARUSELL ////
 
-let carouselTrack = document.querySelector(".track");
+ let carouselTrack = document.querySelector(".track");
     
-//Så många bilder/divvar som det finns länder i databasen
-for(let i = 0; i < COUNTRIES.length; i++){
-  let carouselContainer = document.createElement("div");
-  carouselContainer.classList.add("card-container");
+  //Så många bilder/divvar som det finns länder i databasen
+  for(let i = 0; i < COUNTRIES.length; i++){
+    let carouselContainer = document.createElement("div");
+    carouselContainer.classList.add("card-container");
 
-  carouselContainer.innerHTML=`
-  <div class="card">
-  <img class="carouselImg" src="JSfiler/Images/${COUNTRIES[i].imagesNormal[1]}">
-  <h2 class="carouselInfo">${COUNTRIES[i].name}</h2> 
-  </div>
-  `;
+    carouselContainer.innerHTML=`
+    <div class="card">
+    <img class="carouselImg" src="JSfiler/Images/${COUNTRIES[i].imagesNormal[1]}">
+    <h2 class="carouselInfo">${COUNTRIES[i].name}</h2> 
+    </div>
+    `;
   
-  carouselContainer.querySelector("h2").addEventListener("click", ()=> {
-    //Fade out
-    wrapper.style.opacity = 0;
+    carouselContainer.querySelector("h2").addEventListener("click", ()=> {
+     //Fade out
+     wrapper.style.opacity = 0;
 
-    //Fade In
-    setTimeout(function(){
-      goToDestinations(`${COUNTRIES[i].name}`);
-      wrapper.style.opacity = 1;
-    }, transitionDuration);
+     //Fade In
+     setTimeout(function(){
+       goToDestinations(`${COUNTRIES[i].name}`);
+       wrapper.style.opacity = 1;
+      }, transitionDuration);
 
+     });
+    carouselTrack.append(carouselContainer);
+ }
+
+ let prev  = document.querySelector(".prev");
+ let next = document.querySelector(".next");
+ let track = document.querySelector(".track");
+
+ let carouselWidth = document.querySelector(".carousel-container").offsetWidth;
+
+ let index = 0;
+
+  //Nästa-knappen
+  next.addEventListener("click", () => {
+    index++;
+    prev.classList.add("show");
+    track.style.transform = `translateX(-${index * carouselWidth}px)`;
+  
+    if (track.offsetWidth - (index * carouselWidth) < carouselWidth) {
+     next.classList.add("hide");
+    }
+ });
+
+ //Tillbaka knappen
+  prev.addEventListener("click", () => {
+    index--;
+    next.classList.remove("hide");
+    if (index === 0) {
+     prev.classList.remove("show");
+    }
+    track.style.transform = `translateX(-${index * carouselWidth}px)`;
   });
-  carouselTrack.append(carouselContainer);
-}
 
-let prev  = document.querySelector(".prev");
-let next = document.querySelector(".next");
-let track = document.querySelector(".track");
 
-let carouselWidth = document.querySelector(".carousel-container").offsetWidth;
-/*
-window.addEventListener("resize", () => {
-  carouselWidth = document.querySelector(".carousel-container").offsetWidth;
-}); */
-
-let index = 0;
-
-//Nästa-knappen
-next.addEventListener("click", () => {
-  index++;
-  prev.classList.add("show");
-  track.style.transform = `translateX(-${index * carouselWidth}px)`;
+  // LÄNKNING //
   
-  if (track.offsetWidth - (index * carouselWidth) < carouselWidth) {
-    next.classList.add("hide");
-  }
-})
+ //Header knapparna
+ const headerButtonDestinations = document.querySelector(".headerButtonDestinations");
+ const headerButtonProgrammes = document.querySelector(".headerButtonProgrammes");
 
-//Tillbaka knappen
-prev.addEventListener("click", () => {
-  index--;
-  next.classList.remove("hide");
-  if (index === 0) {
-    prev.classList.remove("show");
-  }
-  track.style.transform = `translateX(-${index * carouselWidth}px)`;
-});
+ // Intervju små cirklar
+ const intwPersLink = document.querySelectorAll(".smallIntw");
 
-// eader knapparna
-const headerButtonDestinations = document.querySelector(".headerButtonDestinations");
-const headerButtonProgrammes = document.querySelector(".headerButtonProgrammes");
-
-// ntervju små cirklar
-const intwPersLink = document.querySelectorAll(".smallIntw");
-
-//Header
-headerButtonDestinations.addEventListener("click", () => {
+ //Header
+ headerButtonDestinations.addEventListener("click", () => {
   //Fade out
   wrapper.style.opacity = 0;
 
@@ -415,9 +418,9 @@ headerButtonDestinations.addEventListener("click", () => {
       goToDestinations();
       wrapper.style.opacity = 1;
   }, 500);
-});
+ });
 
-headerButtonProgrammes.addEventListener("click", () => {
+ headerButtonProgrammes.addEventListener("click", () => {
   //Fade out
   wrapper.style.opacity = 0;
 
@@ -426,10 +429,10 @@ headerButtonProgrammes.addEventListener("click", () => {
     goToProgrammes();
     wrapper.style.opacity = 1;
   }, 500);
-});
+ });
 
-//Hamna på intervjusidan när man klickar på intervju-cirklarna
-intwPersLink.forEach(person => {
+ //Hamna på intervjusidan när man klickar på intervju-cirklarna
+ intwPersLink.forEach(person => {
   person.addEventListener("click", (y) => {
     //Fade out
     wrapper.style.opacity = 0;
@@ -441,5 +444,5 @@ intwPersLink.forEach(person => {
     }, 500);
 
   });
-});
- }
+ });
+}
