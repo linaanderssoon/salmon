@@ -350,18 +350,8 @@ function goToProgrammes(city, university) {
         //Hitta programmets språk
         let progLang = LANGUAGES.find(l => l.id === p.language).name;
 
-        // Hitta landet där programmet är
-        let getCityId = UNIVERSITIES.find(u => u.id === p.universityID).cityID;
-        let getCity = CITIES.find(c => c.id === getCityId);
-        let country = COUNTRIES.find(c => c.id == getCity.countryID);
-
         programmeParent.innerHTML = `
         <h2 class='progHeadning'> ${p.name}</h2>
-
-        <div class="infoDivLeftInner">
-            <img class="flags" src="JSfiler/Images/Flags/${country.flag}">
-            <h5> ${getCity.name}, ${country.name} </h5>
-        </div>
 
         <div class='infoParent'> 
             <div class='uniPic'></div>
@@ -380,7 +370,7 @@ function goToProgrammes(city, university) {
         `;
 
         programmeParent.addEventListener('click', (e) => {
-            makeInfoDiv(p, uniName, progLevel, progLang, country, getCity);
+            makeInfoDiv(p, uniName, progLevel, progLang);
             let infoDivDest = document.querySelector('.infoDivDest');
     
             let placementTop = e.currentTarget.offsetTop;
@@ -393,13 +383,18 @@ function goToProgrammes(city, university) {
     }
 
     // SKAPAR STORA INFORMATIONS DIVAR //
-    function makeInfoDiv(p, uniName, progLevel, progLang, country, getCity) {
+    function makeInfoDiv(p, uniName, progLevel, progLang) {
         let infoDivDestParent = document.createElement('div');
         infoDivDestParent.classList.add('infoDivDestParent');
         document.body.append(infoDivDestParent);
 
         let bodyheight = getComputedStyle(document.body).getPropertyValue('height');
         infoDivDestParent.style.setProperty('height', bodyheight);
+
+        // Hitta landet & staden där programmet är
+        let getCityId = UNIVERSITIES.find(u => u.id === p.universityID).cityID;
+        let getCity = CITIES.find(c => c.id === getCityId);
+        let country = COUNTRIES.find(c => c.id == getCity.countryID);
 
         let infoDivDest = document.createElement('div');
         infoDivDest.classList.add('infoDivDest');
