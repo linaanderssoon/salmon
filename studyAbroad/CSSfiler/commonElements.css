@@ -220,19 +220,20 @@ footer > div {
 
 /* STYLE AV REKLAMUTRYMMEN */
 .longAd {
-    height: calc((100vw - 240px) * 0.15)  ;
+    height: calc((100vw - 240px) * 0.1)  ;
     width: 100%;
     margin: calc(var(--marginBase) * 3) 0px;
-
 
     background-image: var(--longAd);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    border: 1px solid var(--shadow);
 }
 
 .smallAd, .smallAdProg {
     margin: 0;
+
 }
 
 /* STYLE AV DE STORA INFORMATIONS DIVARNA: PROGRAM & DESTINATION */
@@ -249,8 +250,8 @@ footer > div {
 }
 
 .infoDivDest {
-    width: 50%;
-    height: 400px;
+    width: 55%;
+    height: 420px;
     background-color: white;
     display: flex;
 
@@ -411,4 +412,22 @@ footer > div {
     color: var(--fontDark);
     background-color: var(--backgroundColorLight);
     font-size: var(--szsS);
+}
+
+.adText {
+    font-size: var(--szsXS);
+    position: relative;
+    top: 101%;
+    color: var(--shadow);
+    font-family: var(--heading);
+}
+
+
+.adText2 {
+    font-size: var(--szsXS);
+    position: relative;
+    top: 54%;
+    left: -41%;
+    color: var(--shadow);
+    font-family: var(--heading);
 }

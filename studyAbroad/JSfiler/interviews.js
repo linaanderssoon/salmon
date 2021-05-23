@@ -29,7 +29,7 @@ function goToInterviews(place) {
 
     <div class= 'heroImgAndSmallAd'> 
         <div class='interviewHeroImage'> </div>
-        <div class='smallAdIntw'></div>
+        <div class='smallAdIntw'> <div class='adText'> Annons </div>  </div>
     </div>
 
 
@@ -63,7 +63,7 @@ function goToInterviews(place) {
         </p>
     </div>
 
-    <div class='longAd' > </div>
+    <div class="longAd"> <div class='adText'> Annons </div> </div>
 
     <div class='interviewParent'> 
         <p class='intwText'>
@@ -126,8 +126,7 @@ function goToInterviews(place) {
         </p>
     </div>
 
-    <div class='boxAd' > </div>
 
-    <div class='longAd' > </div>
+    <div class="longAd"> <div class='adText'> Annons </div> </div>
     `;    
 }

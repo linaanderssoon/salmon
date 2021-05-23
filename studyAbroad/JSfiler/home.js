@@ -49,7 +49,7 @@ function goToHome(){
     </div>
 
 
-    <div class="longAd"></div>
+    <div class="longAd"> <div class='adText'> Annons </div> </div>
 
     <h1 class="homeHeading">Hit kan du åka</h1>
 
@@ -74,7 +74,7 @@ function goToHome(){
     <h1 class="homeHeading">Intervjuer med tidigare studenter</h1>
 
     <div class="homeInterview">
-    <div class="smallAd"></div>
+    <div class="smallAd"> <div class='adText2'> Annons </div> </div>
 
       <div class="intwPers1 intwContainer">
       <div class="intw1Small smallIntw"></div>
@@ -104,7 +104,7 @@ function goToHome(){
     </div>
   </div>
 
-  <div class="longAd"></div>
+  <div class="longAd"> <div class='adText'> Annons </div> </div>
   `;
 
 

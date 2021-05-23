@@ -40,7 +40,7 @@ function goToDestinations(country) {
         </div>
     </div>
 
-    <div class="longAd"> </div>
+    <div class="longAd"> <div class='adText'> Annons </div> </div>
 
     <div class="citiesWrapper">
     </div>
@@ -50,7 +50,7 @@ function goToDestinations(country) {
         <img class="showMoreImg" src="CSSfiler/ikoner/arrowDown.png">
     </div>
 
-    <div class="longAd"> </div>
+    <div class="longAd"> <div class='adText'> Annons </div> </div>
 
     `;
 
@@ -367,6 +367,7 @@ function goToDestinations(country) {
         citiesWrapper.append(adBox)
 
         let smallAd = document.createElement('div');
+        smallAd.innerHTML = `<div class='adText'> Annons </div> `;
         smallAd.classList.add('innerSmallAd');
         adBox.append(smallAd);
     }

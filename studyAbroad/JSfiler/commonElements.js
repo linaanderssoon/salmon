@@ -100,7 +100,6 @@ COUNTRIES.sort((e1, e2) => e1.name > e2.name ? 1 : -1);
 
 CITIES.sort((e1, e2) => e1.name > e2.name ? 1 : -1);
 
-// UNIVERSITIES.sort((e1, e2) => e1.name > e2.name ? 1 : -1);
 
 
 

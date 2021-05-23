@@ -54,7 +54,7 @@ function goToProgrammes(city, university) {
 
     </div>
 
-    <div class="longAd"> </div>
+    <div class="longAd"> <div class='adText'> Annons </div> </div>
 
     <div class="programmesWrapper">
         
@@ -62,10 +62,10 @@ function goToProgrammes(city, university) {
 
     <div class="showMore">
         <p> Visa mer </p>
-        <img class="showMoreImg" src="CSSfiler/ikoner/arrowDown.png">
+        <img class="showMoreImg" src="CSSfiler/ikoner/arrowDown.svg">
     </div>
 
-    <div class="longAd"> </div>
+    <div class="longAd"> <div class='adText'> Annons </div> </div>
     `;
 
     // VARIABLER //
@@ -341,32 +341,46 @@ function goToProgrammes(city, university) {
         let programmeParent = document.createElement('div');
         programmeParent.classList.add('progParent');
 
+        //Hitta programmets universitet
         let uniName = UNIVERSITIES.find(u => u.id === p.universityID).name;
 
+        //Hitta programmets nivå
         let progLevel = LEVELS[p.level];
-        let progLang = LANGUAGES.find(l => l.id === p.language).name;''
+
+        //Hitta programmets språk
+        let progLang = LANGUAGES.find(l => l.id === p.language).name;
+
+        // Hitta landet där programmet är
+        let getCityId = UNIVERSITIES.find(u => u.id === p.universityID).cityID;
+        let getCountryID = CITIES.find(c => c.id === getCityId).countryID;
+        let country = COUNTRIES.find(c => c.id == getCountryID);
 
         programmeParent.innerHTML = `
         <h2 class='progHeadning'> ${p.name}</h2>
 
-        <div class='infoParent'> 
-        <div class='uniPic'></div>
-        <h5 class='progUniversity'>${uniName}</h5>
+        <div class="infoDivLeftInner">
+            <img class="flags" src="JSfiler/Images/Flags/${country.flag}">
+            <h5> ${country.name} </h5>
         </div>
 
         <div class='infoParent'> 
-        <div class='levelPic'></div>
-        <h5 class='progLevel'>${progLevel}</h5>
+            <div class='uniPic'></div>
+            <h5 class='progUniversity'>${uniName}</h5>
+        </div>
+
+        <div class='infoParent'> 
+            <div class='levelPic'></div>
+            <h5 class='progLevel'>${progLevel}</h5>
         </div> 
 
         <div class='infoParent'> 
-        <div class='langPic'></div>
-        <h5 class='progLanguage'>${progLang}</h5>
+            <div class='langPic'></div>
+            <h5 class='progLanguage'>${progLang}</h5>
         </div> 
         `;
 
         programmeParent.addEventListener('click', (e) => {
-            makeInfoDiv(p, uniName, progLevel, progLang);
+            makeInfoDiv(p, uniName, progLevel, progLang, country);
             let infoDivDest = document.querySelector('.infoDivDest');
     
             let placementTop = e.currentTarget.offsetTop;
@@ -379,7 +393,7 @@ function goToProgrammes(city, university) {
     }
 
     // SKAPAR STORA INFORMATIONS DIVAR //
-    function makeInfoDiv(p, uniName, progLevel, progLang) {
+    function makeInfoDiv(p, uniName, progLevel, progLang, country) {
         let infoDivDestParent = document.createElement('div');
         infoDivDestParent.classList.add('infoDivDestParent');
         document.body.append(infoDivDestParent);
@@ -392,6 +406,12 @@ function goToProgrammes(city, university) {
         infoDivDest.innerHTML = `
         <div class='infoDivLeft'> 
             <h2> ${p.name} </h2>
+
+
+            <div class="infoDivLeftInner">
+                <img class="flags" src="JSfiler/Images/Flags/${country.flag}">
+                <h5> ${country.name} </h5>
+            </div>
 
             <div class ='infoDivLeftInner' > 
                 <div class='innerIcon iconLocation'> </div>
@@ -524,6 +544,7 @@ function goToProgrammes(city, university) {
 
         let smallAd = document.createElement('div');
         smallAd.classList.add('innerSmallAdProg');
+        smallAd.innerHTML = `<div class='adText'> Annons </div> `;
         adBox.append(smallAd);
     }
   
