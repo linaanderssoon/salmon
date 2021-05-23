@@ -352,15 +352,15 @@ function goToProgrammes(city, university) {
 
         // Hitta landet där programmet är
         let getCityId = UNIVERSITIES.find(u => u.id === p.universityID).cityID;
-        let getCountryID = CITIES.find(c => c.id === getCityId).countryID;
-        let country = COUNTRIES.find(c => c.id == getCountryID);
+        let getCity = CITIES.find(c => c.id === getCityId);
+        let country = COUNTRIES.find(c => c.id == getCity.countryID);
 
         programmeParent.innerHTML = `
         <h2 class='progHeadning'> ${p.name}</h2>
 
         <div class="infoDivLeftInner">
             <img class="flags" src="JSfiler/Images/Flags/${country.flag}">
-            <h5> ${country.name} </h5>
+            <h5> ${getCity.name}, ${country.name} </h5>
         </div>
 
         <div class='infoParent'> 
@@ -380,7 +380,7 @@ function goToProgrammes(city, university) {
         `;
 
         programmeParent.addEventListener('click', (e) => {
-            makeInfoDiv(p, uniName, progLevel, progLang, country);
+            makeInfoDiv(p, uniName, progLevel, progLang, country, getCity);
             let infoDivDest = document.querySelector('.infoDivDest');
     
             let placementTop = e.currentTarget.offsetTop;
@@ -393,7 +393,7 @@ function goToProgrammes(city, university) {
     }
 
     // SKAPAR STORA INFORMATIONS DIVAR //
-    function makeInfoDiv(p, uniName, progLevel, progLang, country) {
+    function makeInfoDiv(p, uniName, progLevel, progLang, country, getCity) {
         let infoDivDestParent = document.createElement('div');
         infoDivDestParent.classList.add('infoDivDestParent');
         document.body.append(infoDivDestParent);
@@ -410,7 +410,7 @@ function goToProgrammes(city, university) {
 
             <div class="infoDivLeftInner">
                 <img class="flags" src="JSfiler/Images/Flags/${country.flag}">
-                <h5> ${country.name} </h5>
+                <h5> ${getCity.name}, ${country.name} </h5>
             </div>
 
             <div class ='infoDivLeftInner' > 

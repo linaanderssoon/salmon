@@ -167,6 +167,8 @@ footer > div {
 
 .navLeft {
     grid-column: 1;
+    margin-left: calc(var(--marginBase) * 1);
+
 }
 
 .logotyp {
@@ -187,7 +189,7 @@ footer > div {
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin-right: calc(var(--marginBase) * 5);
+    margin-right: calc(var(--marginBase) * 1);
 }
 
 .navRight > p {
