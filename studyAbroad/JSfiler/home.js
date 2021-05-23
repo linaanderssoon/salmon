@@ -45,9 +45,7 @@ function goToHome(){
         <br> land du borde studera i!</h3>
         <button>Starta quizet</button>
         </div>
-    
     </div>
-
 
     <div class="longAd"></div>
 
@@ -246,7 +244,7 @@ function goToHome(){
           const option1Total = questions[index].answer1Total;
           const option2Total = questions[index].answer2Total;
           const option3Total = questions[index].answer3Total;
-          //Fyller i HTML-elementen
+          
           questionEl.innerHTML = `${index + 1}. ${question.question}`
           option1.setAttribute('data-total', `${option1Total}`);
           option2.setAttribute('data-total', `${option2Total}`);
