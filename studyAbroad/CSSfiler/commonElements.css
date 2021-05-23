@@ -86,10 +86,33 @@ p {
 
 }
 
+.topBtn {
+    position: sticky;
+    bottom: 40px;
+    left: calc(100vw - 92px);
+
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    background-image: url(ikoner/arrowDown.svg);
+    background-position: center;
+    background-size: cover;
+
+    background-color: var(--backgroundColorLight);
+
+    transform: rotate(180deg);
+    border: 2px solid var(--fontDark);
+    border-radius: 50%;
+
+    transition: opacity 0.3s ease;
+}
+
 /* STYLE AV FOOTER */
 footer {
     display: flex;
     flex-direction: column;
+    position: relative;
+    bottom: -38px;
 
     width: 100vw;
     padding: 0px calc(var(--paddingBase) * 4) 0px calc(var(--paddingBase) * 4);

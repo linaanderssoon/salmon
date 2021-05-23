@@ -371,7 +371,6 @@ function goToDestinations(country) {
         smallAd.classList.add('innerSmallAd');
         adBox.append(smallAd);
     }
-
 }
 
 

@@ -101,6 +101,29 @@ COUNTRIES.sort((e1, e2) => e1.name > e2.name ? 1 : -1);
 CITIES.sort((e1, e2) => e1.name > e2.name ? 1 : -1);
 
 
+let topBtn = document.createElement('div');
+topBtn.classList.add('topBtn');
+document.body.append(topBtn);
+
+topBtn.style.opacity = "0";
+topBtn.style.cursor = "default";
+
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+    if (!currentScrollPos) {
+        topBtn.style.opacity = "0";
+        topBtn.style.cursor = "default";
+    } else if (currentScrollPos > '300' ) {
+        topBtn.style.opacity = "1";
+        topBtn.style.cursor = "pointer";
+    }
+}
+
+topBtn.addEventListener('click', () => {
+    scroll(0, 0);
+})
+
+
 
 
 
