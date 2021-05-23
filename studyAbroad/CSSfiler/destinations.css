@@ -40,6 +40,8 @@
     height: 300px;
     background-image: var(--smallAd);
     background-size: cover;
+    border: 1px solid var(--shadow);
+
 }
 
 .citiesParent:hover {

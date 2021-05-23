@@ -17,7 +17,7 @@
 }
 
 .progParent, .smallAdProg {
-    height: 200px;
+    height: 230px;
     width: calc(100% / 3 - 20px);
     box-sizing: border-box;
 
@@ -46,6 +46,8 @@
 .innerSmallAdProg{
     width: 200px;
     height: 200px;
+    border: 1px solid var(--shadow);
+
 
     background-image: var(--smallAd);
     background-position: center;
