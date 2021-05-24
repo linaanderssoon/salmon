@@ -265,13 +265,13 @@ function goToHome(){
             return;
         }
 
+        //Ta värdet från den valda radion/alternativet
         const answerScore = Number(selectedOption.nextElementSibling.getAttribute('data-total'));
     
         //Lägg till svarpoängen i arrayen
         score.push(answerScore);
     
         selectedAnswersData.push()
-        
     
         const totalScore = score.reduce((total, currentNum) => total + currentNum);
     
@@ -296,6 +296,7 @@ function goToHome(){
             <br><button class="restart">Starta om quizet</button>
             </div>
             `;
+            return;
           }
           //Mellan 12-16 poäng
           else if (totalScore > 12 && totalScore < 17) {
@@ -305,6 +306,7 @@ function goToHome(){
             <br><button class="restart">Starta om quizet</button>
             </div>
             `;
+            return;
           }
           //Mellan 17-21 poäng
           else {
@@ -314,6 +316,7 @@ function goToHome(){
             <br><button class="restart">Starta om quizet</button>
             </div>
             `;
+            return;
           }
         }
           generateQuestions(currentQuestion);
