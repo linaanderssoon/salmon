@@ -103,6 +103,17 @@
 
 
 /* IKONER I STORA INFO-DIVEN */
+
+.countryName {
+    text-decoration: underline;
+    transition: all 0.2s
+}
+
+.countryName:hover {
+    font-size: 15.5px;
+    cursor: pointer;
+}
+
 .innerIcon {
     height: 20px;
     width: 20px;

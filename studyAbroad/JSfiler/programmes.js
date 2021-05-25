@@ -405,7 +405,7 @@ function goToProgrammes(city, university) {
 
             <div class="infoDivLeftInner">
                 <img class="flags" src="JSfiler/Images/Flags/${country.flag}">
-                <h5> ${getCity.name}, ${country.name} </h5>
+                <h5 class='countryName'> ${getCity.name}, ${country.name} </h5>
             </div>
 
             <div class ='infoDivLeftInner' > 
@@ -453,6 +453,12 @@ function goToProgrammes(city, university) {
         `;
 
         programmesWrapper.append(infoDivDest);
+
+        document.querySelector('.infoDivLeftInner').addEventListener('click',  () => {
+            infoDivDest.remove();
+            infoDivDestParent.remove();
+            goToDestinations(country.name);
+        });
 
         let comments = COMMENTS_PROGRAMME.filter(c => c.programmeID === p.id)
 

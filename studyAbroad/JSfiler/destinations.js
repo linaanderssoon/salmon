@@ -1,15 +1,4 @@
 "use strict";
-// --goToDestinations(country) :: returnerar destination-innehåll i wrappern
-// Döljer eventuellt annat innehåll i wrappern.
-// Skapar grunden för destination sidan :: rubriker, underrubrik, text, basstruktur, selectorer
-// Markerar Destinationer i navigationen
-// Kallar på --createDestinations(country) som skapar rutorna med destinationer
-
-// --createDestinations(country) :: skapar rutorna med destinationer
-// - Denna funktionen kallas på onChange i selectorerna.
-// - Skapar divvar med destinationerna och lägger in dem i wrapper/föräldern
-
-
 //SKAPAR WRAPPER FÖR DESTINATIONER OCH DESS INNEHÅLL
 function goToDestinations(country) {  
     wrapper.style.marginTop="80px";
